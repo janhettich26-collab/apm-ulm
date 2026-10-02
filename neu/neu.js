@@ -26,13 +26,13 @@
   /* ---------- Partikel ---------- */
   const cv = document.getElementById('partikel');
   const formen = {
-    grundriss: { d: 'M2.5 4h19v16h-19zM2.5 11.5h6M11.5 11.5h10M11 4v4.5M11 14v6M15.5 11.5v8.5M8.5 11.5a3 3 0 0 1 3-3' },
+    haus: { d: 'M3 10.5 12 3l9 7.5M5.5 9v11h13V9M9.5 20v-6h5v6' },
     werkzeug: { d: 'M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.8 1.8 0 0 0 2.6 2.6l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.4-.4-2.4z' },
     pin: { d: 'M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z', kreis: [12, 9.5, 2.6] },
     haken: { d: 'M7.5 12.5l3 3 6-6.5', kreis: [12, 12, 9] },
     telefon: { d: 'M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z' }
   };
-  let P = [], W = 0, H = 0, dpr = 1, ziele = {}, maus = { x: -9999, y: -9999 }, aktiveForm = 'grundriss';
+  let P = [], W = 0, H = 0, dpr = 1, ziele = {}, maus = { x: -9999, y: -9999 }, aktiveForm = 'haus';
   const N = 760;
 
   const probe = (f, groesse) => {
@@ -86,7 +86,7 @@
         p.vx = (p.vx + ax) * .86; p.vy = (p.vy + ay) * .86;
         if (leise) { p.x = p.tx; p.y = p.ty; } else { p.x += p.vx; p.y += p.vy; }
         ctx.beginPath(); ctx.arc(p.x, p.y, p.gold ? p.s * 1.25 : p.s, 0, 6.283);
-        ctx.fillStyle = p.gold ? 'rgba(184,146,74,.95)' : 'rgba(30,45,74,.78)'; ctx.fill();
+        ctx.fillStyle = p.gold ? 'rgba(214,176,104,.95)' : 'rgba(236,230,218,.82)'; ctx.fill();
       }
     };
     requestAnimationFrame(lauf);
