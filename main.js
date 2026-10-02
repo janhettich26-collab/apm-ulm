@@ -50,11 +50,12 @@
   gsap.from('.titel .z > span', { yPercent: 110, duration: 1.3, ease: 'expo.out', stagger: .12, delay: .1 });
   gsap.from(['.meta', '.hero-text', '.rund-btn'], { opacity: 0, y: 20, duration: 1, ease: 'expo.out', stagger: .08, delay: .5 });
 
-  // Breitbild öffnet sich beim Scrollen
-  const rand = getComputedStyle(document.documentElement).getPropertyValue('--rand').trim();
-  gsap.fromTo('.breitbild-in', { clipPath: `inset(0 ${rand} round 6px)` }, {
-    clipPath: 'inset(0 0px round 0px)', ease: 'none',
-    scrollTrigger: { trigger: '.breitbild', start: 'top 85%', end: 'top 15%', scrub: true }
+  // Breitbild öffnet sich beim Scrollen – bis zur Inhaltsbreite, nicht ganz an den Rand
+  const randPx = () => parseFloat(getComputedStyle(document.querySelector('.hero .rand')).paddingLeft) || 24;
+  const ende = () => Math.max(randPx() * .5, (innerWidth - 1280) / 2);
+  gsap.fromTo('.breitbild-in', { clipPath: () => `inset(0 ${ende() + innerWidth * .06}px round 10px)` }, {
+    clipPath: () => `inset(0 ${ende()}px round 10px)`, ease: 'none',
+    scrollTrigger: { trigger: '.breitbild', start: 'top 85%', end: 'top 20%', scrub: true, invalidateOnRefresh: true }
   });
   gsap.to('.breitbild img', { scale: 1, ease: 'none', scrollTrigger: { trigger: '.breitbild', start: 'top bottom', end: 'bottom top', scrub: true } });
 
