@@ -52,7 +52,7 @@
 
   // Breitbild öffnet sich beim Scrollen – bis zur Inhaltsbreite, nicht ganz an den Rand
   const randPx = () => parseFloat(getComputedStyle(document.querySelector('.hero .rand')).paddingLeft) || 24;
-  const ende = () => Math.max(randPx() * .5, (innerWidth - 1280) / 2);
+  const ende = () => Math.max(randPx() * .5, (innerWidth - 1120) / 2);
   gsap.fromTo('.breitbild-in', { clipPath: () => `inset(0 ${ende() + innerWidth * .06}px round 10px)` }, {
     clipPath: () => `inset(0 ${ende()}px round 10px)`, ease: 'none',
     scrollTrigger: { trigger: '.breitbild', start: 'top 85%', end: 'top 20%', scrub: true, invalidateOnRefresh: true }
