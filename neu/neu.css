@@ -228,3 +228,9 @@ body{background:var(--grund)}
 .leistungen li:hover{background:var(--weiss)}
 .foto figcaption{background:rgba(244,241,235,.92)}
 .fuss{border-color:var(--linie)}
+
+.kontakt-kacheln{margin-top:22px}
+.kontakt-kacheln .kachel{min-height:150px}
+.kontakt-kacheln .k-icon{margin-bottom:auto}
+.kontakt-kacheln b{margin-top:18px}
+.teil.da .kontakt-kacheln .k-icon svg *{animation:zeichnen 1.6s var(--ease) forwards}
