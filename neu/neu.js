@@ -1,9 +1,7 @@
 (() => {
   const leise = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teile = [...document.querySelectorAll('.teil')];
-  const bilder = [...document.querySelectorAll('.bild')];
-  const zaehler = document.querySelector('.zaehler b');
-  const bildtext = document.querySelector('.bildtext');
+  const links = [...document.querySelectorAll('.toc a')];
   const balken = document.querySelector('.fortschritt span');
 
   // Weiches Scrollen
@@ -17,14 +15,8 @@
     }));
   }
 
-  // Abschnitt aktiv -> Bild wechseln
-  const zeige = t => {
-    const name = t.dataset.bild, i = teile.indexOf(t);
-    bilder.forEach(b => b.classList.toggle('aktiv', b.dataset.name === name));
-    zaehler.textContent = String(i + 1).padStart(2, '0');
-    bildtext.style.opacity = 0;
-    setTimeout(() => { bildtext.textContent = t.dataset.text; bildtext.style.opacity = 1; }, 200);
-  };
+  // Abschnitt aktiv -> Inhaltsverzeichnis markieren
+  const zeige = t => links.forEach(l => l.classList.toggle('aktiv', l.dataset.ziel === t.id));
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('da'); zeige(e.target); }
   }), { rootMargin: '-45% 0px -45% 0px' });

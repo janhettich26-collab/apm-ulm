@@ -17,15 +17,23 @@ h3{font-size:16px;font-weight:600;letter-spacing:-.005em;color:var(--tinte)}
 .klein{font-size:12.5px;color:var(--grau);margin-top:12px}
 .fehlt{color:var(--signal)}
 
-/* Bühne links */
-.buehne{position:sticky;top:0;height:100vh;height:100svh;padding:14px 0 14px 14px}
-.buehne-in{position:relative;height:100%;border-radius:18px;overflow:hidden;background:var(--flaeche)}
-.bild{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s var(--ease),transform 2.4s var(--ease)}
-.bild.aktiv{opacity:1;transform:scale(1)}
-.buehne-fuss{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-.buehne-fuss span{background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:6px 12px;color:var(--tinte)}
-.zaehler b{font-weight:400;color:var(--signal)}
-.bildtext{transition:opacity .4s}
+/* Index links */
+body{grid-template-columns:minmax(220px,30%) minmax(0,1fr)}
+.index{position:sticky;top:0;height:100vh;height:100svh;border-right:1px solid var(--linie)}
+.index-in{height:100%;display:flex;flex-direction:column;padding:34px clamp(28px,4vw,64px)}
+.logo-gross img{width:118px;height:auto}
+.toc{list-style:none;padding:0;margin:auto 0;display:flex;flex-direction:column;gap:6px}
+.toc a{display:flex;align-items:baseline;gap:14px;font-size:clamp(20px,1.7vw,26px);font-weight:400;letter-spacing:-.02em;color:#B4B8C0;padding:4px 0;transition:color .35s,transform .5s var(--ease)}
+.toc a span{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:inherit;width:22px}
+.toc a:hover{color:var(--tinte)}
+.toc a.aktiv{color:var(--tinte);transform:translateX(6px)}
+.toc a.aktiv span{color:var(--signal)}
+.index-fuss{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grau);line-height:1.7}
+.foto{margin:28px 0 0;position:relative}
+.foto img{width:100%;height:auto;border-radius:12px;aspect-ratio:16/8;object-fit:cover}
+.foto figcaption{font-family:"Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--grau);margin-top:8px}
+.kopf-text{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grau)}
+.kopf .logo{display:none}
 
 /* Spalte rechts */
 .spalte{min-width:0;display:flex;flex-direction:column}
@@ -40,7 +48,7 @@ h3{font-size:16px;font-weight:600;letter-spacing:-.005em;color:var(--tinte)}
 .fortschritt span{position:absolute;inset:0;background:var(--tinte);transform-origin:left;transform:scaleX(0)}
 
 main{padding:0 clamp(28px,5vw,88px)}
-.teil{min-height:calc(100svh - 76px);display:flex;flex-direction:column;justify-content:center;padding:72px 0;max-width:500px;border-bottom:1px solid var(--linie)}
+.teil{min-height:calc(100svh - 76px);display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:580px;border-bottom:1px solid var(--linie)}
 .teil:last-child{border-bottom:0}
 
 /* Einblenden */
@@ -102,19 +110,19 @@ main{padding:0 clamp(28px,5vw,88px)}
 
 /* Handy */
 @media (max-width:860px){
-  body{display:flex;flex-direction:column}
-  .spalte{display:contents}
-  .buehne{order:-1}
-  .buehne{position:relative;height:56vh;padding:10px 10px 0}
+  body{display:block}
+  .index{display:none}
+  .kopf .logo{display:block}
+  .kopf-text{display:none}
   .kopf{padding:16px 22px}
   .nav a:not(.nav-cta){display:none}
   .fortschritt{left:22px;right:22px}
   main{padding:0 22px}
   .teil{min-height:0;padding:56px 0;max-width:none}
   .fuss{padding:24px 22px 30px}
-  .kopf{order:-2}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
   .teil > *{opacity:1;transform:none}
 }
+@media (min-width:861px){.nav a:not(.nav-cta){display:none}}
