@@ -234,3 +234,16 @@ body{background:var(--grund)}
 .kontakt-kacheln .k-icon{margin-bottom:auto}
 .kontakt-kacheln b{margin-top:18px}
 .teil.da .kontakt-kacheln .k-icon svg *{animation:zeichnen 1.6s var(--ease) forwards}
+
+/* ===== Sichtbarkeit: Kacheln heben sich ab ===== */
+:root{--grund:#E2DDD3;--weiss:#FCFBF8;--grau:#5E6472;--linie:#D3CCBF}
+body{background:var(--grund)}
+.kopf{background:rgba(226,221,211,.88)}
+.kachel,.zahlen div,.schritte li{background:var(--weiss);box-shadow:0 1px 2px rgba(28,40,64,.08),0 14px 34px -18px rgba(28,40,64,.38),inset 0 0 0 1px rgba(28,40,64,.09)}
+.kachel:hover,.zahlen div:hover,.schritte li:hover{box-shadow:0 2px 4px rgba(28,40,64,.08),0 30px 56px -24px rgba(28,40,64,.5),inset 0 0 0 1px rgba(169,130,60,.55)}
+.haken li{background:var(--weiss);box-shadow:0 1px 2px rgba(28,40,64,.06),inset 0 0 0 1px rgba(28,40,64,.1)}
+.k-icon{background:#EDE2CB}
+.k-text,.l-kachel p,.schritte p,.zahlen dd{color:#5A606D}
+.lead{color:#555B68}
+.btn-hell{background:var(--weiss);box-shadow:inset 0 0 0 1px rgba(28,40,64,.14)}
+.teil + .teil{border-top-color:#CFC7B9}
