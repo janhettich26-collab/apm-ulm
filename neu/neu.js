@@ -116,7 +116,38 @@
   teile.forEach(t => sofort.observe(t));
   if (leise) teile.forEach(t => t.classList.add('da'));
 
+
+  /* ---------- Kacheln neigen ---------- */
+  if (!leise && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('[data-tilt]').forEach(k => {
+      k.addEventListener('pointermove', e => {
+        const r = k.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        k.style.setProperty('--ry', ((x - .5) * 14).toFixed(2) + 'deg'); k.style.setProperty('--rx', ((.5 - y) * 12).toFixed(2) + 'deg');
+        k.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); k.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      k.addEventListener('pointerleave', () => { k.style.setProperty('--rx', '0deg'); k.style.setProperty('--ry', '0deg'); });
+    });
+  }
+
+
+  /* ---------- Zahlen, Foto-Parallax, Ablauf-Linie ---------- */
+  const zIO = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; zIO.unobserve(e.target);
+    const el = e.target, ziel = +el.dataset.zaehle, t0 = performance.now(), d = 1400;
+    if (leise) return;
+    const f = t => { const p = Math.min(1, (t - t0) / d), w = 1 - Math.pow(1 - p, 4); el.textContent = Math.round(ziel * w).toLocaleString('de-DE'); if (p < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  }), { threshold: .8 });
+  document.querySelectorAll('[data-zaehle]').forEach(el => zIO.observe(el));
+  const foto = document.querySelector('[data-parallax]'), schritte = document.querySelector('.schritte');
+  const scrollFx = () => {
+    if (foto && !leise) { const r = foto.getBoundingClientRect(), m = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; foto.style.setProperty('--py', (m * -30).toFixed(1) + 'px'); }
+    if (schritte) { const r = schritte.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (r.height + innerHeight * .25))); schritte.style.setProperty('--fuell', p.toFixed(3)); }
+  };
+  addEventListener('scroll', scrollFx, { passive: true }); scrollFx();
+
   /* ---------- Fortschritt ---------- */
-  const fort = () => { const max = document.documentElement.scrollHeight - innerHeight; balken.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`; };
+  const fort = () => { const max = document.documentElement.scrollHeight - innerHeight; balken.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    if (max > 0 && scrollY >= max - 4) { const l = teile[teile.length - 1]; l.classList.add('da'); zeige(l); } };
   addEventListener('scroll', fort, { passive: true }); fort();
 })();

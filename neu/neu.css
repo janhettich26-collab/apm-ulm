@@ -11,10 +11,10 @@ h1,h2,h3,p{margin:0}
 h1{font-size:clamp(32px,2.9vw,42px);font-weight:500;letter-spacing:0;line-height:1.22;color:var(--tinte)}
 h2{font-size:clamp(25px,2.1vw,31px);font-weight:500;letter-spacing:0;line-height:1.25;color:var(--tinte)}
 h3{font-size:16.5px;font-weight:600;line-height:1.35;color:var(--tinte)}
-.label{display:flex;align-items:center;gap:10px;font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--messing);margin-bottom:20px}
+.label{display:flex;align-items:center;gap:10px;font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--messing);margin-bottom:14px}
 .label::after{content:"";flex:0 0 28px;height:1px;background:var(--messing);opacity:.5}
 .punkt{width:6px;height:6px;border-radius:50%;background:var(--messing)}
-.lead{color:var(--grau);font-size:16.5px;margin-top:18px;max-width:32em}
+.lead{color:var(--grau);font-size:16.5px;margin-top:12px;max-width:32em}
 .klein{font-size:12.5px;color:var(--grau);margin-top:12px}
 .fehlt{color:var(--messing);font-style:italic}
 
@@ -36,7 +36,7 @@ h3{font-size:16.5px;font-weight:600;line-height:1.35;color:var(--tinte)}
 
 /* Rechte Spalte */
 .spalte{min-width:0;display:flex;flex-direction:column}
-.kopf{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(30px,5vw,96px) 18px;background:rgba(251,250,247,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.kopf{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(30px,5vw,96px) 14px;background:rgba(251,250,247,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .kopf .logo{display:none}
 .logo img{width:70px;height:auto}
 .kopf-text{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grau)}
@@ -49,7 +49,10 @@ h3{font-size:16.5px;font-weight:600;line-height:1.35;color:var(--tinte)}
 .fortschritt span{position:absolute;inset:0;background:var(--messing);transform-origin:left;transform:scaleX(0)}
 
 main{padding:0 clamp(30px,5vw,96px)}
-.teil{min-height:calc(100svh - 80px);display:flex;flex-direction:column;justify-content:center;padding:84px 0;max-width:560px}
+.teil{display:flex;flex-direction:column;padding:64px 0 56px;max-width:560px}
+.teil + .teil{border-top:1px solid var(--linie)}
+#start{padding-top:clamp(40px,8vh,96px)}
+#start{max-width:640px}
 
 /* Einblenden */
 .teil > *{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
@@ -57,7 +60,7 @@ main{padding:0 clamp(30px,5vw,96px)}
 .teil.da > *:nth-child(2){transition-delay:.07s}.teil.da > *:nth-child(3){transition-delay:.14s}.teil.da > *:nth-child(4){transition-delay:.21s}.teil.da > *:nth-child(5){transition-delay:.28s}.teil.da > *:nth-child(6){transition-delay:.35s}
 
 /* Buttons */
-.knoepfe{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.knoepfe{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--tinte);color:#fff;font-size:14.5px;font-weight:600;padding:8px 8px 8px 20px;border-radius:999px;transition:transform .4s var(--ease),box-shadow .4s}
 .btn::after{content:"→";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.14);transition:transform .4s var(--ease)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(30,45,74,.55)}
@@ -65,17 +68,32 @@ main{padding:0 clamp(30px,5vw,96px)}
 .btn-hell{background:var(--weiss);color:var(--tinte);box-shadow:inset 0 0 0 1px var(--linie)}
 .btn-hell::after{background:var(--messing-hell)}
 .btn-hell:hover{box-shadow:inset 0 0 0 1px var(--tinte)}
-.btn-breit{width:100%;justify-content:space-between;margin-top:24px}
+.btn-breit{width:100%;justify-content:space-between;margin-top:16px}
 .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
 
-.drei{list-style:none;padding:0;margin:46px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.drei li{background:var(--weiss);border-radius:16px;padding:14px 16px;font-size:13.5px;color:var(--grau);line-height:1.4;box-shadow:inset 0 0 0 1px var(--linie);transition:transform .5s var(--ease),box-shadow .5s}
-.drei li:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--messing)}
-.drei b{display:block;color:var(--tinte);font-weight:600;font-size:15px;margin-bottom:2px}
+.drei{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:min(100%,640px)}
+.kachel{position:relative;display:flex;flex-direction:column;gap:4px;min-height:190px;padding:20px 18px 18px;border-radius:22px;background:var(--weiss);box-shadow:0 1px 2px rgba(30,45,74,.04),0 18px 40px -26px rgba(30,45,74,.35),inset 0 0 0 1px var(--linie);
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .6s var(--ease),box-shadow .6s;will-change:transform;overflow:hidden;cursor:default}
+.kachel::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(184,146,74,.16),transparent 55%)}
+.kachel::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:2px;border-radius:2px;background:var(--messing);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.kachel:hover{--ty:-8px;box-shadow:0 2px 4px rgba(30,45,74,.05),0 34px 60px -28px rgba(30,45,74,.45),inset 0 0 0 1px rgba(184,146,74,.35)}
+.kachel:hover::before{opacity:1}
+.kachel:hover::after{transform:scaleX(1)}
+.k-icon{width:44px;height:44px;border-radius:50%;background:var(--messing-hell);display:grid;place-items:center;margin-bottom:auto;transition:background .5s,transform .6s var(--ease)}
+.k-icon svg{width:21px;height:21px;fill:none;stroke:var(--tinte);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .5s}
+.k-icon svg *{stroke-dasharray:80;stroke-dashoffset:80}
+.teil.da .k-icon svg *{animation:zeichnen 1.6s var(--ease) forwards}
+.drei .kachel:nth-child(2) .k-icon svg *{animation-delay:.15s}.drei .kachel:nth-child(3) .k-icon svg *{animation-delay:.3s}
+@keyframes zeichnen{to{stroke-dashoffset:0}}
+.kachel:hover .k-icon{background:var(--tinte);transform:scale(1.08) rotate(-8deg)}
+.kachel:hover .k-icon svg{stroke:#fff}
+.k-zahl{font-size:30px;font-weight:500;line-height:1.2;color:var(--tinte);margin-top:22px}
+.kachel b{font-size:15.5px;font-weight:600;color:var(--tinte);line-height:1.3}
+.k-text{font-size:13.5px;color:var(--grau);line-height:1.5}
 
 /* Leistungen */
-.leistungen{list-style:none;padding:0;margin:30px 0 0}
-.leistungen li{display:grid;grid-template-columns:44px 1fr 32px;align-items:center;gap:6px;padding:14px 14px 14px 10px;border-radius:16px;transition:background .4s,transform .5s var(--ease)}
+.leistungen{list-style:none;padding:0;margin:20px 0 0}
+.leistungen li{display:grid;grid-template-columns:44px 1fr 32px;align-items:center;gap:6px;padding:10px 14px 10px 10px;border-radius:16px;transition:background .4s,transform .5s var(--ease)}
 .leistungen li + li{margin-top:2px}
 .leistungen li::after{content:"→";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--tinte);color:#fff;font-size:13px;opacity:0;transform:scale(.6) rotate(-45deg);transition:opacity .35s,transform .5s var(--ease)}
 .leistungen li:hover{background:var(--weiss);transform:translateX(4px);box-shadow:0 10px 30px -20px rgba(30,45,74,.4)}
@@ -84,33 +102,33 @@ main{padding:0 clamp(30px,5vw,96px)}
 .leistungen p{font-size:14px;color:var(--grau);line-height:1.5;margin-top:2px}
 
 /* Praxis */
-.foto{margin:28px 0 0;position:relative}
+.foto{margin:20px 0 0;position:relative}
 .foto img{width:100%;height:auto;border-radius:18px;aspect-ratio:16/8;object-fit:cover}
 .foto figcaption{position:absolute;left:12px;bottom:12px;font-family:"Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinte);background:rgba(255,255,255,.9);border-radius:999px;padding:5px 11px}
-.haken{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.haken{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
 .haken li{font-size:14px;color:var(--tinte);background:var(--weiss);border-radius:999px;padding:7px 14px 7px 12px;box-shadow:inset 0 0 0 1px var(--linie);display:inline-flex;align-items:center;gap:8px}
 .haken li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--messing)}
-.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 0}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0}
 .zahlen div{background:var(--weiss);border-radius:16px;padding:14px 16px;box-shadow:inset 0 0 0 1px var(--linie)}
 .zahlen dt{font-size:24px;font-weight:500;line-height:1.2;color:var(--tinte)}
 .zahlen dd{margin:2px 0 0;font-size:12.5px;color:var(--grau);line-height:1.4}
 
 /* Ablauf */
-.schritte{list-style:none;counter-reset:s;padding:0;margin:30px 0 0;position:relative}
+.schritte{list-style:none;counter-reset:s;padding:0;margin:22px 0 0;position:relative}
 .schritte::before{content:"";position:absolute;left:15px;top:10px;bottom:24px;width:1px;background:var(--linie)}
-.schritte li{counter-increment:s;position:relative;padding:0 0 24px 52px}
+.schritte li{counter-increment:s;position:relative;padding:0 0 18px 52px}
 .schritte li::before{content:counter(s);position:absolute;left:0;top:-2px;width:31px;height:31px;border-radius:50%;background:var(--weiss);box-shadow:inset 0 0 0 1px var(--linie);display:grid;place-items:center;font-size:12.5px;font-weight:600;color:var(--tinte);transition:background .35s,color .35s,box-shadow .35s}
 .schritte li:hover::before{background:var(--tinte);color:#fff;box-shadow:none}
 .schritte p{font-size:14.5px;color:var(--grau);margin-top:2px;line-height:1.6}
 
 /* Kontakt */
-.kontakt{margin-top:26px;background:var(--weiss);border-radius:18px;padding:6px 20px;box-shadow:inset 0 0 0 1px var(--linie)}
+.kontakt{margin-top:18px;background:var(--weiss);border-radius:18px;padding:6px 20px;box-shadow:inset 0 0 0 1px var(--linie)}
 .kontakt div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;font-size:15px}
 .kontakt div + div{border-top:1px solid var(--linie)}
 .kontakt div span:first-child{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grau);padding-top:3px}
 
 /* Fuß */
-.fuss{padding:30px clamp(30px,5vw,96px) 36px;font-size:12.5px;color:var(--grau);border-top:1px solid var(--linie);margin-top:20px}
+.fuss{padding:24px clamp(30px,5vw,96px) 30px;font-size:12.5px;color:var(--grau);border-top:1px solid var(--linie);margin-top:0}
 .fuss-zeile{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .vorschau{margin-top:10px}
 .fuss details{margin-top:10px}
@@ -133,11 +151,64 @@ main{padding:0 clamp(30px,5vw,96px)}
   .partikel-rahmen{height:250px;flex:none;margin:0}
   .fortschritt{left:22px;right:22px}
   main{padding:0 22px}
-  .teil{min-height:0;padding:56px 0;max-width:none}
-  .drei,.zahlen{grid-template-columns:1fr}
+  .teil{padding:44px 0 40px;max-width:none}
+  #start{padding-top:32px}
+  .drei{grid-template-columns:1fr;width:100%}
+  .kachel{min-height:0}
+  .k-zahl{margin-top:16px}
+  .zahlen{grid-template-columns:1fr}
   .fuss{padding:24px 22px 30px}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
   .teil > *{opacity:1;transform:none}
 }
+
+/* ===== Rechte Seite: cooler ===== */
+.l-raster{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px;width:min(100%,640px)}
+.l-kachel{min-height:0;padding:18px 18px 16px;gap:6px}
+.l-kachel .k-icon{margin-bottom:10px;width:40px;height:40px}
+.l-kachel h3{font-size:15.5px}
+.l-kachel p{font-size:13.5px;color:var(--grau);line-height:1.5}
+.l-nr{position:absolute;top:18px;right:18px;font-family:"Plex Mono",monospace;font-size:10.5px;color:#B9BDC6;transition:color .4s}
+.l-kachel:hover .l-nr{color:var(--messing)}
+.teil.da .l-kachel .k-icon svg *{animation:zeichnen 1.6s var(--ease) forwards}
+.l-raster .kachel:nth-child(2) .k-icon svg *{animation-delay:.1s}.l-raster .kachel:nth-child(3) .k-icon svg *{animation-delay:.2s}.l-raster .kachel:nth-child(4) .k-icon svg *{animation-delay:.3s}.l-raster .kachel:nth-child(5) .k-icon svg *{animation-delay:.4s}.l-raster .kachel:nth-child(6) .k-icon svg *{animation-delay:.5s}
+.l-raster .kachel{opacity:0;translate:0 14px;transition:opacity .9s var(--ease),translate .9s var(--ease),transform .6s var(--ease),box-shadow .6s}
+.teil.da .l-raster .kachel{opacity:1;translate:0 0}
+.teil.da .l-raster .kachel:nth-child(2){transition-delay:.06s,.06s,0s,0s}.teil.da .l-raster .kachel:nth-child(3){transition-delay:.12s,.12s,0s,0s}.teil.da .l-raster .kachel:nth-child(4){transition-delay:.18s,.18s,0s,0s}.teil.da .l-raster .kachel:nth-child(5){transition-delay:.24s,.24s,0s,0s}.teil.da .l-raster .kachel:nth-child(6){transition-delay:.3s,.3s,0s,0s}
+
+.foto{overflow:hidden;border-radius:18px}
+.foto img{border-radius:0;transform:scale(1.12) translateY(var(--py,0px));transition:transform .2s linear}
+
+.zahlen div{transition:transform .5s var(--ease),box-shadow .5s}
+.zahlen div:hover{transform:translateY(-4px);box-shadow:0 18px 36px -24px rgba(30,45,74,.4),inset 0 0 0 1px rgba(184,146,74,.4)}
+.zahlen dt{font-size:28px}
+
+.schritte{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding-top:44px}
+.schritte::before{left:16px;right:16px;top:15px;bottom:auto;width:auto;height:2px;background:var(--linie)}
+.schritte::after{content:"";position:absolute;left:16px;right:16px;top:15px;height:2px;background:var(--messing);transform:scaleX(var(--fuell,0));transform-origin:left;transition:transform .15s linear}
+.schritte li{padding:16px 14px 14px;background:var(--weiss);border-radius:16px;box-shadow:inset 0 0 0 1px var(--linie);transition:transform .5s var(--ease),box-shadow .5s}
+.schritte li::before{top:-45px;left:14px;z-index:1}
+.schritte li:hover{transform:translateY(-4px);box-shadow:0 18px 36px -24px rgba(30,45,74,.4),inset 0 0 0 1px rgba(184,146,74,.4)}
+.schritte h3{font-size:15px}
+.schritte p{font-size:13.5px;line-height:1.5}
+
+.k-karte{margin-top:20px;position:relative;overflow:hidden;background:var(--tinte);color:#fff;border-radius:24px;padding:10px 24px 24px;box-shadow:0 30px 60px -30px rgba(30,45,74,.6)}
+.k-karte::before{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,74,.45),transparent 65%);animation:schweben 8s ease-in-out infinite alternate;pointer-events:none}
+@keyframes schweben{to{transform:translate(-60px,50px)}}
+.k-karte .kontakt{margin:0;background:transparent;box-shadow:none;padding:0;position:relative}
+.k-karte .kontakt div{color:#fff}
+.k-karte .kontakt div + div{border-color:rgba(255,255,255,.12)}
+.k-karte .kontakt div span:first-child{color:rgba(255,255,255,.55)}
+.k-karte .fehlt{color:#E3C58D}
+.btn-gold{background:var(--messing);color:var(--tinte);position:relative}
+.btn-gold::after{background:rgba(30,45,74,.15)}
+
+@media (max-width:900px){
+  .l-raster{grid-template-columns:1fr;width:100%}
+  .schritte{grid-template-columns:1fr 1fr;padding-top:0}
+  .schritte::before,.schritte::after{display:none}
+  .schritte li::before{position:static;margin-bottom:10px}
+}
+@media (max-width:520px){.schritte{grid-template-columns:1fr}}
