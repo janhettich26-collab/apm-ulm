@@ -9,21 +9,36 @@
 <meta property="og:title" content="APM Ulm – Facility Management für Ulm und die Region">
 <meta property="og:description" content="Gebäude, die einfach laufen. Komplettes Facility Management – Praxisbeispiel Science Park Ulm.">
 <meta property="og:image" content="img/energon-1600.webp">
-<meta name="theme-color" content="#F6F5F1">
+<meta name="theme-color" content="#F7F6F2">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-haus" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5M5.5 9v11h13V9M9.5 20v-6h5v6"/></symbol>
+    <symbol id="i-technik" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.8 1.8 0 0 0 2.6 2.6l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.4-.4-2.4z"/></symbol>
+    <symbol id="i-feuer" viewBox="0 0 24 24"><path d="M12 21c4 0 6.5-2.6 6.5-6.2 0-3.4-2.4-5.6-3.6-8.3-.5 1.8-1.4 3-2.6 3.6C12.5 7 11.2 4.6 9 3c.3 3-1.6 5-2.9 6.8A7 7 0 0 0 5.5 14.8C5.5 18.4 8 21 12 21z"/><path d="M12 21c-1.7 0-2.8-1.2-2.8-2.8 0-1.8 1.6-2.6 2.1-4.2 1.5 1 3.5 2.3 3.5 4.2 0 1.6-1.1 2.8-2.8 2.8z"/></symbol>
+    <symbol id="i-schnee" viewBox="0 0 24 24"><path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5 4.2 17.5M9 3.5l3 2.5 3-2.5M9 20.5l3-2.5 3 2.5"/></symbol>
+    <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.4-3.6 2.9-5.6 6-5.6s5.6 2 6 5.6M16 4.9a3.2 3.2 0 0 1 0 6.2M17.5 14.6c2 .6 3.3 2.3 3.5 5.4"/></symbol>
+    <symbol id="i-glocke" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15zM10 21h4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-akte" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 14l2 2 4-4"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 21c.6-4.2 3.6-6.6 7.5-6.6s6.9 2.4 7.5 6.6"/></symbol>
+    <symbol id="i-pfeil" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
 <div class="vorschau">Vorschau – Kontaktdaten, Impressum und Datenschutz werden noch ergänzt.</div>
 
 <header class="kopf" id="top">
   <div class="wrap kopf-in">
-    <a href="#top" class="logo" aria-label="APM Ulm – zur Startseite"><img src="img/logo.svg" alt="APM Ulm" width="132" height="58"></a>
+    <a href="#top" class="logo" aria-label="APM Ulm – zur Startseite"><img src="img/logo.svg" alt="APM Ulm" width="118" height="51"></a>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
-      <a href="#standort">Praxisbeispiel</a>
+      <a href="#praxis">Praxisbeispiel</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#kontakt" class="btn btn-klein">Objekt anfragen</a>
     </nav>
@@ -39,24 +54,22 @@
     <div class="hero-text">
       <p class="eyebrow reveal">Facility Management · Ulm &amp; Region</p>
       <h1 class="reveal">Gebäude, die <em>einfach laufen.</em></h1>
-      <p class="lead reveal">APM Ulm übernimmt das komplette Facility Management Ihrer Immobilie – Objektbetreuung, Haustechnik, Brandschutz, Außenanlagen und alles dazwischen. Für Büro-, Gewerbe- und Forschungsgebäude. Ein Ansprechpartner, der vor Ort ist.</p>
+      <p class="lead reveal">APM Ulm übernimmt das komplette Facility Management Ihrer Immobilie – von der Objektbetreuung über Haustechnik und Brandschutz bis zu den Außenanlagen. Für Büro-, Gewerbe- und Forschungsgebäude.</p>
       <div class="hero-cta reveal">
-        <a href="#kontakt" class="btn">Objekt anfragen</a>
-        <a href="#leistungen" class="btn btn-linie">Leistungen ansehen</a>
+        <a href="#kontakt" class="btn">Objekt anfragen <svg class="ico ico-s"><use href="#i-pfeil"/></svg></a>
+        <a href="#leistungen" class="btn btn-linie">Leistungen</a>
       </div>
     </div>
     <figure class="hero-bild reveal">
-      <img src="img/energon-1600.webp" srcset="img/energon-800.webp 800w, img/energon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 55vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1600" height="1200" fetchpriority="high">
+      <img src="img/energon-1600.webp" srcset="img/energon-800.webp 800w, img/energon-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 52vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1600" height="1200" fetchpriority="high">
       <figcaption class="chip"><span class="punkt"></span>Praxisbeispiel · Science Park Ulm</figcaption>
-      <div class="hero-karte">
-        <strong>Ein Ansprechpartner</strong>
-        <span>für Technik, Brandschutz und Außenanlagen</span>
-      </div>
     </figure>
   </div>
   <div class="wrap">
-    <ul class="stichworte reveal" aria-label="Leistungen im Überblick">
-      <li>Facility Management</li><li>Objektbetreuung</li><li>Hausmeisterservice</li><li>Haustechnik</li><li>Brandschutz</li><li>Wartungsmanagement</li><li>Außenanlagen</li><li>Winterdienst</li><li>Störungsmanagement</li>
+    <ul class="vorteile reveal">
+      <li><svg class="ico"><use href="#i-person"/></svg><div><strong>Ein Ansprechpartner</strong><span>für alles rund ums Gebäude</span></div></li>
+      <li><svg class="ico"><use href="#i-pin"/></svg><div><strong>Vor Ort statt Hotline</strong><span>wir kennen Ihr Objekt</span></div></li>
+      <li><svg class="ico"><use href="#i-akte"/></svg><div><strong>Alles dokumentiert</strong><span>Prüfungen, Wartungen, Mängel</span></div></li>
     </ul>
   </div>
 </section>
@@ -64,42 +77,39 @@
 <!-- LEISTUNGEN -->
 <section class="abschnitt" id="leistungen">
   <div class="wrap">
-    <div class="kopfzeile reveal">
-      <p class="eyebrow">Leistungen</p>
-      <h2>Komplettes Facility Management.<br>Aus einer Hand.</h2>
-      <p class="lead" style="margin-top:18px">Technisch, infrastrukturell, organisatorisch: Wir kümmern uns um alles, damit Ihr Gebäude läuft – und Sie sich um Ihr Geschäft kümmern können.</p>
+    <div class="kopfzeile">
+      <p class="eyebrow reveal">Leistungen</p>
+      <h2 class="reveal">Komplettes Facility Management.<br>Aus einer Hand.</h2>
+      <p class="lead reveal">Technisch, infrastrukturell, organisatorisch: Wir kümmern uns um alles, damit Ihr Gebäude läuft – und Sie sich um Ihr Geschäft kümmern können.</p>
     </div>
-    <div class="bento">
-      <article class="karte reveal">
-        <span class="nr">01</span>
-        <h3>Hausmeister &amp; Objektbetreuung</h3>
+    <div class="raster">
+      <article class="karte reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-haus"/></svg></span>
+        <h3>Objektbetreuung</h3>
         <p>Regelmäßige Rundgänge, Kleinreparaturen, Schlüssel- und Zugangsorganisation. Wir sehen Probleme, bevor Ihre Mieter sie melden.</p>
       </article>
-      <article class="karte reveal">
-        <span class="nr">02</span>
+      <article class="karte reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-technik"/></svg></span>
         <h3>Haustechnik &amp; Wartung</h3>
         <p>Heizung, Lüftung, Sanitär, Elektro: Wir koordinieren Wartungen und halten Prüffristen im Blick – von der Aufzugsprüfung bis zur DGUV&nbsp;V3.</p>
       </article>
-      <article class="karte karte-brand reveal">
-        <span class="nr">03</span>
-        <h3>Brandschutz</h3>
-        <p>Rettungswege frei, Anlagen geprüft, Unterlagen aktuell. Wir organisieren die Prüfungen, dokumentieren lückenlos und begleiten Begehungen.</p>
-        <ul class="tags">
-          <li>Flucht- &amp; Rettungswege</li><li>Feuerlöscher</li><li>Rauchabzug (RWA)</li><li>Brandmeldeanlage</li><li>Brandschutzordnung</li><li>Begehungen</li>
-        </ul>
+      <article class="karte karte-feuer reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-feuer"/></svg></span>
+        <h3>Brandschutz <span class="badge">Schwerpunkt</span></h3>
+        <p>Rettungswege frei, Feuerlöscher, Rauchabzug und Brandmeldeanlage geprüft, Brandschutzordnung aktuell. Wir organisieren, dokumentieren und begleiten Begehungen.</p>
       </article>
-      <article class="karte reveal">
-        <span class="nr">04</span>
+      <article class="karte reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-schnee"/></svg></span>
         <h3>Außenanlagen &amp; Winterdienst</h3>
-        <p>Grünpflege, Wege, Parkflächen sowie Räum- und Streudienst – damit am Oberen Eselsberg auch im Januar jeder sicher ankommt.</p>
+        <p>Grünpflege, Wege und Parkflächen, Räum- und Streudienst – damit jeder sicher ankommt, auch im Januar.</p>
       </article>
-      <article class="karte reveal">
-        <span class="nr">05</span>
-        <h3>Reinigung &amp; Dienstleister</h3>
-        <p>Wir steuern Reinigung, Entsorgung und Fachfirmen, prüfen die Leistung und sind die eine Nummer für alles.</p>
+      <article class="karte reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-team"/></svg></span>
+        <h3>Reinigung &amp; Fachfirmen</h3>
+        <p>Wir steuern Reinigung, Entsorgung und Handwerker, prüfen die Leistung und sind die eine Nummer für alles.</p>
       </article>
-      <article class="karte reveal">
-        <span class="nr">06</span>
+      <article class="karte reveal" data-tilt>
+        <span class="icon"><svg class="ico"><use href="#i-glocke"/></svg></span>
         <h3>Störungsmanagement</h3>
         <p>Etwas fällt aus? Wir nehmen die Meldung auf, beheben selbst oder holen den richtigen Fachbetrieb – und melden zurück, wenn es erledigt ist.</p>
       </article>
@@ -108,83 +118,78 @@
 </section>
 
 <!-- PRAXISBEISPIEL -->
-<section class="abschnitt standort" id="standort">
-  <div class="wrap standort-grid">
-    <div class="standort-text">
-      <div class="sticky">
+<section class="abschnitt praxis" id="praxis">
+  <div class="wrap">
+    <div class="praxis-kopf">
+      <div>
         <p class="eyebrow reveal">Praxisbeispiel</p>
-        <h2 class="reveal">Science&nbsp;Park Ulm.</h2>
-        <p class="reveal">Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und die Entwicklungszentren namhafter Unternehmen – verteilt auf die Ausbaustufen Science Park I bis III.</p>
-        <p class="reveal">Hier betreuen wir Objekte im kompletten Facility Management. Gebäude mit Laboren, Serverräumen und viel Betrieb zeigen, worauf es ankommt: Technik, die läuft, Brandschutz, der stimmt, und Wege, die auch im Winter frei sind.</p>
-        <ul class="haken reveal">
+        <h2 class="reveal">Science Park Ulm.</h2>
+      </div>
+      <p class="lead reveal">Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Facility Management.</p>
+    </div>
+
+    <div class="praxis-raster">
+      <figure class="foto foto-gross reveal" data-tilt>
+        <img src="img/energon-800.webp" srcset="img/energon-800.webp 800w, img/energon-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 66vw" alt="Bürogebäude im Science Park II" loading="lazy" width="1600" height="1200">
+        <figcaption><strong>Science Park II</strong><span>Büro- und Forschungsgebäude</span></figcaption>
+      </figure>
+      <div class="karte liste reveal" data-tilt>
+        <h3>Was wir dort leisten</h3>
+        <ul class="haken">
           <li>Objektbetreuung &amp; Hausmeisterdienst</li>
           <li>Haustechnik &amp; Wartungsmanagement</li>
           <li>Brandschutz &amp; Prüffristen</li>
           <li>Außenanlagen &amp; Winterdienst</li>
           <li>Steuerung von Reinigung und Fachfirmen</li>
         </ul>
-        <dl class="fakten reveal">
-          <div><dt>I – III</dt><dd>Ausbaustufen der Wissenschaftsstadt</dd></div>
-          <div><dt>≈ 600 m</dt><dd>Höhe über dem Meer – Winterdienst inklusive</dd></div>
-          <div><dt>12.500</dt><dd>Menschen arbeiten hier täglich<sup>*</sup></dd></div>
-        </dl>
-        <p class="klein reveal"><sup>*</sup> Angabe der IHK Ulm, Stand 2014.</p>
       </div>
-    </div>
-    <div class="galerie">
-      <figure class="foto reveal">
-        <img src="img/energon-800.webp" srcset="img/energon-800.webp 800w, img/energon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Bürogebäude im Science Park II" loading="lazy" width="800" height="600">
-        <figcaption><strong>Science Park II</strong><span>Büro- und Forschungsgebäude am Oberen Eselsberg</span></figcaption>
+      <figure class="foto reveal" data-tilt>
+        <img src="img/tram-800.webp" srcset="img/tram-800.webp 800w, img/tram-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 33vw" alt="Straßenbahn an der Haltestelle Science Park II" loading="lazy" width="800" height="600">
+        <figcaption><strong>Haltestelle Science Park II</strong><span>Straßenbahn bis vor die Tür</span></figcaption>
       </figure>
-      <figure class="foto reveal">
-        <img src="img/tram-800.webp" srcset="img/tram-800.webp 800w, img/tram-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Straßenbahn an der Haltestelle Science Park II" loading="lazy" width="800" height="600">
-        <figcaption><strong>Haltestelle Science Park II</strong><span>Mit der Straßenbahn bis vor die Tür</span></figcaption>
+      <figure class="foto reveal" data-tilt>
+        <img src="img/eselsberg-800.webp" srcset="img/eselsberg-800.webp 800w, img/eselsberg-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 33vw" alt="Blick über den Wald hinüber zum Oberen Eselsberg mit der Wissenschaftsstadt" loading="lazy" width="800" height="600">
+        <figcaption><strong>Oberer Eselsberg</strong><span>Blick von Mähringen</span></figcaption>
       </figure>
-      <figure class="foto reveal">
-        <img src="img/eselsberg-800.webp" srcset="img/eselsberg-800.webp 800w, img/eselsberg-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Blick über den Wald hinüber zum Oberen Eselsberg mit der Wissenschaftsstadt" loading="lazy" width="800" height="600">
-        <figcaption><strong>Oberer Eselsberg</strong><span>Blick von Mähringen hinüber zur Wissenschaftsstadt</span></figcaption>
-      </figure>
-      <div class="zukunft reveal">
+      <div class="karte zukunft reveal" data-tilt>
         <p class="eyebrow">Science Park III</p>
         <p class="gross">40 Hektar,<br>die gerade wachsen.</p>
-        <p>Die dritte Ausbaustufe bringt neue Labor- und Bürogebäude an den Eselsberg. Neue Gebäude, neue Technik – wir sind bereit.</p>
+        <p>Neue Labor- und Bürogebäude am Eselsberg. Neue Technik – wir sind bereit.</p>
       </div>
     </div>
+
+    <dl class="fakten reveal">
+      <div><dt>I – III</dt><dd>Ausbaustufen der Wissenschaftsstadt</dd></div>
+      <div><dt>≈ 600 m</dt><dd>über dem Meer – Winterdienst inklusive</dd></div>
+      <div><dt>12.500</dt><dd>Menschen arbeiten hier täglich<sup>*</sup></dd></div>
+    </dl>
+    <p class="klein reveal"><sup>*</sup> Angabe der IHK Ulm, Stand 2014.</p>
   </div>
 </section>
 
 <!-- ABLAUF -->
 <section class="abschnitt" id="ablauf">
   <div class="wrap">
-    <div class="kopfzeile reveal">
-      <p class="eyebrow">So starten wir</p>
-      <h2>Vier Schritte bis zum<br>ruhigen Betrieb.</h2>
+    <div class="kopfzeile">
+      <p class="eyebrow reveal">So starten wir</p>
+      <h2 class="reveal">Vier Schritte bis zum ruhigen Betrieb.</h2>
     </div>
     <ol class="schritte">
-      <li class="reveal"><span class="kreis">1</span><h3>Begehung</h3><p>Wir sehen uns Ihr Objekt gemeinsam an: Technik, Flächen, Prüfpflichten, offene Punkte.</p></li>
-      <li class="reveal"><span class="kreis">2</span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner übersichtlich an einem Ort dokumentiert.</p></li>
-      <li class="reveal"><span class="kreis">3</span><h3>Laufender Betrieb</h3><p>Feste Rundgänge, schnelle Reaktion bei Störungen, Fachfirmen im Griff.</p></li>
-      <li class="reveal"><span class="kreis">4</span><h3>Kurzer Bericht</h3><p>Regelmäßig auf einen Blick: was erledigt ist, was geplant ist, was ansteht.</p></li>
+      <li class="schritt reveal"><span class="kreis">1</span><h3>Begehung</h3><p>Wir sehen uns Ihr Objekt gemeinsam an: Technik, Flächen, Prüfpflichten, offene Punkte.</p></li>
+      <li class="schritt reveal"><span class="kreis">2</span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner übersichtlich an einem Ort dokumentiert.</p></li>
+      <li class="schritt reveal"><span class="kreis">3</span><h3>Laufender Betrieb</h3><p>Feste Rundgänge, schnelle Reaktion bei Störungen, Fachfirmen im Griff.</p></li>
+      <li class="schritt reveal"><span class="kreis">4</span><h3>Kurzer Bericht</h3><p>Regelmäßig auf einen Blick: was erledigt ist, was geplant ist, was ansteht.</p></li>
     </ol>
-  </div>
-</section>
-
-<!-- WARUM -->
-<section class="abschnitt warum">
-  <div class="wrap warum-grid">
-    <div class="reveal"><h3>Vor Ort statt Hotline</h3><p>Wir kennen Ihr Gebäude, weil wir regelmäßig drin sind – nicht aus dem Ticketsystem.</p></div>
-    <div class="reveal"><h3>Alles dokumentiert</h3><p>Prüfungen, Wartungen, Mängel: nachvollziehbar festgehalten, wenn Versicherung oder Behörde fragt.</p></div>
-    <div class="reveal"><h3>Ein Ansprechpartner</h3><p>Eine Nummer für Technik, Brandschutz und Außenanlagen. Wir kümmern uns um den Rest.</p></div>
   </div>
 </section>
 
 <!-- KONTAKT -->
 <section class="abschnitt kontakt" id="kontakt">
   <div class="wrap kontakt-grid">
-    <div class="reveal">
-      <p class="eyebrow">Kontakt</p>
-      <h2>Lassen Sie uns über Ihr Objekt sprechen.</h2>
-      <p class="lead">Kurz anrufen oder schreiben – wir melden uns, schauen uns das Gebäude an und machen Ihnen ein klares Angebot.</p>
+    <div>
+      <p class="eyebrow reveal">Kontakt</p>
+      <h2 class="reveal">Lassen Sie uns über Ihr Objekt sprechen.</h2>
+      <p class="lead reveal">Kurz anrufen oder schreiben – wir melden uns, schauen uns das Gebäude an und machen Ihnen ein klares Angebot.</p>
     </div>
     <div class="kontakt-karte reveal">
       <div class="zeile"><span class="label">Telefon</span><span class="fehlt">wird ergänzt</span></div>
@@ -199,7 +204,7 @@
 
 <footer class="fuss">
   <div class="wrap fuss-in">
-    <img src="img/logo.svg" alt="APM Ulm" width="96" height="42">
+    <img src="img/logo.svg" alt="APM Ulm" width="84" height="37">
     <p>© 2026 APM Ulm · Facility Management für Ulm und die Region</p>
     <p class="links"><span>Impressum (folgt)</span> · <span>Datenschutz (folgt)</span></p>
   </div>

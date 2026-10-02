@@ -34,16 +34,18 @@
     nav.classList.remove('offen'); btn.setAttribute('aria-expanded', 'false');
   }));
 
-  // Ablauf: Linie füllt sich beim Scrollen
-  const schritte = document.querySelector('.schritte');
-  if (schritte && !leise) {
-    const fuellen = () => {
-      const r = schritte.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
-      schritte.style.setProperty('--fortschritt', (p * 100).toFixed(1) + '%');
-    };
-    addEventListener('scroll', fuellen, { passive: true }); fuellen();
-  } else if (schritte) {
-    schritte.style.setProperty('--fortschritt', '100%');
+  // Kacheln neigen sich leicht zur Maus (nur mit Maus, nicht bei "weniger Bewegung")
+  if (!leise && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('[data-tilt]').forEach(k => {
+      k.addEventListener('pointermove', e => {
+        const r = k.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        k.style.setProperty('--ry', ((x - .5) * 6).toFixed(2) + 'deg');
+        k.style.setProperty('--rx', ((.5 - y) * 6).toFixed(2) + 'deg');
+        k.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        k.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      k.addEventListener('pointerleave', () => { k.style.setProperty('--rx', '0deg'); k.style.setProperty('--ry', '0deg'); });
+    });
   }
 })();
