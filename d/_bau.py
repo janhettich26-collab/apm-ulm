@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=23">
+<link rel="stylesheet" href="d.css?v=24">
 </head>
 <body>
 <header class="kopf">
@@ -147,8 +147,8 @@ html = f"""<!doctype html>
   <div class="teil">
     <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
     <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
-      <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Building Management</button>
-      <button role="tab" aria-selected="false" data-art="technik">Technical Management</button>
+      <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Infrastrukturelles Management</button>
+      <button role="tab" aria-selected="false" data-art="technik">Technisches Management</button>
     </div>
     <div class="h-buehne auf">
       <div class="h-bild">{HAUS}<div class="h-punkte"></div></div>
@@ -214,7 +214,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=23" defer></script>
+<script src="d.js?v=24" defer></script>
 </body>
 </html>
 """
