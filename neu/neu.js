@@ -32,7 +32,7 @@
     haken: { d: 'M7.5 12.5l3 3 6-6.5', kreis: [12, 12, 9] },
     telefon: { d: 'M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z' }
   };
-  let P = [], W = 0, H = 0, dpr = 1, ziele = {}, maus = { x: -9999, y: -9999 }, aktiveForm = 'haus';
+  let P = [], W = 0, H = 0, dpr = 1, ziele = {}, maus = { x: -9999, y: -9999 }, aktiveForm = 'haus', wirbelStart = -9999;
   const N = 760;
 
   const probe = (f, groesse) => {
@@ -64,7 +64,8 @@
   const setzeForm = (k, still) => {
     aktiveForm = k; const z = ziele[k]; if (!z) return;
     const reihen = [...z].sort(() => Math.random() - .5);
-    P.forEach((p, i) => { p.tx = reihen[i][0]; p.ty = reihen[i][1]; if (!still) { p.vx += (Math.random() - .5) * 6; p.vy += (Math.random() - .5) * 6; } });
+    P.forEach((p, i) => { p.tx = reihen[i][0]; p.ty = reihen[i][1]; if (!still) { p.vx += (Math.random() - .5) * 3; p.vy += (Math.random() - .5) * 3; } });
+    if (!still && !leise) wirbelStart = performance.now();
   };
 
   if (cv) {
@@ -78,9 +79,13 @@
       requestAnimationFrame(lauf);
       if (!sichtbar) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      /* Wirbel: beim Formwechsel kreisen die Punkte kurz um die Mitte, dann setzen sie sich */
+      const wr = Math.max(0, 1 - (t - wirbelStart) / 900), w = wr * wr * (3 - 2 * wr), mx = W / 2, my = H / 2 - 8;
       for (const p of P) {
         const wx = Math.sin(t * .0011 + p.ph) * 1.4, wy = Math.cos(t * .0013 + p.ph) * 1.4;
-        let ax = (p.tx + wx - p.x) * .035, ay = (p.ty + wy - p.y) * .035;
+        const zug = .035 * (1 - w * .8);
+        let ax = (p.tx + wx - p.x) * zug, ay = (p.ty + wy - p.y) * zug;
+        if (w > 0) { const rx = p.x - mx, ry = p.y - my, r = Math.sqrt(rx * rx + ry * ry) || 1, k = w * (1.1 + p.s * .5); ax += -ry / r * k + rx / r * w * .12; ay += rx / r * k + ry / r * w * .12; }
         const dx = p.x - maus.x, dy = p.y - maus.y, d2 = dx * dx + dy * dy;
         if (d2 < 4900) { const d = Math.sqrt(d2) || 1, k = (70 - d) / 70 * 2.2; ax += dx / d * k; ay += dy / d * k; }
         p.vx = (p.vx + ax) * .86; p.vy = (p.vy + ay) * .86;
