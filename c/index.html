@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APM Ulm – Facility Management für Ulm und die Region</title>
+<meta name="description" content="Komplettes Facility Management aus einer Hand: Objektbetreuung, Haustechnik, Brandschutz, Außenanlagen und Störungsmanagement – in Ulm und der Region.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E1629">
+<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="c.css?v=2">
+</head>
+<body>
+
+<div class="schein" aria-hidden="true"><i></i><i></i></div>
+<canvas id="feld" aria-hidden="true"></canvas>
+<span class="fortschritt" aria-hidden="true"><span></span></span>
+
+<header class="kopf">
+  <a href="#start" class="logo" aria-label="APM Ulm – nach oben"><img src="../img/logo-weiss.svg" alt="APM Ulm" width="74" height="32"></a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#leistungen" data-ziel="leistungen">Leistungen</a>
+    <a href="#praxis" data-ziel="praxis">Praxis</a>
+    <a href="#ablauf" data-ziel="ablauf">Ablauf</a>
+  </nav>
+  <a href="#kontakt" class="pille gold klein">Kontakt<span class="pfeil" aria-hidden="true"></span></a>
+</header>
+
+<p class="marke" aria-hidden="true"><span class="marke-nr">01</span><span class="marke-strich"></span><span class="marke-wort">Gebäude</span></p>
+
+<main>
+  <section class="teil da" id="start" data-form="haus" data-x=".74" data-y=".37" data-g=".8" data-wort="Gebäude" data-nr="01">
+    <div class="inhalt links">
+      <p class="label auf"><span class="punkt"></span><span data-decode>Facility Management · Ulm &amp; Region</span></p>
+      <h1 class="auf">Gebäude, die <em>einfach laufen.</em></h1>
+      <p class="lead auf">Wir übernehmen das komplette Facility Management Ihrer Immobilie – von der Objektbetreuung über Haustechnik und Brandschutz bis zu den Außenanlagen. Ein Ansprechpartner, der vor Ort ist.</p>
+      <div class="knoepfe auf">
+        <a href="#kontakt" class="pille gold">Objekt anfragen<span class="pfeil" aria-hidden="true"></span></a>
+        <a href="#leistungen" class="pille">Leistungen ansehen<span class="pfeil" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <ul class="leiste auf">
+      <li class="kachel" data-tilt><span class="k-zahl">1</span><b>Ein Ansprechpartner</b><span class="k-text">Eine Nummer für Technik, Brandschutz und Außenanlagen.</span></li>
+      <li class="kachel" data-tilt><span class="k-zahl">vor Ort</span><b>Statt Hotline</b><span class="k-text">Wir kennen Ihr Gebäude, weil wir regelmäßig drin sind.</span></li>
+      <li class="kachel" data-tilt><span class="k-zahl">lückenlos</span><b>Alles dokumentiert</b><span class="k-text">Prüfungen, Wartungen und Mängel nachvollziehbar festgehalten.</span></li>
+    </ul>
+  </section>
+
+  <section class="teil" id="leistungen" data-form="l0" data-x=".25" data-wort="Leistungen" data-nr="02">
+    <div class="inhalt rechts">
+      <p class="label auf" data-decode>Leistungen</p>
+      <h2 class="auf">Komplettes Facility Management <em>aus einer Hand.</em></h2>
+      <div class="wahl auf" role="tablist" aria-label="Leistungen">
+        <button class="w-pille aktiv" role="tab" aria-selected="true" data-text="Rundgänge, Kleinreparaturen, Schlüssel und Zugänge."><span>01</span>Objektbetreuung</button>
+        <button class="w-pille" role="tab" aria-selected="false" data-text="Heizung, Lüftung, Sanitär, Elektro – Prüffristen im Blick."><span>02</span>Haustechnik &amp; Wartung</button>
+        <button class="w-pille" role="tab" aria-selected="false" data-text="Rettungswege, Feuerlöscher, Rauchabzug, Brandmeldeanlage, Begehungen."><span>03</span>Brandschutz</button>
+        <button class="w-pille" role="tab" aria-selected="false" data-text="Grünpflege, Wege, Parkflächen, Räum- und Streudienst."><span>04</span>Außenanlagen &amp; Winterdienst</button>
+        <button class="w-pille" role="tab" aria-selected="false" data-text="Steuern, kontrollieren, eine Nummer für alles."><span>05</span>Reinigung &amp; Fachfirmen</button>
+        <button class="w-pille" role="tab" aria-selected="false" data-text="Meldung aufnehmen, beheben lassen, zurückmelden."><span>06</span>Störungsmanagement</button>
+      </div>
+      <div class="detail glas auf" role="tabpanel" aria-live="polite">
+        <span class="d-nr">01 / 06</span>
+        <h3 class="d-titel">Objektbetreuung</h3>
+        <p class="d-text">Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.</p>
+        <span class="d-lauf" aria-hidden="true"><span></span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="teil" id="praxis" data-form="pin" data-x=".5" data-a=".22" data-g="1.35" data-wort="Science Park" data-nr="03">
+    <div class="buehne glas auf">
+      <figure class="foto" data-parallax>
+        <img src="../img/energon-wide-1000.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="(max-width: 900px) 100vw, 560px" alt="Bürogebäude im Science Park II am Oberen Eselsberg" loading="lazy" width="1000" height="460">
+        <figcaption>Science Park II, Ulm</figcaption>
+      </figure>
+      <div class="b-text">
+        <p class="label" data-decode>Praxisbeispiel</p>
+        <h2>Science Park <em>Ulm.</em></h2>
+        <p class="lead">Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Facility Management.</p>
+        <ul class="haken">
+          <li>Objektbetreuung &amp; Hausmeisterdienst</li>
+          <li>Haustechnik &amp; Wartungsmanagement</li>
+          <li>Brandschutz &amp; Prüffristen</li>
+          <li>Außenanlagen &amp; Winterdienst</li>
+          <li>Steuerung von Reinigung und Fachfirmen</li>
+        </ul>
+      </div>
+    </div>
+    <dl class="zahlen auf">
+      <div><dt>I–III</dt><dd>Ausbaustufen</dd></div>
+      <div><dt><span data-zaehle="600">600</span> m</dt><dd>über dem Meer</dd></div>
+      <div><dt><span data-zaehle="12500">12.500</span></dt><dd>Menschen täglich*</dd></div>
+    </dl>
+    <p class="fussnote auf">* Angabe der IHK Ulm, Stand 2014</p>
+  </section>
+
+  <section class="teil" id="ablauf" data-form="haken" data-x=".74" data-wort="Ablauf" data-nr="04">
+    <div class="inhalt links">
+      <p class="label auf" data-decode>Ablauf</p>
+      <h2 class="auf">Vier Schritte bis zum <em>ruhigen Betrieb.</em></h2>
+      <ol class="schritte auf">
+        <li><span class="s-nr">1</span><h3>Begehung</h3><p>Technik, Flächen, Prüfpflichten und offene Punkte gemeinsam ansehen.</p></li>
+        <li><span class="s-nr">2</span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner an einem Ort dokumentiert.</p></li>
+        <li><span class="s-nr">3</span><h3>Laufender Betrieb</h3><p>Feste Rundgänge, schnelle Reaktion, Fachfirmen im Griff.</p></li>
+        <li><span class="s-nr">4</span><h3>Kurzer Bericht</h3><p>Was erledigt ist, was geplant ist, was ansteht.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="teil" id="kontakt" data-form="telefon" data-x=".25" data-wort="Kontakt" data-nr="05">
+    <div class="inhalt rechts">
+      <p class="label auf" data-decode>Kontakt</p>
+      <h2 class="auf">Sprechen wir über <em>Ihr Gebäude.</em></h2>
+      <p class="lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
+      <ul class="leiste kontakt auf">
+        <li class="kachel" data-tilt>
+          <span class="k-icon"><svg viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span>
+          <b>Anrufen</b><span class="k-text">Nummer folgt</span>
+        </li>
+        <li class="kachel" data-tilt>
+          <span class="k-icon"><svg viewBox="0 0 24 24"><path d="M3.5 6h17v12h-17z"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span>
+          <b>Schreiben</b><span class="k-text">E-Mail folgt</span>
+        </li>
+        <li class="kachel" data-tilt>
+          <span class="k-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <b>Einsatzgebiet</b><span class="k-text">Ulm, Neu-Ulm und Region</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="fuss-zeile">
+    <img src="../img/logo-weiss.svg" alt="APM Ulm" width="64" height="28">
+    <span>© 2026 APM Ulm · Facility Management</span>
+    <span>Impressum (folgt) · Datenschutz (folgt)</span>
+  </div>
+  <p class="vorschau">Vorschau – Kontaktdaten, Impressum und Datenschutz werden noch ergänzt.</p>
+  <details>
+    <summary>Bildnachweis</summary>
+    <ul>
+      <li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li>
+    </ul>
+    <p>Bild zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
+  </details>
+</footer>
+
+<script src="../vendor/lenis.min.js" defer></script>
+<script src="c.js?v=2" defer></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+@font-face{font-family:"Source Sans 3";src:url(../fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(../fonts/plex-mono.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{--nacht:#0E1629;--navy:#16213A;--creme:#EEE8DC;--grau:#AAB2C3;--gold:#D6B068;--gold-tief:#B8924A;--glas:rgba(255,255,255,.055);--rand:rgba(255,255,255,.13);--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--nacht);color:var(--creme);font:400 16px/1.6 "Source Sans 3",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+em{font-style:normal;color:var(--gold)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* Hintergrund: weiches Licht + Partikelfeld */
+.schein{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.schein i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(40px);transition:transform 1.8s var(--ease)}
+.schein i:first-child{background:radial-gradient(closest-side,rgba(214,176,104,.13),transparent);left:50%;top:50%;transform:translate(calc(-50% + var(--sx,22vw)),-50%)}
+.schein i:last-child{background:radial-gradient(closest-side,rgba(72,112,196,.18),transparent);left:50%;top:50%;transform:translate(calc(-50% - var(--sx,22vw)),-30%)}
+#feld{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.fortschritt{position:fixed;left:0;top:0;width:100%;height:2px;z-index:30}
+.fortschritt span{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+
+/* Kopf: schwebende Pille */
+.kopf{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:26px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(14,22,41,.62);border:1px solid var(--rand);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.nav{display:flex;gap:22px;font-size:14.5px;color:var(--grau)}
+.nav a{position:relative;padding:6px 0;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav a:hover,.nav a.aktiv{color:var(--creme)}
+.nav a:hover::after,.nav a.aktiv::after{transform:scaleX(1)}
+
+/* Pillen-Knöpfe */
+.pille{display:inline-flex;align-items:center;gap:12px;padding:7px 7px 7px 20px;border-radius:999px;border:1px solid var(--rand);background:var(--glas);font-weight:600;font-size:15px;line-height:1.3;transition:background .4s,border-color .4s,color .4s,transform .4s var(--ease)}
+.pille .pfeil{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);position:relative;flex:none;transition:transform .5s var(--ease),background .4s}
+.pille .pfeil::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EEE8DC' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 16 16 8M9.5 8H16v6.5'/%3E%3C/svg%3E") center/15px no-repeat}
+.pille.gold .pfeil::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D6B068' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 16 16 8M9.5 8H16v6.5'/%3E%3C/svg%3E")}
+.pille:hover{border-color:var(--gold);transform:translateY(-2px)}
+.pille:hover .pfeil{transform:rotate(45deg)}
+.pille.gold{background:var(--gold);border-color:var(--gold);color:var(--nacht)}
+.pille.gold .pfeil{background:var(--nacht);color:var(--gold)}
+.pille.gold:hover{background:#E4C283}
+.pille.klein{font-size:14px;padding:5px 5px 5px 16px}
+.pille.klein .pfeil{width:28px;height:28px}
+
+/* Abschnitts-Marke unten links */
+.marke{position:fixed;left:28px;bottom:24px;z-index:15;display:flex;align-items:center;gap:12px;font:400 11.5px/1.3 "Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau)}
+.marke-nr{color:var(--gold)}
+.marke-strich{width:38px;height:1px;background:var(--rand)}
+
+/* Abschnitte */
+main{position:relative;z-index:5}
+.teil{max-width:1180px;margin:0 auto;padding:clamp(64px,11vh,116px) 32px;position:relative}
+#start{padding-top:clamp(120px,19vh,190px)}
+.inhalt{width:min(540px,100%)}
+.inhalt.rechts{margin-left:auto}
+.label{display:flex;align-items:center;gap:10px;font:400 11.5px/1.4 "Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;min-height:1.4em}
+.punkt{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(214,176,104,.6);animation:puls 2.4s infinite}
+@keyframes puls{70%{box-shadow:0 0 0 9px rgba(214,176,104,0)}100%{box-shadow:0 0 0 0 rgba(214,176,104,0)}}
+h1,h2{font-weight:300;line-height:1.22;letter-spacing:0}
+h1{font-size:clamp(31px,3.5vw,46px)}
+h2{font-size:clamp(25px,2.6vw,34px)}
+h3{font-size:17px;font-weight:600;line-height:1.3}
+.lead{color:var(--grau);font-size:16.5px;margin-top:18px;max-width:52ch}
+.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* Einblenden */
+.auf{opacity:0;transform:translateY(20px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+.teil.da .auf{opacity:1;transform:none}
+
+/* Glas */
+.glas{background:rgba(20,30,54,.6);border:1px solid var(--rand);border-radius:28px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+
+/* Kacheln (Vorteile, Kontakt) */
+.leiste{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(40px,7vh,72px)}
+.leiste.kontakt{margin-top:28px}
+.kachel{position:relative;display:flex;flex-direction:column;gap:4px;padding:22px 22px 24px;border-radius:24px;background:rgba(20,30,54,.62);border:1px solid var(--rand);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 16px 40px rgba(0,0,0,.28);transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease),border-color .4s,box-shadow .4s;overflow:hidden}
+.kachel::before{content:"";position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(214,176,104,.2),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none}
+.kachel::after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:2px;border-radius:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.kachel:hover{border-color:rgba(214,176,104,.6);box-shadow:0 22px 54px rgba(0,0,0,.42)}
+.kachel:hover::before{opacity:1}
+.kachel:hover::after{transform:scaleX(1)}
+.k-zahl{font-size:25px;font-weight:300;line-height:1.25;color:var(--gold)}
+.kachel b{font-weight:600;font-size:15.5px}
+.k-text{color:var(--grau);font-size:14.5px;line-height:1.5}
+.k-icon{width:42px;height:42px;border-radius:50%;border:1px solid var(--rand);display:grid;place-items:center;margin-bottom:10px;transition:background .4s,border-color .4s}
+.k-icon svg{width:20px;height:20px;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.kachel:hover .k-icon{background:var(--gold);border-color:var(--gold)}
+.kachel:hover .k-icon svg{stroke:var(--nacht)}
+
+/* Leistungen: Auswahl-Pillen + Detail */
+.wahl{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.w-pille{display:inline-flex;align-items:center;gap:10px;padding:9px 17px 9px 13px;border-radius:999px;border:1px solid var(--rand);background:rgba(20,30,54,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:15px;font-weight:500;line-height:1.3;transition:background .45s var(--ease),color .45s,border-color .45s,transform .45s var(--ease)}
+.w-pille span{font:400 11px/1 "Plex Mono",monospace;color:var(--gold);letter-spacing:.08em;transition:color .45s}
+.w-pille:hover{border-color:rgba(214,176,104,.6);transform:translateY(-2px)}
+.w-pille.aktiv{background:var(--gold);border-color:var(--gold);color:var(--nacht);font-weight:600}
+.w-pille.aktiv span{color:var(--nacht)}
+.detail{position:relative;margin-top:18px;padding:24px 26px 28px;overflow:hidden}
+.d-nr{font:400 11px/1.4 "Plex Mono",monospace;letter-spacing:.14em;color:var(--gold)}
+.d-titel{font-size:22px;font-weight:400;margin-top:8px;min-height:1.3em}
+.d-text{color:var(--grau);margin-top:6px;min-height:3.2em;transition:opacity .35s}
+.d-text.weg{opacity:0}
+.d-lauf{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.07)}
+.d-lauf span{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.d-lauf.laeuft span{animation:lauf var(--takt,3600ms) linear forwards}
+@keyframes lauf{to{transform:scaleX(1)}}
+
+/* Praxis */
+.buehne{display:grid;grid-template-columns:1.05fr 1fr;gap:0;overflow:hidden}
+.foto{position:relative;overflow:hidden;min-height:100%}
+.foto img{width:100%;height:calc(100% + 60px);object-fit:cover;transform:translateY(calc(-30px + var(--py,0px)));filter:saturate(.85) contrast(1.02)}
+.foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(20,30,54,.75))}
+.foto figcaption{position:absolute;left:18px;bottom:16px;z-index:2;padding:5px 12px;border-radius:999px;background:rgba(14,22,41,.72);border:1px solid var(--rand);font:400 10.5px/1.4 "Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.b-text{padding:clamp(26px,3.2vw,44px)}
+.haken{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.haken li{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;border-radius:999px;border:1px solid var(--rand);background:var(--glas);font-size:14px;line-height:1.35}
+.haken li::before{content:"";width:9px;height:5px;border-left:1.6px solid var(--gold);border-bottom:1.6px solid var(--gold);transform:rotate(-45deg) translateY(-2px);flex:none}
+.zahlen{display:grid;grid-template-columns:repeat(3,1fr);margin-top:14px;border-radius:999px;border:1px solid var(--rand);background:rgba(20,30,54,.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:16px 12px}
+.zahlen div{text-align:center;padding:0 12px}
+.zahlen div+div{border-left:1px solid var(--rand)}
+.zahlen dt{font-size:26px;font-weight:300;line-height:1.25;color:var(--gold);font-variant-numeric:tabular-nums}
+.zahlen dd{color:var(--grau);font-size:13.5px}
+.fussnote{color:var(--grau);font-size:12.5px;margin-top:10px;padding-left:22px;opacity:.8}
+
+/* Ablauf: Zeitstrahl */
+.schritte{position:relative;margin-top:30px;display:grid;gap:12px;--fuell:0}
+.schritte::before,.schritte::after{content:"";position:absolute;left:20px;top:22px;bottom:22px;width:1px;background:var(--rand)}
+.schritte::after{background:var(--gold);transform-origin:top;transform:scaleY(var(--fuell));box-shadow:0 0 12px rgba(214,176,104,.7)}
+.schritte li{position:relative;z-index:1;display:grid;grid-template-columns:42px 1fr;column-gap:18px;align-items:start;padding:14px 20px 16px 0}
+.s-nr{grid-row:span 2;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--navy);border:1px solid var(--rand);font:400 13px/1 "Plex Mono",monospace;color:var(--grau);transition:background .5s,color .5s,border-color .5s,box-shadow .5s}
+.schritte li.an .s-nr{background:var(--gold);border-color:var(--gold);color:var(--nacht);box-shadow:0 0 0 6px rgba(214,176,104,.16)}
+.schritte h3{padding-top:9px}
+.schritte p{grid-column:2;color:var(--grau);font-size:15px;margin-top:2px}
+
+/* Fuß */
+.fuss{position:relative;z-index:5;max-width:1180px;margin:0 auto;padding:30px 32px 70px;color:var(--grau);font-size:13.5px;border-top:1px solid var(--rand)}
+.fuss-zeile{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px}
+.fuss-zeile span:last-child{margin-left:auto}
+.vorschau{margin-top:12px;opacity:.8}
+.fuss details{margin-top:8px}
+.fuss summary{cursor:pointer}
+.fuss details ul,.fuss details p{margin-top:6px}
+.fuss a{text-decoration:underline;text-underline-offset:3px}
+
+/* Handy & Tablet */
+@media (max-width:900px){
+  .kopf{left:12px;right:12px;transform:none;justify-content:space-between;padding-left:18px}
+  .nav,.marke{display:none}
+  .teil{padding:56px 18px}
+  #start{padding-top:118px}
+  .inhalt{width:100%}
+  .leiste{grid-template-columns:1fr;gap:10px;margin-top:36px}
+  .kachel{padding:18px 20px 20px}
+  .buehne{grid-template-columns:1fr}
+  .foto{aspect-ratio:16/9}
+  .foto::after{background:linear-gradient(180deg,transparent 55%,rgba(20,30,54,.75))}
+  .zahlen{border-radius:26px;padding:14px 4px}
+  .zahlen dt{font-size:21px}
+  .zahlen dd{font-size:12.5px}
+  .w-pille{font-size:14.5px;padding:8px 14px 8px 11px}
+  .fuss{padding:26px 18px 40px}
+  .fuss-zeile span:last-child{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .auf{opacity:1;transform:none;transition:none}
+  .punkt{animation:none}
+  .schein i{transition:none}
+}
