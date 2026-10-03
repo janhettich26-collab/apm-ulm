@@ -49,7 +49,7 @@
   zeige('aussen', true);
   /* nach dem Aufklappen: Kachel neigt sich zur Maus, Lichtfleck wandert mit */
   kacheln.forEach(k => {
-    k.addEventListener('transitionend', e => { if (e.propertyName === 'transform' && k.classList.contains('da')) k.classList.add('fertig'); });
+    k.addEventListener('animationend', e => { if (e.animationName === 'zeichne' && e.target.closest('.k-icon')) k.classList.add('fertig'); });
     if (leise || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     k.addEventListener('pointermove', e => {
       const r = k.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;

@@ -19,6 +19,8 @@ I = {
  'gewaehr': '<path d="M8 4h8v3H8zM6 5.5H5v15h14v-15h-1M9 14l2 2 4-4.5"/>',
 }
 svg = lambda k: f'<svg viewBox="0 0 24 24" aria-hidden="true">{I[k]}</svg>'
+# gleiche Symbole, aber zeichenbar (pathLength=1) fuer die Kachel-Animation
+svg_z = lambda k: svg(k).replace('<path ','<path pathLength="1" ').replace('<circle ','<circle pathLength="1" ')
 # (Schluessel, Titel, Kurztext) – eigene Benennung und Reihenfolge
 AUSSEN = [
  ('objekt','Hausmeisterdienst','Ein fester Betreuer im Objekt: Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.'),
@@ -42,7 +44,7 @@ TECHNIK = [
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
 def kacheln(L,art):
-    return ''.join(f'<li class="kachel auf" data-art="{art}"><span class="k-icon">{svg(k)}</span><h3>{t}</h3><p>{x}</p></li>\n' for k,t,x in L)
+    return ''.join(f'<li class="kachel auf" data-art="{art}"><svg class="k-rahmen" aria-hidden="true"><rect x="0.5" y="0.5" rx="17.5" pathLength="1"/></svg><span class="k-icon">{svg_z(k)}</span><h3>{t}</h3><p>{x}</p></li>\n' for k,t,x in L)
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
 band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
@@ -62,12 +64,12 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=9">
+<link rel="stylesheet" href="d.css?v=11">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>property management</b><span>Ulm und Region</span><small>Gebäude in Ulm, um Ulm und um Ulm herum.</small></span></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum.</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -120,7 +122,7 @@ html = f"""<!doctype html>
 
 <section class="teil" id="praxis">
   <div class="block">
-    <figure class="block-bild auf"><img src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="(max-width: 980px) 100vw, 620px" alt="Science Park II, Ulm" loading="lazy"><figcaption>Science Park II, Ulm</figcaption></figure>
+    <figure class="block-bild auf"><img src="../img/sciencepark-1500.webp" srcset="../img/sciencepark-800.webp 800w, ../img/sciencepark-1500.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park Ulm, Lise-Meitner-Straße</figcaption></figure>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park <em>Ulm</em></h2>
@@ -166,11 +168,11 @@ html = f"""<!doctype html>
   <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span>Impressum (folgt) · Datenschutz (folgt)</span></div>
   <p class="vorschau">Vorschau – Kontaktdaten, Impressum und Datenschutz werden noch ergänzt.</p>
   <details><summary>Bildnachweis</summary>
-    <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li></ul>
+    <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li><li>Science Park, Lise-Meitner-Straße: Trop86, <a href="https://commons.wikimedia.org/wiki/File:Lise-Meitner-Stra%C3%9Fe_(Ulm)_101520.jpg" rel="noopener">Wikimedia Commons</a>, CC0</li></ul>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=9" defer></script>
+<script src="d.js?v=11" defer></script>
 </body>
 </html>
 """
