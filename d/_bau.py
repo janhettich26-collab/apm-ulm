@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=17">
+<link rel="stylesheet" href="d.css?v=18">
 </head>
 <body>
 <header class="kopf">
@@ -163,10 +163,10 @@ html = f"""<!doctype html>
 
 <section class="teil" id="praxis">
   <div class="block">
-    <figure class="block-bild auf"><img src="../img/sciencepark-1500-sw.webp" srcset="../img/sciencepark-800-sw.webp 800w, ../img/sciencepark-1500-sw.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park Ulm, Lise-Meitner-Straße</figcaption></figure>
+    <figure class="block-bild auf"><img src="../img/sciencepark-1500-sw.webp" srcset="../img/sciencepark-800-sw.webp 800w, ../img/sciencepark-1500-sw.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park II Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park II Ulm, Lise-Meitner-Straße</figcaption></figure>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
-      <h2>Science Park <em>Ulm</em></h2>
+      <h2>Science Park II <em>Ulm</em></h2>
       <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten property management.</p>
       <ul class="haken">
         <li>Objektbetreuung und Hausmeisterdienst</li>
@@ -214,7 +214,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=17" defer></script>
+<script src="d.js?v=18" defer></script>
 </body>
 </html>
 """
