@@ -1,4 +1,4 @@
-# Baut index.html der Variante D (Layout nach Vorbild duu-mbh.de, Leistungen in zwei Bereichen)
+# Baut index.html der Variante D (helles Firmen-Layout, eigener Aufbau, Leistungen in zwei Reitern)
 I = {
  'objekt': '<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/>',
  'doku': '<path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/>',
@@ -19,52 +19,43 @@ I = {
  'gewaehr': '<path d="M8 4h8v3H8zM6 5.5H5v15h14v-15h-1M9 14l2 2 4-4.5"/>',
 }
 svg = lambda k: f'<svg viewBox="0 0 24 24" aria-hidden="true">{I[k]}</svg>'
-# (Schluessel, Titel, Unterpunkte, Kurztext)
-INFRA = [
- ('objekt','Objektbetreuung',[], 'Hausmeister und Gebäudetechniker als fester Ansprechpartner im Objekt: Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.'),
- ('doku','Dokumentation',[], 'Nutzerinformationen, Aushänge und Protokolle – alles zum Objekt geordnet und nachvollziehbar.'),
- ('gruen','Grünanlagenpflege',['Rasen-, Gehölz-, Hecken- und Baumschnitt','Pflege von Beeten, Vorgärten und Pflanzgefäßen','Bewässerung und Düngung','Entsorgung von Grünschnitt und Laub'], 'Schnitt, Pflege, Bewässerung und Laubentsorgung für alle Grünflächen der Liegenschaft.'),
- ('winter','Winterdienst',[], 'Räumen und Streuen von Wegen, Zufahrten und Parkflächen – früh genug, damit die Verkehrssicherungspflicht erfüllt ist.'),
- ('galabau','Garten- und Landschaftsbau',[], 'Außenanlagen herrichten, instand setzen, neu bepflanzen oder umgestalten.'),
- ('pforte','Post- und Pförtnerdienste',[], 'Empfang, Postverteilung und Pforte, damit im Haus alles an der richtigen Stelle ankommt.'),
- ('park','Parkhausdienste',[], 'Ordnung, Kontrolle und sicherer Ablauf in Parkhäusern und Tiefgaragen.'),
- ('abfall','Abfallmanagement',[], 'Tonnen pünktlich bereitstellen, Standplätze sauber halten, Entsorgung koordinieren.'),
- ('rein','Reinigung und Pflege',[], 'Unterhaltsreinigung der Allgemeinflächen innen und außen – gesteuert und kontrolliert aus einer Hand.'),
+# (Schluessel, Titel, Kurztext) – eigene Benennung und Reihenfolge
+AUSSEN = [
+ ('objekt','Hausmeisterdienst','Ein fester Betreuer im Objekt: Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.'),
+ ('rein','Reinigung steuern','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und rügen nach.'),
+ ('gruen','Grünpflege','Rasen, Hecken, Bäume und Beete schneiden und pflegen, gießen, Laub und Schnittgut abfahren.'),
+ ('winter','Winterdienst','Wege, Zufahrten und Parkflächen räumen und streuen, bevor morgens der Betrieb beginnt.'),
+ ('galabau','Außenanlagen erneuern','Flächen herrichten, ausbessern, neu bepflanzen oder umgestalten.'),
+ ('abfall','Abfall und Wertstoffe','Tonnen rechtzeitig bereitstellen, Standplätze sauber halten, Abholung abstimmen.'),
+ ('park','Parkflächen und Tiefgaragen','Ordnung, Beleuchtung, Beschilderung und ein sicherer Ablauf für Mieter und Besucher.'),
+ ('pforte','Empfang und Post','Besucher empfangen, Post und Pakete annehmen und im Haus verteilen.'),
+ ('doku','Objektunterlagen','Aushänge, Nutzerinfos und Protokolle zum Gebäude geordnet an einem Ort.'),
 ]
-TECH = [
- ('betreiber','Betreiberverantwortung',[], 'Wir achten darauf, dass Prüfungen und Wartungen der technischen Anlagen fristgerecht stattfinden und belegt sind.'),
- ('cafm','Digitale Objektakte (CAFM)',['Anlagen und Stammdaten aufnehmen','Prüftermine anlegen','Wartungspläne festlegen','Budget planen und überwachen'], 'Anlagen, Fristen, Wartungspläne und Budget an einem Ort – mit klarem Bericht für den Eigentümer.'),
- ('wartung','Inspektion und Wartung',[], 'Heizung, Lüftung, Sanitär, Elektro: regelmäßig geprüft, gewartet und dokumentiert.'),
- ('instand','Instandsetzung',[], 'Kleine und größere Reparaturen von der Planung über das Ersatzteil bis zur Abnahme.'),
- ('brand','Brandschutz und Prüffristen',[], 'Rettungswege, Feuerlöscher, Rauchabzug, Brandmeldeanlage und Begehungen im Blick.'),
- ('stoer','Störungsannahme',[], 'Meldung aufnehmen, Fachfirma beauftragen, Erledigung zurückmelden.'),
- ('omgmt','Objektmanagement',[], 'Steuerung aller Dienstleister und Fachfirmen im Gebäude – ein Ansprechpartner für den Eigentümer.'),
- ('gewaehr','Gewährleistungsverfolgung',[], 'Mängel bei Neubau, Umbau und Sanierung anmelden, nachverfolgen und die Beseitigung koordinieren.'),
+TECHNIK = [
+ ('wartung','Wartung und Inspektion','Heizung, Lüftung, Sanitär und Elektro regelmäßig prüfen und warten lassen – mit Nachweis.'),
+ ('instand','Reparaturen','Vom tropfenden Ventil bis zur größeren Instandsetzung: planen, Ersatzteil besorgen, erledigen, abnehmen.'),
+ ('brand','Brandschutz und Prüffristen','Rettungswege, Feuerlöscher, Rauchabzug und Brandmeldeanlage im Blick, Begehungen inklusive.'),
+ ('betreiber','Betreiberpflichten','Wir achten darauf, dass vorgeschriebene Prüfungen fristgerecht stattfinden und belegt sind.'),
+ ('stoer','Störungsannahme','Meldung aufnehmen, Fachfirma beauftragen, Erledigung an Sie zurückmelden.'),
+ ('omgmt','Dienstleister steuern','Handwerker und Fachfirmen koordinieren – Sie haben einen Ansprechpartner statt zehn.'),
+ ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
+ ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-def liste(L):
-    o=''
-    for k,t,u,_ in L:
-        o+=f'<li>{t}'
-        if u: o+='<ul>'+''.join(f'<li>{x}</li>' for x in u)+'</ul>'
-        o+='</li>\n'
-    return o
-def karten(L,art,name):
-    return ''.join(f'<article class="karte auf" data-art="{art}"><span class="k-icon">{svg(k)}</span><span class="k-art">{name}</span><h3>{t}</h3><p>{x}</p></article>\n' for k,t,_,x in L)
-HELD = [('objekt','Objektbetreuung',64,10),('gruen','Grünpflege',84,22),('wartung','Wartung',61,40),('brand','Brandschutz',74,50),('winter','Winterdienst',89,62),('rein','Reinigung',66,74)]
-held = ''.join(f'<a href="#leistungen" class="h-icon" style="--x:{x}%;--y:{y}%;--d:{i*0.4:.1f}s">{svg(k)}<span>{t}</span></a>' for i,(k,t,x,y) in enumerate(HELD))
-n = len(INFRA)+len(TECH)
-html = f'''<!doctype html>
+def karten(L,art):
+    return ''.join(f'<article class="karte auf" data-art="{art}"><span class="k-icon">{svg(k)}</span><h3>{t}</h3><p>{x}</p></article>\n' for k,t,x in L)
+band = ''.join(f'<span>{svg(k)}{t}</span>' for k,t,_ in AUSSEN+TECHNIK)
+html = f"""<!doctype html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>APM Ulm – Facility Management für Ulm und die Region</title>
-<meta name="description" content="Infrastrukturelles und technisches Gebäudemanagement aus einer Hand: Objektbetreuung, Grünpflege, Winterdienst, Wartung, Brandschutz und Objektmanagement in Ulm und der Region.">
+<meta name="description" content="Facility Management aus einer Hand: Hausmeisterdienst, Grünpflege, Winterdienst, Wartung, Brandschutz und Steuerung aller Dienstleister – in Ulm und der Region.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=1">
+<link rel="stylesheet" href="d.css?v=2">
 </head>
 <body>
 <header class="kopf">
@@ -72,8 +63,7 @@ html = f'''<!doctype html>
     <a href="#start" class="logo" aria-label="APM Ulm – nach oben"><img src="../img/logo.svg" alt="APM Ulm" width="92" height="40"></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
-      <a href="#leistungen">Dienstleistungen</a>
-      <a href="#ueberblick">Alle Leistungen</a>
+      <a href="#leistungen">Leistungen</a>
       <a href="#praxis">Praxisbeispiel</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#kontakt" class="nav-cta">Kontakt</a>
@@ -83,61 +73,46 @@ html = f'''<!doctype html>
 
 <main>
 <section class="held" id="start">
-  <img class="held-bild" src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
-  <div class="held-in">
-    <div class="held-text">
-      <h1>APM –<br>Facility Management für Ulm und die Region</h1>
-      <p class="drei-zeilen">Für Ihr Gebäude.<br>Für Ihre Mieter.<br>Für einen ruhigen Betrieb.</p>
+  <div class="held-text">
+    <p class="label"><i></i>Facility Management · Ulm und Region</p>
+    <h1>Gebäude, die <em>einfach laufen.</em></h1>
+    <p class="lead">Wir kümmern uns um Ihre Immobilie – außen, innen und an der Technik. Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist.</p>
+    <div class="knoepfe">
+      <a href="#kontakt" class="btn">Objekt anfragen</a>
+      <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
     </div>
-    <div class="h-icons">{held}</div>
+  </div>
+  <div class="held-foto">
+    <img src="../img/energon-1600.webp" srcset="../img/energon-800.webp 800w, ../img/energon-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 640px" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1600" height="1200" fetchpriority="high">
+    <div class="held-karte"><b>{len(AUSSEN)+len(TECHNIK)} Leistungen</b><span>ein Ansprechpartner</span></div>
   </div>
 </section>
 
-<section class="teil mitte" id="intro">
-  <h2 class="auf">Unser Herz schlägt für <em>Gebäude, die einfach laufen</em></h2>
-  <p class="gross auf">Von der Objektbetreuung über Grünpflege und Winterdienst bis zu Wartung, Brandschutz und Objektmanagement – wir übernehmen das komplette Facility Management Ihrer Immobilie.</p>
-  <p class="auf">Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist. Prüfungen, Wartungen und Mängel halten wir nachvollziehbar fest.</p>
-  <dl class="zahlen auf">
-    <div><dt data-zaehle="{n}">{n}</dt><dd>Leistungen</dd></div>
-    <div><dt data-zaehle="2">2</dt><dd>Bereiche</dd></div>
-    <div><dt data-zaehle="1">1</dt><dd>Ansprechpartner</dd></div>
-    <div><dt data-zaehle="4">4</dt><dd>Schritte zum Start</dd></div>
-  </dl>
+<div class="laufband" aria-hidden="true"><div class="laufband-in">{band}{band}</div></div>
+
+<section class="teil" id="vorteile">
+  <ul class="vorteile">
+    <li class="auf"><span class="v-zahl">1</span><h3>Ein Ansprechpartner</h3><p>Eine Nummer für Hausmeister, Technik, Brandschutz und Außenanlagen.</p></li>
+    <li class="auf"><span class="v-zahl">vor Ort</span><h3>Statt Hotline</h3><p>Wir kennen Ihr Gebäude, weil wir regelmäßig drin sind.</p></li>
+    <li class="auf"><span class="v-zahl">lückenlos</span><h3>Alles dokumentiert</h3><p>Prüfungen, Wartungen und Mängel nachvollziehbar festgehalten.</p></li>
+  </ul>
 </section>
 
 <section class="teil" id="leistungen">
-  <div class="kopfzeile auf"><p class="label">Dienstleistungen</p><h2>Zwei Bereiche, <em>ein Ansprechpartner</em></h2></div>
-  <div class="duo">
-    <img class="duo-bild auf" src="../img/energon-fassade.webp" alt="Fassade im Science Park II" loading="lazy">
-    <div class="tafel dunkel auf">
-      <h3>Infrastrukturelles Gebäudemanagement</h3>
-      <ul class="t-liste">
-{liste(INFRA)}      </ul>
-    </div>
-    <div class="tafel gold auf">
-      <h3>Technisches Gebäudemanagement</h3>
-      <ul class="t-liste">
-{liste(TECH)}      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="teil" id="ueberblick">
-  <div class="kopfzeile auf"><p class="label">Alle Leistungen im Überblick</p><h2>Was wir für Ihr Gebäude <em>übernehmen</em></h2></div>
-  <div class="filter auf" role="group" aria-label="Leistungen filtern">
-    <button class="aktiv" data-filter="alle">Alle</button>
-    <button data-filter="infra">Infrastrukturell</button>
-    <button data-filter="tech">Technisch</button>
+  <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
+  <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
+    <button class="aktiv" role="tab" aria-selected="true" data-art="aussen"><b>Gebäude und Außenanlagen</b><span>{len(AUSSEN)} Leistungen rund ums Haus</span></button>
+    <button role="tab" aria-selected="false" data-art="technik"><b>Technik und Betrieb</b><span>{len(TECHNIK)} Leistungen für Anlagen und Abläufe</span></button>
   </div>
   <div class="karten">
-{karten(INFRA,'infra','Infrastrukturell')}{karten(TECH,'tech','Technisch')}  </div>
+{karten(AUSSEN,'aussen')}{karten(TECHNIK,'technik')}  </div>
 </section>
 
 <section class="teil" id="praxis">
   <div class="block">
-    <figure class="block-bild auf"><img src="../img/energon-1600.webp" srcset="../img/energon-800.webp 800w, ../img/energon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px" alt="Science Park II, Ulm" loading="lazy"><figcaption>Science Park II, Ulm</figcaption></figure>
+    <figure class="block-bild auf"><img src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="(max-width: 980px) 100vw, 620px" alt="Science Park II, Ulm" loading="lazy"><figcaption>Science Park II, Ulm</figcaption></figure>
     <div class="block-text auf">
-      <p class="label">Praxisbeispiel</p>
+      <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park <em>Ulm</em></h2>
       <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Facility Management.</p>
       <ul class="haken">
@@ -152,7 +127,7 @@ html = f'''<!doctype html>
 </section>
 
 <section class="teil" id="ablauf">
-  <div class="kopfzeile auf"><p class="label">Ablauf</p><h2>Vier Schritte bis zum <em>ruhigen Betrieb</em></h2></div>
+  <div class="kopfzeile auf"><p class="label"><i></i>Ablauf</p><h2>Vier Schritte bis zum <em>ruhigen Betrieb</em></h2></div>
   <ol class="schritte">
     <li class="auf"><span>1</span><h3>Begehung</h3><p>Technik, Flächen, Prüfpflichten und offene Punkte gemeinsam ansehen.</p></li>
     <li class="auf"><span>2</span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner an einem Ort dokumentiert.</p></li>
@@ -161,10 +136,10 @@ html = f'''<!doctype html>
   </ol>
 </section>
 
-<section class="band" id="kontakt">
-  <div class="band-in">
+<section class="teil" id="kontakt">
+  <div class="band">
     <div class="auf">
-      <p class="label">Kontakt</p>
+      <p class="label"><i></i>Kontakt</p>
       <h2>Sprechen wir über <em>Ihr Gebäude</em></h2>
       <p>Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
     </div>
@@ -185,8 +160,8 @@ html = f'''<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=1" defer></script>
+<script src="d.js?v=2" defer></script>
 </body>
 </html>
-'''
-open('index.html','w').write(html); print(n,'Leistungen')
+"""
+open('index.html','w').write(html); print(len(AUSSEN)+len(TECHNIK),'Leistungen')
