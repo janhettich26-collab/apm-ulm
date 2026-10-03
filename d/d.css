@@ -47,6 +47,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;text-a
 .label{display:flex;align-items:center;gap:12px;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--grau);margin-bottom:16px}
 .label i{width:30px;height:1px;background:currentColor}
 .held .label{color:var(--hellgrau)}
+.label.ohne-gross{text-transform:none;letter-spacing:.1em;font-size:15px}
 h1{font-size:clamp(38px,5vw,68px);font-weight:700;line-height:1.12}
 h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
 h1 .w>span{display:inline-block;transform:translateY(110%);animation:wort 1s var(--ease) forwards;animation-delay:calc(.15s + var(--n)*90ms)}
