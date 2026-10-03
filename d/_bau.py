@@ -27,7 +27,7 @@ AUSSEN = [
  ('rein','Reinigung','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und rügen nach.'),
  ('gruen','Grünpflege','Rasen, Hecken, Bäume und Beete schneiden und pflegen, gießen, Laub und Schnittgut abfahren.'),
  ('winter','Winterdienst','Wege, Zufahrten und Parkflächen räumen und streuen, bevor morgens der Betrieb beginnt.'),
- ('galabau','Außenanlagenpflege','Wege, Plätze, Beete und Bänke sauber und in Ordnung halten, kleine Schäden ausbessern.'),
+ ('galabau','Außenanlage','Wege, Plätze, Beete und Bänke sauber und in Ordnung halten, kleine Schäden ausbessern.'),
  ('abfall','Abfall und Wertstoffe','Tonnen rechtzeitig bereitstellen, Standplätze sauber halten, Abholung abstimmen.'),
  ('park','Parkflächen und Tiefgaragen','Ordnung, Beleuchtung, Beschilderung und ein sicherer Ablauf für Mieter und Besucher.'),
  ('pforte','Empfang und Post','Besucher empfangen, Post und Pakete annehmen und im Haus verteilen.'),
@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=15">
+<link rel="stylesheet" href="d.css?v=16">
 </head>
 <body>
 <header class="kopf">
@@ -213,7 +213,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=15" defer></script>
+<script src="d.js?v=16" defer></script>
 </body>
 </html>
 """
