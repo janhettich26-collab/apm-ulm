@@ -55,7 +55,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=2">
+<link rel="stylesheet" href="d.css?v=3">
 </head>
 <body>
 <header class="kopf">
@@ -73,18 +73,15 @@ html = f"""<!doctype html>
 
 <main>
 <section class="held" id="start">
+  <img class="held-bild" src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
     <p class="label"><i></i>Facility Management · Ulm und Region</p>
     <h1>Gebäude, die <em>einfach laufen.</em></h1>
     <p class="lead">Wir kümmern uns um Ihre Immobilie – außen, innen und an der Technik. Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
-      <a href="#kontakt" class="btn">Objekt anfragen</a>
+      <a href="#kontakt" class="btn akzent">Objekt anfragen</a>
       <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
     </div>
-  </div>
-  <div class="held-foto">
-    <img src="../img/energon-1600.webp" srcset="../img/energon-800.webp 800w, ../img/energon-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 640px" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1600" height="1200" fetchpriority="high">
-    <div class="held-karte"><b>{len(AUSSEN)+len(TECHNIK)} Leistungen</b><span>ein Ansprechpartner</span></div>
   </div>
 </section>
 
@@ -101,8 +98,8 @@ html = f"""<!doctype html>
 <section class="teil" id="leistungen">
   <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
   <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
-    <button class="aktiv" role="tab" aria-selected="true" data-art="aussen"><b>Gebäude und Außenanlagen</b><span>{len(AUSSEN)} Leistungen rund ums Haus</span></button>
-    <button role="tab" aria-selected="false" data-art="technik"><b>Technik und Betrieb</b><span>{len(TECHNIK)} Leistungen für Anlagen und Abläufe</span></button>
+    <button class="aktiv" role="tab" aria-selected="true" data-art="aussen"><b>Gebäudemanagement</b><span>{len(AUSSEN)} Leistungen rund ums Haus</span></button>
+    <button role="tab" aria-selected="false" data-art="technik"><b>Technisches Gebäudemanagement</b><span>{len(TECHNIK)} Leistungen für Anlagen und Abläufe</span></button>
   </div>
   <div class="karten">
 {karten(AUSSEN,'aussen')}{karten(TECHNIK,'technik')}  </div>
@@ -160,7 +157,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=2" defer></script>
+<script src="d.js?v=3" defer></script>
 </body>
 </html>
 """
