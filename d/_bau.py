@@ -48,7 +48,8 @@ band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
 band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
 import json
 # Original-Logo, je Buchstabe ein Pfad (Geometrie unveraendert) – fuer die Einflug-Animation
-logo = '<svg class="logo-svg" viewBox="100 100 1124 377" role="img" aria-label="APM Ulm">' + ''.join(f'<path class="{"gross" if i<3 else "klein"}" style="--n:{i}" d="{d}"/>' for i,d in enumerate(json.load(open('_logo_teile.json')))) + '</svg>'
+AB = 22  # Jan 03.10.: a p m minimal auseinander (Zusatzabstand je Buchstabe in Logo-Einheiten)
+logo = f'<svg class="logo-svg" viewBox="100 100 {1124+5*AB} 377" role="img" aria-label="APM Ulm">' + ''.join(f'<g transform="translate({min(i,3)*AB + (AB if i>=3 else 0) + max(0,i-3)*6} 0)"><path class="{"gross" if i<3 else "klein"}" style="--n:{i}" d="{d}"/></g>' for i,d in enumerate(json.load(open('_logo_teile.json')))) + '</svg>'
 html = f"""<!doctype html>
 <html lang="de">
 <head>
@@ -60,12 +61,12 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=6">
+<link rel="stylesheet" href="d.css?v=7">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}</a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>Facility Management</b><span>Ulm und Region</span><small>Gebäude, die einfach laufen.</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -167,7 +168,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=6" defer></script>
+<script src="d.js?v=7" defer></script>
 </body>
 </html>
 """
