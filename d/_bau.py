@@ -128,7 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=48">
+<link rel="stylesheet" href="d.css?v=49">
 </head>
 <body>
 <header class="kopf">
@@ -223,7 +223,6 @@ html = f"""<!doctype html>
 <section class="dunkel" id="kontakt">
   <div class="teil kontakt">
     <div class="k-links">
-      <p class="label auf"><i></i>Kontakt</p>
       <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude</em></h2>
       <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
     </div>
@@ -245,7 +244,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=48" defer></script>
+<script src="d.js?v=49" defer></script>
 </body>
 </html>
 """
@@ -278,7 +277,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=48">
+<link rel="stylesheet" href="d.css?v=49">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
