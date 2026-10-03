@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=22">
+<link rel="stylesheet" href="d.css?v=23">
 </head>
 <body>
 <header class="kopf">
@@ -181,7 +181,7 @@ html = f"""<!doctype html>
 
 <section class="nebel" id="ablauf">
 <div class="teil">
-  <div class="kopfzeile auf"><p class="label"><i></i>Ablauf</p><h2>Vier Schritte bis zum <em>ruhigen Betrieb</em></h2></div>
+  <div class="kopfzeile auf"><p class="label"><i></i>Ablauf</p><h2>Vier Schritte bis zum <em>sicheren Betrieb</em></h2></div>
   <ol class="schritte" style="--fuell:0">
     <li class="auf"><span><b>1</b><svg viewBox="0 0 20 20" aria-hidden="true"><path pathLength="1" d="M5.2 10.4l3.2 3.2 6.4-7"/></svg></span><h3>Begehung</h3><p>Technik, Flächen, Prüfpflichten und offene Punkte gemeinsam ansehen.</p></li>
     <li class="auf"><span><b>2</b><svg viewBox="0 0 20 20" aria-hidden="true"><path pathLength="1" d="M5.2 10.4l3.2 3.2 6.4-7"/></svg></span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner an einem Ort dokumentiert.</p></li>
@@ -214,7 +214,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=22" defer></script>
+<script src="d.js?v=23" defer></script>
 </body>
 </html>
 """
