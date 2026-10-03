@@ -58,7 +58,7 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <path d="M210 182H520M210 254H520M210 326H520"/>
 <path d="M462 110V400"/>
 <path class="leicht" d="M420 110V400"/>
-<path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400"/>
+<path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400M500 110H520"/>
 <path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28z"/>
 <path class="leicht" d="M500 110V68M492 80H508"/>
 <circle class="leicht" cx="424" cy="432" r="12"/><path class="leicht" d="M424 420V400"/>
@@ -79,6 +79,14 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g data-k="omgmt" class="auto-oben"><path d="M-52 394v-30h32l12 14h14v16z"/><path d="M-22 368v10h12"/><circle cx="-38" cy="396" r="6"/><circle cx="-4" cy="396" r="6"/></g>
 <g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
 <g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
+<g class="sz szene">
+<path class="himmelblitz" d="M526 -10L509 22H520L503 48 500 68"/>
+<path class="strom" d="M500 68V110H520V436H504"/>
+<g class="sz rauch"><circle cx="484" cy="408" r="5.5"/><circle cx="492" cy="405" r="7"/><circle cx="499" cy="408" r="5"/><circle cx="489" cy="410" r="4.5"/></g>
+<g class="sz funken"><path d="M509 425l6-4M510 432h7M509 439l6 4"/></g>
+<g class="sz ok"><circle cx="491" cy="386" r="9"/><path d="M486.6 386l3 3 6-6.6"/></g>
+<g class="sz mann"><g class="sz mann-in"><circle cx="0" cy="-25" r="4"/><path d="M0 -21V-10"/><path d="M0 -18L6 -12"/><g class="sz arm"><path d="M0 -18L-8 -13M-8 -13l-4 -4"/></g><g class="sz bein-lauf"><path d="M0 -10L-6 0M0 -10L6 0"/></g><g class="sz bein-steh"><path d="M0 -10L-2 0M0 -10L3 0"/></g></g></g>
+</g>
 </svg>'''
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
@@ -99,7 +107,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=25">
+<link rel="stylesheet" href="d.css?v=26">
 </head>
 <body>
 <header class="kopf">
@@ -214,7 +222,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=25" defer></script>
+<script src="d.js?v=26" defer></script>
 </body>
 </html>
 """
