@@ -33,20 +33,31 @@
     auf.forEach(e => io.observe(e));
   }
 
-  /* Leistungen: zwei Reiter, Zeilen bauen sich nacheinander auf */
-  const reiter = [...document.querySelectorAll('.reiter button')], zeilen = [...document.querySelectorAll('.zeile')];
+  /* Leistungen: zwei Reiter, Kacheln klappen nacheinander auf */
+  const reiter = [...document.querySelectorAll('.reiter button')], kacheln = [...document.querySelectorAll('.kachel')];
   const zeige = (art, sofort) => {
     reiter.forEach(b => { const an = b.dataset.art === art; b.classList.toggle('aktiv', an); b.setAttribute('aria-selected', an); });
     let i = 0;
-    zeilen.forEach(z => {
-      const an = z.dataset.art === art; z.classList.toggle('aus', !an);
+    kacheln.forEach(k => {
+      const an = k.dataset.art === art; k.classList.toggle('aus', !an);
       if (!an) return;
-      z.style.setProperty('--v', (i++ * .05) + 's');
-      if (!sofort && !leise) { z.classList.remove('da'); void z.offsetWidth; z.classList.add('da'); }
+      k.classList.remove('fertig'); k.style.setProperty('--v', (i++ * .07) + 's');
+      if (!sofort && !leise) { k.classList.remove('da'); void k.offsetWidth; k.classList.add('da'); }
     });
   };
   reiter.forEach(b => b.addEventListener('click', () => zeige(b.dataset.art)));
   zeige('aussen', true);
+  /* nach dem Aufklappen: Kachel neigt sich zur Maus, Lichtfleck wandert mit */
+  kacheln.forEach(k => {
+    k.addEventListener('transitionend', e => { if (e.propertyName === 'transform' && k.classList.contains('da')) k.classList.add('fertig'); });
+    if (leise || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    k.addEventListener('pointermove', e => {
+      const r = k.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      k.style.setProperty('--ry', ((x - .5) * 10).toFixed(2) + 'deg'); k.style.setProperty('--rx', ((.5 - y) * 9).toFixed(2) + 'deg');
+      k.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); k.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    });
+    k.addEventListener('pointerleave', () => { k.style.setProperty('--rx', '0deg'); k.style.setProperty('--ry', '0deg'); });
+  });
 
   /* Laufband: zwei Reihen gegenläufig, Scrollen gibt Schwung */
   const reihen = [...document.querySelectorAll('.lb-reihe')].map(el => ({ el, x: 0, tempo: +el.dataset.tempo, halb: 0 }));
@@ -54,7 +65,7 @@
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0;
-  const logoSvg = document.querySelector('.logo-svg'); let letzterSchub = 0;
+  const logos = [...document.querySelectorAll('.logo-svg')]; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), praxisBild = document.querySelector('.block-bild img'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
@@ -78,7 +89,7 @@
       schwung += (Math.min(40, Math.abs(d)) - schwung) * .1;
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
       const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)));
-      if (schub !== letzterSchub) { logoSvg.style.setProperty('--schub', schub); letzterSchub = schub; }
+      if (schub !== letzterSchub) { logos.forEach(l => l.style.setProperty('--schub', schub)); letzterSchub = schub; }
       reihen.forEach(r => {
         if (!r.halb) return;
         r.x += r.tempo * (.35 + schwung * .25);

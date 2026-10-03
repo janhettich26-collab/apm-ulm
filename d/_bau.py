@@ -41,8 +41,8 @@ TECHNIK = [
  ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-def zeilen(L,art):
-    return ''.join(f'<li class="zeile auf" data-art="{art}"><span class="z-nr">{i+1:02d}</span><h3>{t}</h3><p>{x}</p><span class="z-icon">{svg(k)}</span></li>\n' for i,(k,t,x) in enumerate(L))
+def kacheln(L,art):
+    return ''.join(f'<li class="kachel auf" data-art="{art}"><span class="k-icon">{svg(k)}</span><h3>{t}</h3><p>{x}</p></li>\n' for k,t,x in L)
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
 band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
@@ -50,23 +50,24 @@ import json
 # Original-Logo, je Buchstabe ein Pfad (Geometrie unveraendert) – fuer die Einflug-Animation
 AB = 22  # Jan 03.10.: a p m minimal auseinander (Zusatzabstand je Buchstabe in Logo-Einheiten)
 logo = f'<svg class="logo-svg" viewBox="100 100 {1124+5*AB} 377" role="img" aria-label="APM Ulm">' + ''.join(f'<g transform="translate({min(i,3)*AB + (AB if i>=3 else 0) + max(0,i-3)*6} 0)"><path class="{"gross" if i<3 else "klein"}" style="--n:{i}" d="{d}"/></g>' for i,d in enumerate(json.load(open('_logo_teile.json')))) + '</svg>'
+logo_gross = logo.replace('class="logo-svg"','class="logo-svg gross-logo"').replace(' role="img" aria-label="APM Ulm"','')
 html = f"""<!doctype html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>APM Ulm – Facility Management für Ulm und die Region</title>
-<meta name="description" content="Facility Management aus einer Hand: Hausmeisterdienst, Grünpflege, Winterdienst, Wartung, Brandschutz und Steuerung aller Dienstleister – in Ulm und der Region.">
+<title>APM Ulm – Property Management für Ulm und die Region</title>
+<meta name="description" content="Property Management aus einer Hand: Hausmeisterdienst, Grünpflege, Winterdienst, Wartung, Brandschutz und Steuerung aller Dienstleister – in Ulm und der Region.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=7">
+<link rel="stylesheet" href="d.css?v=8">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>Facility Management</b><span>Ulm und Region</span><small>Gebäude, die einfach laufen.</small></span></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>Property Management</b><span>Ulm und Region</span><small>Gebäude, die einfach laufen.</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -81,7 +82,7 @@ html = f"""<!doctype html>
 <section class="held" id="start">
   <img class="held-bild" src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
-    <p class="label"><i></i>Facility Management · Ulm und Region</p>
+    <p class="label"><i></i>Property Management · Ulm und Region</p>
     <h1 data-worte>Gebäude, die <em>einfach laufen.</em></h1>
     <p class="lead">Wir kümmern uns um Ihre Immobilie – außen, innen und an der Technik. Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
@@ -89,6 +90,7 @@ html = f"""<!doctype html>
       <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
     </div>
   </div>
+  <div class="held-logo" aria-hidden="true">{logo_gross}</div>
 </section>
 
 <div class="laufband" aria-hidden="true">
@@ -104,15 +106,15 @@ html = f"""<!doctype html>
   </ul>
 </section>
 
-<section class="dunkel" id="leistungen">
+<section class="nebel" id="leistungen">
   <div class="teil">
     <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
     <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
-      <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Gebäudemanagement<sup>{len(AUSSEN)}</sup></button>
-      <button role="tab" aria-selected="false" data-art="technik">Technisches Gebäudemanagement<sup>{len(TECHNIK)}</sup></button>
+      <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Building Management</button>
+      <button role="tab" aria-selected="false" data-art="technik">Technical Management</button>
     </div>
-    <ul class="zeilen">
-{zeilen(AUSSEN,'aussen')}{zeilen(TECHNIK,'technik')}    </ul>
+    <ul class="kacheln">
+{kacheln(AUSSEN,'aussen')}{kacheln(TECHNIK,'technik')}    </ul>
   </div>
 </section>
 
@@ -122,7 +124,7 @@ html = f"""<!doctype html>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park <em>Ulm</em></h2>
-      <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Facility Management.</p>
+      <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Property Management.</p>
       <ul class="haken">
         <li>Objektbetreuung und Hausmeisterdienst</li>
         <li>Haustechnik und Wartungsmanagement</li>
@@ -161,14 +163,14 @@ html = f"""<!doctype html>
 </main>
 
 <footer class="fuss">
-  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · Facility Management</span><span>Impressum (folgt) · Datenschutz (folgt)</span></div>
+  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · Property Management</span><span>Impressum (folgt) · Datenschutz (folgt)</span></div>
   <p class="vorschau">Vorschau – Kontaktdaten, Impressum und Datenschutz werden noch ergänzt.</p>
   <details><summary>Bildnachweis</summary>
     <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li></ul>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=7" defer></script>
+<script src="d.js?v=8" defer></script>
 </body>
 </html>
 """
