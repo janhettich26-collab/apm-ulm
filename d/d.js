@@ -36,9 +36,10 @@
   /* Leistungen am Haus: Punkte anklicken, zwei Reiter, läuft von selbst durch bis man klickt */
   const reiter = [...document.querySelectorAll('.reiter button')], wahl = [...document.querySelectorAll('.h-wahl')];
   const buehne = document.querySelector('.h-buehne'), punkteBox = document.querySelector('.h-punkte'), detail = document.querySelector('.h-detail');
+  const bild = document.querySelector('.h-bild'), hausMod = document.querySelector('.haus-mod');
   const dIcon = detail.querySelector('.k-icon'), dTitel = detail.querySelector('h3'), dText = detail.querySelector('p');
-  document.querySelectorAll('.haus > path, .haus > circle').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
-  document.querySelectorAll('.haus g').forEach((g, i) => g.style.setProperty('--i', i));
+  document.querySelectorAll('.haus-haupt > path, .haus-haupt > circle').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  document.querySelectorAll('.haus-haupt g').forEach((g, i) => g.style.setProperty('--i', i));
   const teile = [...document.querySelectorAll('.haus g[data-k]')];
   let aktArt = 'aussen', selbst = false, autoT = null;
   const waehle = (b, vonHand) => {
@@ -68,6 +69,11 @@
     reiter.forEach(b => { const an = b.dataset.art === art; b.classList.toggle('aktiv', an); b.setAttribute('aria-selected', an); });
     let i = 0;
     wahl.forEach(b => { const an = b.dataset.art === art; b.parentElement.classList.toggle('aus', !an); b._punkt.classList.toggle('aus', !an); if (an) b._punkt.style.setProperty('--i', i++); });
+    /* Modernisierung hat ein eigenes Bild: Ablauf neu starten, Punkte erst zeigen, wenn das sanierte Haus steht */
+    const istMod = art === 'mod'; bild.classList.toggle('mod', istMod);
+    clearTimeout(bild._t); hausMod.classList.remove('lauf');
+    wahl.forEach(b => b._punkt.classList.toggle('spaet', istMod && b.dataset.art === 'mod' && !leise));
+    if (istMod && !leise) { void hausMod.getBoundingClientRect(); hausMod.classList.add('lauf'); bild._t = setTimeout(() => wahl.forEach(b => b._punkt.classList.remove('spaet')), 6500); }
     waehle(wahl.find(b => b.dataset.art === art), false);
   };
   reiter.forEach(b => b.addEventListener('click', () => { selbst = true; clearInterval(autoT); zeige(b.dataset.art); }));

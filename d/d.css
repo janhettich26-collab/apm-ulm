@@ -143,6 +143,37 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 }
 .haus g.auto-oben{transform:translateX(-150px);transition:opacity .5s ease 1.9s,stroke .45s,stroke-width .45s,transform 2.6s cubic-bezier(.2,.75,.2,1) 1.9s}
 .h-buehne.da .haus g.auto-oben{transform:none}
+/* Reiter Gebäudemodernisierung: eigenes Bild – Baustelle mit kaputtem Haus -> Staubwolken (es wird gearbeitet) -> saniertes Haus */
+.haus-mod{display:none}
+.h-bild.mod .haus-haupt{display:none}
+.h-bild.mod .haus-mod{display:block}
+.haus.haus-mod g.alt{stroke:#7B7368}
+.haus.haus-mod g.alt path{stroke-dasharray:1 2;stroke-dashoffset:1.04}
+.haus-mod .warn{stroke:#C99A00;fill:rgba(246,207,43,.35)}
+.haus.haus-mod g.neu{stroke:var(--schwarz);opacity:0}
+.haus-mod .gruen{stroke:var(--gruen)}
+.haus-mod circle.gruen{fill:rgba(47,143,91,.16)}
+.haus-mod .pv{fill:rgba(125,185,232,.3)}
+.haus-mod .sonne{stroke:#E0A800}
+.haus-mod circle.sonne{fill:rgba(255,210,31,.35)}
+.haus-mod .puff{fill:#ECE8DF;stroke:#8E877B;stroke-width:.8;transform-box:fill-box;transform-origin:center;opacity:0}
+.haus-mod .schlag{stroke:#C99A00;stroke-width:1.6;opacity:0}
+.haus-mod .funkel{fill:#FFD21F;stroke:#E0A800;stroke-width:.8;transform-box:fill-box;transform-origin:center;opacity:0}
+.haus.haus-mod.lauf g.alt{animation:m-alt 7.2s linear both}
+.haus.haus-mod.lauf g.alt path{animation:zeichne 1.2s cubic-bezier(.45,0,.2,1) forwards}
+.haus.haus-mod.lauf g.alt path:nth-child(n+3){animation-delay:.2s}
+.haus.haus-mod.lauf g.alt path:nth-child(n+6){animation-delay:.45s}
+.haus.haus-mod.lauf g.alt path:nth-child(n+10){animation-delay:.7s}
+.haus.haus-mod.lauf g.neu{animation:m-neu 7.2s linear both}
+.haus-mod.lauf .puff{animation:m-wolke 7.2s cubic-bezier(.4,0,.3,1) both;animation-delay:calc(var(--n) * 45ms)}
+.haus-mod.lauf .schlag{animation:m-schlag 7.2s linear both;animation-delay:calc(var(--n) * 140ms)}
+.haus-mod.lauf .funkel{animation:m-funkel 7.2s cubic-bezier(.2,1.3,.4,1) both;animation-delay:calc(var(--n) * 120ms)}
+@keyframes m-alt{0%,60%{opacity:1}65%,100%{opacity:0}}
+@keyframes m-neu{0%,60%{opacity:0}65%,100%{opacity:1}}
+@keyframes m-wolke{0%,37%{opacity:0;transform:scale(.15)}45%{opacity:1;transform:scale(1.06)}51%{opacity:1;transform:scale(.9) rotate(-4deg)}57%{opacity:1;transform:scale(1.1) rotate(3deg)}63%{opacity:1;transform:scale(.93) rotate(-3deg)}69%{opacity:1;transform:scale(1.08) rotate(2deg)}76%{opacity:1;transform:scale(1)}90%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes m-schlag{0%,46%{opacity:0}49%{opacity:1}52%{opacity:0}57%{opacity:1}60%{opacity:0}66%{opacity:1}69%,100%{opacity:0}}
+@keyframes m-funkel{0%,86%{opacity:0;transform:scale(.2) rotate(-40deg)}94%{opacity:1;transform:scale(1.3) rotate(0deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
+.h-punkt.spaet{opacity:0!important;scale:.5!important;pointer-events:none}
 /* Kleine Geschichte im Haus (26 s Runde, Beginn 6,5 s nach dem Aufbau):
    Blitz schlägt in den Blitzableiter ein -> Strom läuft nach unten -> Schaltschrank raucht -> Monteur rennt her, repariert, rennt weg -> alles wie neu */
 .haus g.sz{opacity:1;stroke:inherit;stroke-width:inherit;transition:none}
@@ -362,6 +393,8 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
   .haus g{opacity:1;transition:none}
   .haus g.auto-tg,.haus g.auto-oben{transform:none;visibility:visible;animation:none}
   .haus g.szene{display:none}
+  .haus.haus-mod g.alt,.haus-mod .wolken{display:none}
+  .haus.haus-mod g.neu{opacity:1}
   .h-punkt{opacity:1;scale:1;transition:none}
   *{animation:none!important}
   .auf{opacity:1;transform:none;transition:none}
