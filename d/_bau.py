@@ -48,28 +48,9 @@ TECHNIK = [
  ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-HAUS_AUSSEN = '''<svg class="haus haus-haupt haus-aussen" viewBox="-60 0 760 480" aria-hidden="true">
-<path class="wolke" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
-<path d="M-56 400H694"/>
-<path d="M230 400V120H500V400"/>
-<path d="M224 120H506"/>
-<path class="leicht" d="M248 142h34v40h-34zM298 142h34v40h-34zM348 142h34v40h-34zM398 142h34v40h-34zM448 142h34v40h-34zM248 204h34v40h-34zM298 204h34v40h-34zM348 204h34v40h-34zM398 204h34v40h-34zM248 266h34v40h-34zM298 266h34v40h-34zM348 266h34v40h-34zM398 266h34v40h-34zM448 266h34v40h-34z"/>
-<path class="leicht" d="M248 338h62v50h-62zM279 338v50M420 338h62v50h-62z"/>
-<path d="M330 400V330H400V400M365 330V400M318 322H412"/>
-<path class="leicht" d="M342 300h46v14h-46z"/>
-<g data-k="pforte"><path d="M406 356h12v22h-12zM406 362l6 4 6-4"/><path d="M428 388v-14h46v14"/><circle cx="451" cy="363" r="5"/><path d="M451 368v6"/></g>
-<g data-k="doku"><path d="M198 400V352M218 400V352"/><path d="M192 352h32v-32h-32z"/><path d="M197 326h9v9h-9zM210 326h9v13h-9zM197 339h9v7h-9z"/></g>
-<g data-k="rein"><path d="M436 120V232M486 120V232"/><path d="M426 232h70v14h-70zM426 232v-16h70v16"/><circle cx="460" cy="206" r="5"/><path d="M460 211v15M460 216l13-8M473 208v-10"/></g>
-<g data-k="objekt"><circle cx="524" cy="349" r="7"/><path d="M524 356v22M524 363l-11 8M524 363l11 8M524 378l-8 22M524 378l8 22"/><path d="M536 386h16v14h-16zM541 386v-5h6v5"/></g>
-<g data-k="abfall"><path class="t-gelb" d="M562 400V372H580V400ZM559 372H583"/><path class="t-braun" d="M584 400V376H598V400ZM582 376H601"/></g>
-<g data-k="park"><path d="M612 400V338"/><path d="M600 316h24v22h-24z"/><path d="M608 333V321h5a3.5 3.5 0 0 1 0 7h-5"/><g class="auto-rechts"><path d="M624 393v-8l10-2 8-10h30l10 10 8 2v8z"/><circle cx="640" cy="395" r="5"/><circle cx="676" cy="395" r="5"/></g></g>
-<g data-k="winter"><path d="M636 262v12M631 265l10 6M641 265l-10 6"/><path d="M664 280v12M659 283l10 6M669 283l-10 6"/><path d="M684 252v12M679 255l10 6M689 255l-10 6"/><path d="M650 304v12M645 307l10 6M655 307l-10 6"/></g>
-<g data-k="gruen"><path d="M120 400V332"/><circle cx="120" cy="298" r="32"/><path d="M146 400q7-18 14 0q7-18 14 0q7-18 14 0"/></g>
-<g data-k="galabau"><path d="M-40 390h34M-40 382h34M-35 382v18M-11 382v18"/><path d="M20 400V368M27 400V374M20 380h7"/><circle cx="20" cy="357" r="11"/><path d="M62 400V326q0-9 10-9h6"/><circle cx="81" cy="320" r="4"/></g>
-</svg>'''
 # Wo der Punkt sitzt (x, y im Bild; Bild reicht von x=-60 bis 700, y=0 bis 480) – jeweils NEBEN dem gezeichneten Gegenstand
 ORT = {
- 'aussen': {'objekt':(524,322),'rein':(514,214),'gruen':(120,298),'winter':(662,236),'galabau':(42,344),'abfall':(578,350),'park':(586,300),'pforte':(451,336),'doku':(208,304)},
+ 'aussen': {'objekt':(284,366),'rein':(306,226),'gruen':(130,296),'winter':(566,366),'galabau':(62,352),'abfall':(642,352),'park':(376,434),'pforte':(354,372),'doku':(404,150)},
  'mod': {'m_teil':(350,290),'m_energie':(350,84),'m_fassade':(196,236),'m_innen':(350,218),'m_technik':(500,94),'m_leitung':(430,372)},
  'technik': {'wartung':(322,94),'instand':(160,330),'brand':(486,290),'betreiber':(456,440),'stoer':(441,200),'omgmt':(-22,346),'cafm':(306,146),'gewaehr':(538,222)},
 }
@@ -84,7 +65,7 @@ MOD = [
 def punkte(L,art):
     return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-k="{k}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
 # Jede Leistung hat ihren eigenen Gegenstand im Bild (g data-k) – der wird hervorgehoben, wenn sie gewaehlt ist
-HAUS = '''<svg class="haus haus-haupt haus-technik" viewBox="-60 0 760 480" aria-hidden="true">
+HAUS = '''<svg class="haus haus-haupt" viewBox="-60 0 760 480" aria-hidden="true">
 <path class="wolke" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
 <path d="M-56 400H694"/>
 <path d="M210 400V110H520V400"/>
@@ -92,19 +73,25 @@ HAUS = '''<svg class="haus haus-haupt haus-technik" viewBox="-60 0 760 480" aria
 <path d="M462 110V400"/>
 <path class="leicht" d="M420 110V400"/>
 <path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400M500 110H520"/>
-<path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28zM230 200h28v30h-28zM272 200h28v30h-28zM330 128h28v30h-28zM372 128h28v30h-28zM230 344h28v30h-28zM272 344h28v30h-28z"/>
+<path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28z"/>
 <path class="leicht" d="M500 110V68M492 80H508"/>
 <circle class="leicht" cx="424" cy="432" r="12"/><path class="leicht" d="M424 420V400"/>
 <g data-k="wartung"><path d="M250 110V84H300V110"/><circle cx="275" cy="97" r="8"/><path d="M268 97h14M275 90v14"/></g>
 <g data-k="cafm"><path d="M232 168H312M240 168V182M304 168V182"/><path d="M258 140h28v18h-28zM272 158v10M264 168h16"/></g>
+<g data-k="doku"><path d="M330 128h60v48h-60zM330 144h60M330 160h60"/><path d="M340 128v16M348 128v16M356 128v16M366 144v16M374 144v16M344 160v16M352 160v16M372 160v16"/></g>
+<g data-k="rein"><path d="M238 252l3-18h20l3 18z"/><path d="M241 234q10-12 20 0"/><path d="M290 252L276 196M282 252h16"/></g>
 <g data-k="stoer"><path d="M426 268h30v54h-30zM441 268v54"/><path d="M441 222l11 19h-22z"/><path d="M441 229v5M441 237v1"/></g>
 <g data-k="instand"><path d="M178 400L204 264M192 400L216 264"/><path d="M183 376h13M187 352h13M192 328h13M196 304h13M201 280h13"/></g>
 <g data-k="pforte"><path d="M330 400V346H378V400M354 346V400M320 338H388"/><path d="M386 366h14v12h-14zM386 370l7 4 7-4"/></g>
+<g data-k="objekt"><circle cx="245" cy="349" r="7"/><path d="M245 356v22M245 363l-11 8M245 363l11 8M245 378l-8 22M245 378l8 22"/><path d="M264 386h20v14h-20zM270 386v-5h8v5"/></g>
 <g data-k="brand"><path d="M468 398L504 362 468 326 504 290 468 254 504 218 468 182 504 146 468 112"/><path d="M508 398v-14a4 4 0 0 1 8 0v14zM512 380v-5h5"/></g>
 <g data-k="park"><g class="auto-tg"><path d="M240 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="256" cy="452" r="5"/><circle cx="298" cy="452" r="5"/></g><path d="M340 450V424h9a7 7 0 0 1 0 14h-9"/></g>
 <g data-k="betreiber"><path d="M478 412h26v40h-26z"/><path class="blitz" d="M494 417l-9 15h7l-4 14 10-17h-7z"/></g>
 <g data-k="gruen"><path d="M130 400V330"/><circle cx="130" cy="296" r="32"/><path d="M150 400q9-20 20 0"/></g>
+<g data-k="galabau"><path d="M22 390h34M22 382h34M27 382v18M51 382v18"/><path d="M84 400V368M91 400V374M84 380h7"/><circle cx="84" cy="357" r="11"/></g>
 <g data-k="omgmt" class="auto-oben"><path d="M-52 390v-30h32l12 14h14v16z"/><path d="M-22 364v10h12"/><circle cx="-38" cy="393" r="6"/><circle cx="-4" cy="393" r="6"/></g>
+<g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
+<g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
 <g class="sz szene">
 <path class="himmelblitz" pathLength="1" d="M526 -10L509 22H520L503 48 500 68"/>
 <path class="strom" pathLength="1" d="M500 68V110H520V436H504"/>
@@ -140,7 +127,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=37">
+<link rel="stylesheet" href="d.css?v=38">
 </head>
 <body>
 <header class="kopf">
@@ -193,7 +180,7 @@ html = f"""<!doctype html>
       <button role="tab" aria-selected="false" data-art="mod">Gebäudemodernisierung</button>
     </div>
     <div class="h-buehne auf">
-      <div class="h-bild" data-art="aussen">{HAUS_AUSSEN}{HAUS}{HAUS_MOD}<div class="h-punkte"></div></div>
+      <div class="h-bild">{HAUS}{HAUS_MOD}<div class="h-punkte"></div></div>
       <div class="h-seite">
         <div class="h-detail" aria-live="polite"><span class="k-icon"></span><h3></h3><p></p></div>
         <ul class="h-liste">
@@ -259,7 +246,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=37" defer></script>
+<script src="d.js?v=38" defer></script>
 </body>
 </html>
 """
