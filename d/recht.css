@@ -1,0 +1,48 @@
+/* Impressum und Datenschutz – gleiche Linienwelt wie die Startseite */
+.recht-seite{background:#fff}
+.r-held-in{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,5vw,72px);align-items:center;padding-top:clamp(56px,9vh,96px);padding-bottom:clamp(56px,9vh,96px)}
+.r-held h1{color:#fff;font-size:clamp(32px,4.6vw,60px)}
+.r-held .k-lead{margin-top:18px}
+.r-bild{display:block;width:100%;max-width:340px;margin-left:auto;height:auto;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible;animation:schweb-r 7s ease-in-out infinite 2.4s}
+.r-bild *{stroke-dasharray:1 2;stroke-dashoffset:1.03;animation:r-zeichne 1.7s cubic-bezier(.45,0,.2,1) forwards}
+.r-bild *:nth-child(2){animation-delay:.25s}.r-bild *:nth-child(3){animation-delay:.5s}.r-bild *:nth-child(4){animation-delay:.75s}.r-bild *:nth-child(5){animation-delay:1s}.r-bild *:nth-child(n+6){animation-delay:1.3s}
+.r-bild .gruen{stroke:#6FD3A0;stroke-width:2}
+@keyframes r-zeichne{to{stroke-dashoffset:0}}
+@keyframes schweb-r{50%{transform:translateY(-8px)}}
+.r-inhalt{max-width:900px;padding-top:clamp(48px,8vh,88px)}
+.r-teil{position:relative;padding:34px 0 clamp(30px,5vh,48px);--s:0s}
+.r-teil::before,.r-teil::after{content:"";position:absolute;left:0;top:0;height:1.5px;width:100%;background:var(--linie)}
+.r-teil::after{background:var(--schwarz);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.45,0,.2,1) .35s}
+.r-teil.da::after{transform:scaleX(1)}
+.r-teil .v-punkt{top:-9px;transition:scale .5s cubic-bezier(.2,1.25,.4,1) .1s,left 1.3s cubic-bezier(.45,0,.2,1) .35s,background .35s ease 1.65s,color .35s ease 1.65s}
+.r-teil.da .v-punkt{scale:1;left:calc(100% - 20px);background:var(--gruen);color:var(--gruen)}
+.r-teil .v-punkt::before{transition:opacity .25s ease 1.6s}
+.r-teil.da .v-punkt::before{opacity:0}
+.r-teil .v-punkt svg path{transition:stroke-dashoffset .45s ease 1.8s}
+.r-teil.da .v-punkt svg path{stroke-dashoffset:0}
+.r-teil h2{font-size:clamp(19px,2vw,26px);max-width:none;margin-bottom:14px}
+.r-teil p{margin-top:12px;max-width:72ch}
+.r-teil a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#9AA3B5;transition:text-decoration-color .3s}
+.r-teil a:hover{text-decoration-color:var(--schwarz)}
+.r-daten{margin:0}
+.r-daten div{display:grid;grid-template-columns:minmax(150px,260px) 1fr;gap:6px 24px;padding:12px 0;border-bottom:1px solid var(--linie)}
+.r-daten div:last-child{border-bottom:0}
+.r-daten dt{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);padding-top:3px}
+.r-daten dd{margin:0;font-weight:700;color:var(--schwarz)}
+.r-haken li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--linie)}
+.r-haken li:last-child{border-bottom:0}
+.r-haken li::before{content:"";position:absolute;left:0;top:12px;width:20px;height:20px;border-radius:50%;background:var(--gruen)}
+.r-haken li::after{content:"";position:absolute;left:6px;top:18px;width:8px;height:4.5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.r-zurueck{margin-top:10px}
+.btn.r-btn{background:var(--schwarz);color:#fff;box-shadow:inset 0 0 0 1.5px var(--schwarz)}
+.btn.r-btn::before{background:#fff}
+.btn.r-btn:hover{color:var(--schwarz)}
+.r-fuss{padding-top:clamp(30px,5vh,56px)}
+.r-fuss .k-stadt{padding:0;margin-bottom:0}
+.k-liste b a{color:inherit}
+@media (max-width:980px){
+  .r-held-in{grid-template-columns:1fr}
+  .r-bild{max-width:220px;margin:0}
+  .r-daten div{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.r-bild *{stroke-dashoffset:0}}

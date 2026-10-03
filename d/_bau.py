@@ -72,7 +72,7 @@ HAUS = '''<svg class="haus haus-haupt" viewBox="-60 0 760 480" aria-hidden="true
 <path d="M210 182H520M210 254H520M210 326H520"/>
 <path d="M462 110V400"/>
 <path class="leicht" d="M420 110V400"/>
-<path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400M500 110H520"/>
+<path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400"/>
 <path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28z"/>
 <path class="leicht" d="M500 110V68M492 80H508"/>
 <circle class="leicht" cx="424" cy="432" r="12"/><path class="leicht" d="M424 420V400"/>
@@ -93,8 +93,9 @@ HAUS = '''<svg class="haus haus-haupt" viewBox="-60 0 760 480" aria-hidden="true
 <g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
 <g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
 <g class="sz szene">
-<path class="himmelblitz" pathLength="1" d="M526 -10L509 22H520L503 48 500 68"/>
-<path class="strom" pathLength="1" d="M500 68V110H520V436H504"/>
+<path class="himmelblitz" d="M534 -16L510 28h12L500 68l9-32h-11l14-52z"/>
+<path class="leiter" d="M500 108H527V444H504"/>
+<path class="strom" pathLength="1" d="M500 68V108H527V444H504"/>
 <g class="sz rauch"><circle cx="484" cy="408" r="5.5"/><circle cx="492" cy="405" r="7"/><circle cx="499" cy="408" r="5"/><circle cx="489" cy="410" r="4.5"/></g>
 <g class="sz funken"><path d="M509 425l6-4M510 432h7M509 439l6 4"/></g>
 <g class="sz ok"><circle cx="491" cy="386" r="9"/><path d="M486.6 386l3 3 6-6.6"/></g>
@@ -116,6 +117,7 @@ STADT = ('<svg class="k-stadt auf" viewBox="0 -10 1200 124" preserveAspectRatio=
  '<path class="linie" pathLength="1" d="M0 112H96V86H150V112H214V72H250V112H318V94H380V112H452V62l15-13 15 13v50'
  'H548V64h3V40h3V30l5-26V-3V4l5 26V40h3V64h3V71H606V66l4-14 4 14V71h4V66l4-14 4 14V71H636l4 12V112'
  'H672V84h48v28H760V90h56v22H880V66H934V112H1004V92H1056V112H1200"/></svg>')
+SP = '<svg class="sp" viewBox="0 0 640 360" aria-hidden="true"><path class="wolke" d="M96 62a13 13 0 0 1 24-5 11 11 0 0 1 21 6 10 10 0 0 1-3 19H99a11 11 0 0 1-3-20z"/><path class="wolke w2" d="M486 44a11 11 0 0 1 20-4 9 9 0 0 1 18 5 8 8 0 0 1-3 16H489a9 9 0 0 1-3-17z"/><path pathLength="1" style="--i:0" d="M10 330H630"/><path pathLength="1" style="--i:1" d="M70 330V112H570V330"/><path pathLength="1" style="--i:2" d="M54 112H586M58 104H582M54 104V112M586 104V112"/><path pathLength="1" style="--i:3" d="M70 166H290M350 166H570M70 220H290M350 220H570M70 274H290M350 274H570"/><path pathLength="1" style="--i:4" d="M290 112V330M350 112V330M320 112V300M290 150H350M290 190H350M290 230H350M290 270H350"/><path pathLength="1" class="fein" style="--i:5" d="M78 121H282M358 121H562M78 128H282M358 128H562M78 135H282M358 135H562"/><path pathLength="1" class="fein" style="--i:6" d="M80 142h20v18h-20zM106 142h20v18h-20zM132 142h20v18h-20zM158 142h20v18h-20zM184 142h20v18h-20zM210 142h20v18h-20zM236 142h20v18h-20zM262 142h20v18h-20zM360 142h20v18h-20zM386 142h20v18h-20zM412 142h20v18h-20zM438 142h20v18h-20zM464 142h20v18h-20zM490 142h20v18h-20zM516 142h20v18h-20zM542 142h20v18h-20z"/><path pathLength="1" class="fein" style="--i:7" d="M78 175H282M358 175H562M78 182H282M358 182H562M78 189H282M358 189H562"/><path pathLength="1" class="fein" style="--i:8" d="M80 196h20v18h-20zM106 196h20v18h-20zM132 196h20v18h-20zM158 196h20v18h-20zM184 196h20v18h-20zM210 196h20v18h-20zM236 196h20v18h-20zM262 196h20v18h-20zM360 196h20v18h-20zM386 196h20v18h-20zM412 196h20v18h-20zM438 196h20v18h-20zM464 196h20v18h-20zM490 196h20v18h-20zM516 196h20v18h-20zM542 196h20v18h-20z"/><path pathLength="1" class="fein" style="--i:9" d="M78 229H282M358 229H562M78 236H282M358 236H562M78 243H282M358 243H562"/><path pathLength="1" class="fein" style="--i:10" d="M80 250h20v18h-20zM106 250h20v18h-20zM132 250h20v18h-20zM158 250h20v18h-20zM184 250h20v18h-20zM210 250h20v18h-20zM236 250h20v18h-20zM262 250h20v18h-20zM360 250h20v18h-20zM386 250h20v18h-20zM412 250h20v18h-20zM438 250h20v18h-20zM464 250h20v18h-20zM490 250h20v18h-20zM516 250h20v18h-20zM542 250h20v18h-20z"/><path pathLength="1" class="fein" style="--i:11" d="M84 284h30v40h-30zM124 284h30v40h-30zM164 284h30v40h-30zM204 284h30v40h-30zM244 284h30v40h-30z"/><path pathLength="1" class="fein" style="--i:12" d="M364 284h30v40h-30zM404 284h30v40h-30zM484 284h30v40h-30zM524 284h30v40h-30z"/><path pathLength="1" style="--i:13" d="M300 330V300H340V330M320 300V330M294 294H346"/><path pathLength="1" style="--i:14" d="M276 330h88M282 336h76M288 342h64"/><path pathLength="1" class="fein" style="--i:15" d="M84 330V316M124 330V316M164 330V316M204 330V316M244 330V316M80 316H270"/><path pathLength="1" class="gruen" style="--i:16" d="M30 330V250"/><circle pathLength="1" class="gruen" style="--i:17" cx="30" cy="222" r="28"/><path pathLength="1" class="gruen" style="--i:18" d="M452 330V262M452 290l-12-12M452 280l12-12"/><circle pathLength="1" class="gruen" style="--i:19" cx="452" cy="244" r="22"/><path pathLength="1" class="gruen" style="--i:20" d="M606 330V286"/><circle pathLength="1" class="gruen" style="--i:21" cx="606" cy="270" r="16"/><g class="sp-auto"><path d="M500 324v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="516" cy="325" r="5"/><circle cx="558" cy="325" r="5"/></g><g class="sp-pin"><path d="M320 96s-17-15-17-30a17 17 0 0 1 34 0c0 15-17 30-17 30z"/><circle cx="320" cy="66" r="6"/></g><circle class="sp-ring" cx="320" cy="100" r="6"/><g class="sp-schild"><path d="M356 50h150v30H356z"/><text x="431" y="70" text-anchor="middle">Science Park II</text></g></svg>'
 html = f"""<!doctype html>
 <html lang="de">
 <head>
@@ -126,8 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=38">
+<link rel="stylesheet" href="d.css?v=42">
 </head>
 <body>
 <header class="kopf">
@@ -192,12 +193,12 @@ html = f"""<!doctype html>
 
 <section class="teil" id="praxis">
   <div class="block">
-    <figure class="block-bild auf"><img src="../img/sciencepark-1500-sw.webp" srcset="../img/sciencepark-800-sw.webp 800w, ../img/sciencepark-1500-sw.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park II Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park II Ulm, Lise-Meitner-Straße</figcaption></figure>
+    <div class="sp-bild auf">{SP}</div>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park II <em>Ulm</em></h2>
       <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im ganzheitlichen Facility Management.</p>
-      <ul class="haken">
+      <ul class="haken" data-nacheinander>
         <li>Objektbetreuung und Hausmeisterdienst</li>
         <li>Haustechnik und Wartungsmanagement</li>
         <li>Brandschutz und Prüffristen</li>
@@ -228,8 +229,8 @@ html = f"""<!doctype html>
       <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
     </div>
     <ul class="k-liste">
-      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b>Nummer folgt</b></li>
-      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b>E-Mail folgt</b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b><a href="tel:+491705810174">+49 170 5810174</a></b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b><a href="mailto:taha.altun@outlook.de">taha.altun@outlook.de</a></b></li>
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
     </ul>
   </div>
@@ -238,16 +239,116 @@ html = f"""<!doctype html>
 </main>
 
 <footer class="fuss">
-  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span>Impressum (folgt) · Datenschutz (folgt)</span></div>
-  <p class="vorschau">Vorschau – Kontaktdaten, Impressum und Datenschutz werden noch ergänzt.</p>
+  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
   <details><summary>Bildnachweis</summary>
-    <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li><li>Science Park, Lise-Meitner-Straße: Trop86, <a href="https://commons.wikimedia.org/wiki/File:Lise-Meitner-Stra%C3%9Fe_(Ulm)_101520.jpg" rel="noopener">Wikimedia Commons</a>, CC0</li></ul>
+    <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li></ul>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=38" defer></script>
+<script src="d.js?v=42" defer></script>
 </body>
 </html>
 """
 open('index.html','w').write(html); print(len(AUSSEN)+len(TECHNIK)+len(MOD),'Leistungen')
+
+
+# ------------------------------------------------------------------------------------------
+# Rechtsseiten (Impressum, Datenschutz) im selben Stil
+# ------------------------------------------------------------------------------------------
+def Z(inner):
+    return inner.replace('<path ','<path pathLength="1" ').replace('<circle ','<circle pathLength="1" ')
+BILD_IMPRESSUM = '<svg class="r-bild" viewBox="0 0 320 220" aria-hidden="true">' + Z(
+ '<path d="M30 40h260a12 12 0 0 1 12 12v116a12 12 0 0 1-12 12H30a12 12 0 0 1-12-12V52a12 12 0 0 1 12-12z"/>'
+ '<circle cx="84" cy="96" r="22"/><path d="M48 156c3-22 18-33 36-33s33 11 36 33"/>'
+ '<path d="M150 82h120M150 104h96M150 126h110M150 148h70"/>'
+ '<path class="gruen" d="M252 176s-16-14-16-28a16 16 0 0 1 32 0c0 14-16 28-16 28z"/><circle class="gruen" cx="252" cy="148" r="5.5"/>') + '</svg>'
+BILD_DATENSCHUTZ = '<svg class="r-bild" viewBox="0 0 320 220" aria-hidden="true">' + Z(
+ '<path d="M160 18l86 32v60c0 52-36 86-86 100-50-14-86-48-86-100V50z"/>'
+ '<path d="M130 104h60v50h-60z"/><path d="M140 104V88a20 20 0 0 1 40 0v16"/><circle cx="160" cy="124" r="6"/><path d="M160 130v12"/>'
+ '<path class="gruen" d="M262 150a22 22 0 1 0 .1 0zM251 172l8 8 14-16"/>'
+ '<path d="M22 150h34M22 164h24M22 178h30"/>') + '</svg>'
+
+def rechtsseite(datei, titel, kurz, bild, inhalt):
+    seite = f"""<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{titel} – APM Ulm</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="d.css?v=42">
+<link rel="stylesheet" href="recht.css?v=1">
+</head>
+<body class="recht-seite">
+<header class="kopf">
+  <div class="kopf-in">
+    <a href="index.html" class="logo" aria-label="APM Ulm – zur Startseite">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
+    <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#praxis">Praxisbeispiel</a>
+      <a href="index.html#ablauf">Ablauf</a>
+      <a href="index.html#kontakt" class="nav-cta">Kontakt</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="dunkel r-held">
+  <div class="teil r-held-in">
+    <div>
+      <p class="label"><i></i>Rechtliches</p>
+      <h1 data-worte>{titel}</h1>
+      <p class="k-lead">{kurz}</p>
+    </div>
+    {bild}
+  </div>
+</section>
+<section class="teil r-inhalt">
+{inhalt}
+  <p class="r-zurueck auf"><a href="index.html" class="btn r-btn">Zur Startseite</a></p>
+</section>
+</main>
+<footer class="fuss r-fuss">
+  {STADT}
+  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+</footer>
+<script src="../vendor/lenis.min.js" defer></script>
+<script src="recht.js?v=1" defer></script>
+</body>
+</html>
+"""
+    open(datei,'w').write(seite)
+
+def abschnitt(titel, html):
+    return f'  <article class="r-teil auf"><span class="v-punkt"><svg viewBox="0 0 20 20" aria-hidden="true"><path pathLength="1" d="M5.6 10.4l3 3 5.8-6.4"/></svg></span><h2>{titel}</h2>\n{html}\n  </article>\n'
+def zeilen(paare):
+    return '<dl class="r-daten">'+''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in paare)+'</dl>'
+
+NAME='Emre Altun'; STR='Weinbergweg 81'; ORT_='89075 Ulm'; TEL='+49 170 5810174'; MAIL='taha.altun@outlook.de'; USTID='DE364898141'
+tel_l=f'<a href="tel:+491705810174">{TEL}</a>'; mail_l=f'<a href="mailto:{MAIL}">{MAIL}</a>'
+
+imp = (
+ abschnitt('Angaben gemäß § 5 DDG', zeilen([('Unternehmen','APM Ulm – property management'),('Inhaber',NAME),('Anschrift',f'{STR}<br>{ORT_}<br>Deutschland')])) +
+ abschnitt('Kontakt', zeilen([('Telefon',tel_l),('E-Mail',mail_l)])) +
+ abschnitt('Umsatzsteuer', zeilen([('Umsatzsteuer-Identifikationsnummer nach § 27a UStG',USTID)])) +
+ abschnitt('Verantwortlich für den Inhalt', f'<p>Verantwortlich nach § 18 Abs. 2 MStV: {NAME}, {STR}, {ORT_}.</p>') +
+ abschnitt('Verbraucherstreitbeilegung', '<p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>') +
+ abschnitt('Haftung für Inhalte und Links', '<p>Die Inhalte dieser Website wurden sorgfältig erstellt. Für eigene Inhalte sind wir nach den allgemeinen Gesetzen verantwortlich. Für Inhalte fremder Websites, auf die wir verlinken, ist der jeweilige Anbieter verantwortlich. Bei Bekanntwerden von Rechtsverletzungen entfernen wir solche Links umgehend.</p>') +
+ abschnitt('Urheberrecht und Bildnachweis', '<p>Texte, Zeichnungen und Gestaltung dieser Website sind urheberrechtlich geschützt.</p><p>Foto auf der Startseite (Bürogebäude im Science Park II): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a>. Das Bild wurde zugeschnitten, verkleinert, in Graustufen und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>')
+)
+rechtsseite('impressum.html','Impressum','Wer hinter dieser Website steht und wie Sie uns erreichen.',BILD_IMPRESSUM,imp)
+
+ds = (
+ abschnitt('Kurz gesagt', '<ul class="r-haken"><li>Wir setzen keine Cookies zu Analyse- oder Werbezwecken ein.</li><li>Es gibt kein Tracking, keine Statistik-Werkzeuge und keine eingebetteten Inhalte fremder Anbieter.</li><li>Es gibt kein Kontaktformular. Sie erreichen uns per Telefon oder E-Mail.</li><li>Schriften, Zeichnungen und Skripte werden von dieser Website selbst geladen, nicht von Dritten.</li></ul>') +
+ abschnitt('Verantwortlicher', zeilen([('Verantwortlich im Sinne der DSGVO',f'{NAME}<br>{STR}<br>{ORT_}<br>Deutschland'),('Telefon',tel_l),('E-Mail',mail_l)])) +
+ abschnitt('Hosting', '<p>Diese Website wird bei der Wix.com Ltd., 40 Namal Tel Aviv St., Tel Aviv 6350671, Israel, gehostet. Beim Aufruf der Seiten verarbeitet der Anbieter technisch notwendige Daten in sogenannten Server-Protokollen: IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, übertragene Datenmenge, Browser und Betriebssystem sowie die zuvor besuchte Seite.</p><p>Die Verarbeitung ist erforderlich, um die Website sicher und stabil auszuliefern. Rechtsgrundlage ist Art. 6 Abs. 1 Buchst. f DSGVO; unser berechtigtes Interesse liegt im sicheren Betrieb. Der Anbieter kann zu diesem Zweck technisch notwendige Cookies setzen, etwa zur Sicherheit und zur Lastverteilung.</p><p>Für Israel besteht ein Angemessenheitsbeschluss der Europäischen Kommission. Soweit Daten in weitere Länder außerhalb der EU übermittelt werden, geschieht das auf Grundlage eines Angemessenheitsbeschlusses oder der Standardvertragsklauseln der Europäischen Kommission. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung.</p>') +
+ abschnitt('Kontakt per Telefon oder E-Mail', '<p>Wenn Sie uns anrufen oder schreiben, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Inhalt der Anfrage), um Ihre Anfrage zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 Buchst. b DSGVO, soweit es um einen Vertrag oder dessen Anbahnung geht, im Übrigen Art. 6 Abs. 1 Buchst. f DSGVO.</p><p>Wir löschen die Daten, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Geschäftliche Korrespondenz bewahren wir nach § 147 AO und § 257 HGB sechs Jahre auf, Buchungsbelege acht Jahre.</p>') +
+ abschnitt('Ihre Rechte', '<ul class="r-haken"><li>Auskunft über die zu Ihnen gespeicherten Daten (Art. 15 DSGVO)</li><li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO) und Einschränkung der Verarbeitung (Art. 18 DSGVO)</li><li>Datenübertragbarkeit (Art. 20 DSGVO)</li><li>Widerspruch gegen Verarbeitungen, die auf Art. 6 Abs. 1 Buchst. f DSGVO beruhen (Art. 21 DSGVO)</li><li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li></ul><p>Zur Ausübung genügt eine formlose Nachricht an die oben genannte Adresse.</p>') +
+ abschnitt('Beschwerderecht', '<p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Zuständig für uns ist: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.</p>') +
+ abschnitt('Stand', '<p>Oktober 2026. Wenn sich die Website oder die Rechtslage ändert, passen wir diese Erklärung an.</p>')
+)
+rechtsseite('datenschutz.html','Datenschutz','Welche Daten beim Besuch dieser Website anfallen und was mit ihnen geschieht.',BILD_DATENSCHUTZ,ds)
+print('Rechtsseiten gebaut')

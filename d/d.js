@@ -93,15 +93,20 @@
   const logos = [...document.querySelectorAll('.logo-svg')]; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
-  const heldBild = document.querySelector('.held-bild'), praxisBild = document.querySelector('.block-bild img'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
+  const heldBild = document.querySelector('.held-bild'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
   const scrollFx = () => {
     kopf.classList.toggle('schatten', scrollY > 10);
     if (!leise) {
       if (scrollY < innerHeight) heldBild.style.setProperty('--py', (scrollY * .22).toFixed(1) + 'px');
-      const r = praxisBild.getBoundingClientRect(), m = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
-      praxisBild.style.setProperty('--py', (m * -34).toFixed(1) + 'px');
     }
   };
+  /* Praxis-Liste: Punkte haken sich nacheinander grün ab */
+  document.querySelectorAll('[data-nacheinander]').forEach(ul => {
+    const li = [...ul.children];
+    if (leise) return li.forEach(l => l.classList.add('an'));
+    new IntersectionObserver((es, io) => { if (!es[0].isIntersecting) return; io.disconnect(); li.forEach((l, i) => setTimeout(() => l.classList.add('an'), 700 + i * 480)); }, { threshold: .4 }).observe(ul);
+  });
+
   /* Ablauf: Zahl erscheint, wird zum grünen Haken, Linie läuft zum nächsten Schritt – einer nach dem anderen */
   if (leise) { sLi.forEach(li => li.classList.add('fertig')); schritte.style.setProperty('--fuell', 1); }
   else new IntersectionObserver((es, io) => {
