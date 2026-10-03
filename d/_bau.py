@@ -58,7 +58,7 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <path d="M210 182H520M210 254H520M210 326H520"/>
 <path d="M462 110V400"/>
 <path class="leicht" d="M420 110V400"/>
-<path class="leicht" d="M210 400V458H520V400M400 400V458M520 458L596 400"/>
+<path class="leicht" d="M210 400V458H520M520 400V424M400 400V436M520 458L596 400"/>
 <path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28z"/>
 <path class="leicht" d="M500 110V68M492 80H508"/>
 <circle class="leicht" cx="424" cy="432" r="12"/><path class="leicht" d="M424 420V400"/>
@@ -72,11 +72,11 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g data-k="pforte"><path d="M330 400V346H378V400M354 346V400M320 338H388"/><path d="M386 366h14v12h-14zM386 370l7 4 7-4"/></g>
 <g data-k="objekt"><circle cx="245" cy="349" r="7"/><path d="M245 356v22M245 363l-11 8M245 363l11 8M245 378l-8 22M245 378l8 22"/><path d="M264 386h20v14h-20zM270 386v-5h8v5"/></g>
 <g data-k="brand"><path d="M468 398L504 362 468 326 504 290 468 254 504 218 468 182 504 146 468 112"/><path d="M508 398v-14a4 4 0 0 1 8 0v14zM512 380v-5h5"/></g>
-<g data-k="park"><path d="M240 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="256" cy="450" r="5"/><circle cx="298" cy="450" r="5"/><path d="M340 450V424h9a7 7 0 0 1 0 14h-9"/></g>
+<g data-k="park"><g class="auto-tg"><path d="M240 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="256" cy="450" r="5"/><circle cx="298" cy="450" r="5"/></g><path d="M340 450V424h9a7 7 0 0 1 0 14h-9"/></g>
 <g data-k="betreiber"><path d="M478 412h26v40h-26z"/><path class="blitz" d="M494 417l-9 15h7l-4 14 10-17h-7z"/></g>
 <g data-k="gruen"><path d="M130 400V330"/><circle cx="130" cy="296" r="32"/><path d="M150 400q9-20 20 0"/></g>
 <g data-k="galabau"><path d="M22 390h34M22 382h34M27 382v18M51 382v18"/><path d="M84 400V368M91 400V374M84 380h7"/><circle cx="84" cy="357" r="11"/></g>
-<g data-k="omgmt"><path d="M-52 394v-30h32l12 14h14v16z"/><path d="M-22 368v10h12"/><circle cx="-38" cy="396" r="6"/><circle cx="-4" cy="396" r="6"/></g>
+<g data-k="omgmt" class="auto-oben"><path d="M-52 394v-30h32l12 14h14v16z"/><path d="M-22 368v10h12"/><circle cx="-38" cy="396" r="6"/><circle cx="-4" cy="396" r="6"/></g>
 <g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
 <g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
 </svg>'''
@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=20">
+<link rel="stylesheet" href="d.css?v=21">
 </head>
 <body>
 <header class="kopf">
@@ -214,7 +214,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=20" defer></script>
+<script src="d.js?v=21" defer></script>
 </body>
 </html>
 """
