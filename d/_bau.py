@@ -43,34 +43,42 @@ TECHNIK = [
  ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-# Wo die Leistung am gezeichneten Haus sitzt (x, y im Bild 640 x 480)
+# Wo der Punkt sitzt (x, y im Bild; Bild reicht von x=-60 bis 700, y=0 bis 480) – jeweils NEBEN dem gezeichneten Gegenstand
 ORT = {
- 'aussen': {'objekt':(300,286),'rein':(250,216),'gruen':(110,298),'winter':(150,392),'galabau':(52,372),'abfall':(571,366),'park':(330,432),'pforte':(356,366),'doku':(410,216)},
- 'technik': {'wartung':(425,92),'instand':(250,286),'brand':(486,232),'betreiber':(300,146),'stoer':(356,366),'omgmt':(130,388),'cafm':(410,216),'gewaehr':(240,362)},
+ 'aussen': {'objekt':(284,366),'rein':(306,226),'gruen':(130,296),'winter':(566,366),'galabau':(62,352),'abfall':(642,352),'park':(376,434),'pforte':(354,372),'doku':(404,150)},
+ 'technik': {'wartung':(322,94),'instand':(160,330),'brand':(486,290),'betreiber':(456,440),'stoer':(441,200),'omgmt':(-22,346),'cafm':(306,146),'gewaehr':(556,192)},
 }
 def punkte(L,art):
-    return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
-HAUS = '''<svg class="haus" viewBox="0 0 640 480" aria-hidden="true">
+    return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-k="{k}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
+# Jede Leistung hat ihren eigenen Gegenstand im Bild (g data-k) – der wird hervorgehoben, wenn sie gewaehlt ist
+HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <path class="leicht" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
-<path d="M14 400H626"/>
-<path d="M200 400V110H520V400"/>
-<path d="M200 180H520M200 250H520M200 320H520"/>
-<path d="M460 110V400"/>
-<path d="M468 398L504 360 468 322 504 286 468 252 504 216 468 182 504 146 468 112"/>
-<path d="M220 130h28v30h-28zM262 130h28v30h-28zM304 130h28v30h-28zM346 130h28v30h-28zM388 130h28v30h-28z"/>
-<path d="M220 200h28v30h-28zM262 200h28v30h-28zM304 200h28v30h-28zM346 200h28v30h-28zM388 200h28v30h-28z"/>
-<path d="M220 270h28v30h-28zM262 270h28v30h-28zM304 270h28v30h-28zM346 270h28v30h-28zM388 270h28v30h-28z"/>
-<path d="M220 340h28v30h-28zM262 340h28v30h-28zM404 340h28v30h-28z"/>
-<path d="M332 400V346H380V400M356 346V400M322 338H390"/>
-<path d="M400 110V84H450V110"/><circle cx="425" cy="97" r="7"/>
-<path d="M490 110V68M482 80H498"/>
-<path class="leicht" d="M200 400V458H520V400M520 458L596 400"/>
-<path class="leicht" d="M246 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle class="leicht" cx="262" cy="450" r="5"/><circle class="leicht" cx="304" cy="450" r="5"/>
-<circle class="leicht" cx="440" cy="432" r="13"/><path class="leicht" d="M440 419V400M453 432H480V400"/>
-<path d="M110 400V332"/><circle cx="110" cy="298" r="34"/>
-<path d="M52 400V366"/><circle cx="52" cy="350" r="17"/>
-<path d="M146 400q9-20 20 0M168 400q7-14 16 0"/>
-<path d="M556 400V374H572V400M576 400V378H590V400M553 374H575M574 378H593"/>
+<path d="M-56 400H694"/>
+<path d="M210 400V110H520V400"/>
+<path d="M210 182H520M210 254H520M210 326H520"/>
+<path d="M462 110V400"/>
+<path class="leicht" d="M420 110V400"/>
+<path class="leicht" d="M210 400V458H520V400M400 400V458M520 458L596 400"/>
+<path class="leicht" d="M330 200h28v30h-28zM372 200h28v30h-28zM230 272h28v30h-28zM272 272h28v30h-28zM330 272h28v30h-28zM372 272h28v30h-28z"/>
+<path class="leicht" d="M500 110V68M492 80H508"/>
+<circle class="leicht" cx="424" cy="432" r="12"/><path class="leicht" d="M424 420V400"/>
+<g data-k="wartung"><path d="M250 110V84H300V110"/><circle cx="275" cy="97" r="8"/><path d="M268 97h14M275 90v14"/></g>
+<g data-k="cafm"><path d="M232 168H312M240 168V182M304 168V182"/><path d="M258 140h28v18h-28zM272 158v10M264 168h16"/></g>
+<g data-k="doku"><path d="M330 128h60v48h-60zM330 144h60M330 160h60"/><path d="M340 128v16M348 128v16M356 128v16M366 144v16M374 144v16M344 160v16M352 160v16M372 160v16"/></g>
+<g data-k="rein"><path d="M238 252l3-18h20l3 18z"/><path d="M241 234q10-12 20 0"/><path d="M290 252L276 196M282 252h16"/></g>
+<g data-k="stoer"><path d="M426 268h30v54h-30zM441 268v54"/><path d="M441 222l11 19h-22z"/><path d="M441 229v5M441 237v1"/></g>
+<g data-k="instand"><path d="M178 400L204 264M192 400L216 264"/><path d="M183 376h13M187 352h13M192 328h13M196 304h13M201 280h13"/></g>
+<g data-k="gewaehr"><path d="M520 196l-9 11 7 9-10 12 6 10"/><circle cx="542" cy="224" r="10"/><path d="M549 231l9 9"/></g>
+<g data-k="pforte"><path d="M330 400V346H378V400M354 346V400M320 338H388"/><path d="M386 366h14v12h-14zM386 370l7 4 7-4"/></g>
+<g data-k="objekt"><circle cx="245" cy="349" r="7"/><path d="M245 356v22M245 363l-11 8M245 363l11 8M245 378l-8 22M245 378l8 22"/><path d="M264 386h20v14h-20zM270 386v-5h8v5"/></g>
+<g data-k="brand"><path d="M468 398L504 362 468 326 504 290 468 254 504 218 468 182 504 146 468 112"/><path d="M508 398v-14a4 4 0 0 1 8 0v14zM512 380v-5h5"/></g>
+<g data-k="park"><path d="M240 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="256" cy="450" r="5"/><circle cx="298" cy="450" r="5"/><path d="M340 450V424h9a7 7 0 0 1 0 14h-9"/></g>
+<g data-k="betreiber"><path d="M478 412h26v40h-26z"/><path d="M493 418l-7 13h9l-7 13"/></g>
+<g data-k="gruen"><path d="M130 400V330"/><circle cx="130" cy="296" r="32"/><path d="M150 400q9-20 20 0"/></g>
+<g data-k="galabau"><path d="M22 390h34M22 382h34M27 382v18M51 382v18"/><path d="M84 400V368M91 400V374M84 380h7"/><circle cx="84" cy="357" r="11"/></g>
+<g data-k="omgmt"><path d="M-52 394v-30h32l12 14h14v16z"/><path d="M-22 368v10h12"/><circle cx="-38" cy="396" r="6"/><circle cx="-4" cy="396" r="6"/></g>
+<g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
+<g data-k="abfall"><path d="M622 400V372H640V400M646 400V376H662V400M619 372H643M644 376H665"/></g>
 </svg>'''
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
@@ -91,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=12">
+<link rel="stylesheet" href="d.css?v=13">
 </head>
 <body>
 <header class="kopf">
@@ -205,7 +213,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=12" defer></script>
+<script src="d.js?v=13" defer></script>
 </body>
 </html>
 """

@@ -37,11 +37,13 @@
   const reiter = [...document.querySelectorAll('.reiter button')], wahl = [...document.querySelectorAll('.h-wahl')];
   const buehne = document.querySelector('.h-buehne'), punkteBox = document.querySelector('.h-punkte'), detail = document.querySelector('.h-detail');
   const dIcon = detail.querySelector('.k-icon'), dTitel = detail.querySelector('h3'), dText = detail.querySelector('p');
-  document.querySelectorAll('.haus > *').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  document.querySelectorAll('.haus path, .haus circle').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  const teile = [...document.querySelectorAll('.haus g[data-k]')];
   let aktArt = 'aussen', selbst = false, autoT = null;
   const waehle = (b, vonHand) => {
     if (vonHand) { selbst = true; clearInterval(autoT); }
     wahl.forEach(w => { const an = w === b; w.classList.toggle('aktiv', an); w._punkt.classList.toggle('aktiv', an); });
+    teile.forEach(g => g.classList.toggle('aktiv', g.dataset.k === b.dataset.k));
     dIcon.innerHTML = b.querySelector('.l-icon').innerHTML;
     dTitel.textContent = b.querySelector('.l-name').textContent; dText.textContent = b.dataset.text;
     detail.classList.remove('neu'); void detail.offsetWidth; detail.classList.add('neu');
@@ -49,7 +51,7 @@
   wahl.forEach(b => {
     const p = document.createElement('button'); p.className = 'h-punkt'; p.type = 'button';
     p.setAttribute('aria-label', b.querySelector('.l-name').textContent);
-    p.style.left = (b.dataset.x / 640 * 100) + '%'; p.style.top = (b.dataset.y / 480 * 100) + '%';
+    p.style.left = ((+b.dataset.x + 60) / 760 * 100) + '%'; p.style.top = (b.dataset.y / 480 * 100) + '%';
     punkteBox.append(p); b._punkt = p;
     b.addEventListener('click', () => waehle(b, true)); p.addEventListener('click', () => waehle(b, true));
     p.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') waehle(b, true); });
