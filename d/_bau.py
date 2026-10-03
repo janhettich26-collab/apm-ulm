@@ -112,12 +112,12 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=34">
+<link rel="stylesheet" href="d.css?v=35">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum.</small></span></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -133,7 +133,7 @@ html = f"""<!doctype html>
   <img class="held-bild" src="../img/energon-wide-1920-sw.webp" srcset="../img/energon-wide-1000-sw.webp 1000w, ../img/energon-wide-1920-sw.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
     <p class="label ohne-gross"><i></i>property management · Ulm und Region</p>
-    <h1 data-worte>Gebäude in Ulm, <em>um Ulm und um Ulm herum.</em></h1>
+    <h1 data-worte>Gebäude in Ulm, <em>um Ulm und um Ulm herum</em></h1>
     <p class="lead">Vom Hausmeisterdienst bis zur Haustechnik: Wir halten Ihre Immobilie in Schuss. Sie sprechen mit einem festen Ansprechpartner, der Ihr Gebäude kennt, weil er selbst regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
       <a href="#kontakt" class="btn">Objekt anfragen</a>
@@ -208,7 +208,7 @@ html = f"""<!doctype html>
   <div class="teil kontakt">
     <div class="k-links">
       <p class="label auf"><i></i>Kontakt</p>
-      <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude.</em></h2>
+      <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude</em></h2>
       <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
     </div>
     <ul class="k-liste">
@@ -230,7 +230,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=34" defer></script>
+<script src="d.js?v=35" defer></script>
 </body>
 </html>
 """
