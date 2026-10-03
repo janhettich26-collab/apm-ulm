@@ -14,12 +14,10 @@
 .r-teil::before,.r-teil::after{content:"";position:absolute;left:0;top:0;height:1.5px;width:100%;background:var(--linie)}
 .r-teil::after{background:var(--schwarz);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.45,0,.2,1) .35s}
 .r-teil.da::after{transform:scaleX(1)}
-.r-teil .v-punkt{top:-9px;transition:scale .5s cubic-bezier(.2,1.25,.4,1) .1s,left 1.3s cubic-bezier(.45,0,.2,1) .35s,background .35s ease 1.65s,color .35s ease 1.65s}
-.r-teil.da .v-punkt{scale:1;left:calc(100% - 20px);background:var(--gruen);color:var(--gruen)}
-.r-teil .v-punkt::before{transition:opacity .25s ease 1.6s}
-.r-teil.da .v-punkt::before{opacity:0}
-.r-teil .v-punkt svg path{transition:stroke-dashoffset .45s ease 1.8s}
-.r-teil.da .v-punkt svg path{stroke-dashoffset:0}
+/* ruhiger: kein grüner Haken mehr je Abschnitt – nur ein kleiner dunkler Punkt am Linienanfang */
+.r-teil .v-punkt{top:-4.5px;width:10px;height:10px;background:var(--schwarz);box-shadow:none;transition:scale .5s cubic-bezier(.2,1.25,.4,1) .15s}
+.r-teil.da .v-punkt{scale:1;left:0;background:var(--schwarz);color:var(--schwarz)}
+.r-teil .v-punkt::before,.r-teil .v-punkt::after,.r-teil .v-punkt svg{display:none}
 .r-teil h2{font-size:clamp(19px,2vw,26px);max-width:none;margin-bottom:14px}
 .r-teil p{margin-top:12px;max-width:72ch}
 .r-teil a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#9AA3B5;transition:text-decoration-color .3s}
@@ -31,8 +29,8 @@
 .r-daten dd{margin:0;font-weight:700;color:var(--schwarz)}
 .r-haken li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--linie)}
 .r-haken li:last-child{border-bottom:0}
-.r-haken li::before{content:"";position:absolute;left:0;top:12px;width:20px;height:20px;border-radius:50%;background:var(--gruen)}
-.r-haken li::after{content:"";position:absolute;left:6px;top:18px;width:8px;height:4.5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.r-haken li{padding-left:26px}
+.r-haken li::before{content:"";position:absolute;left:0;top:21px;width:12px;height:1.5px;background:var(--schwarz)}
 .r-zurueck{margin-top:10px}
 .btn.r-btn{background:var(--schwarz);color:#fff;box-shadow:inset 0 0 0 1.5px var(--schwarz)}
 .btn.r-btn::before{background:#fff}

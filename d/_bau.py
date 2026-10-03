@@ -128,7 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=42">
+<link rel="stylesheet" href="d.css?v=43">
 </head>
 <body>
 <header class="kopf">
@@ -246,7 +246,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=42" defer></script>
+<script src="d.js?v=43" defer></script>
 </body>
 </html>
 """
@@ -279,8 +279,8 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=42">
-<link rel="stylesheet" href="recht.css?v=1">
+<link rel="stylesheet" href="d.css?v=43">
+<link rel="stylesheet" href="recht.css?v=2">
 </head>
 <body class="recht-seite">
 <header class="kopf">

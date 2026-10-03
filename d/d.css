@@ -299,11 +299,10 @@ h3{font-size:17.5px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .sp-schild text{fill:#fff;stroke:none;font:700 13px Verdana,Geneva,"DejaVu Sans",sans-serif;letter-spacing:.04em}
 .block-text p:not(.label){margin-top:18px}
 .haken{margin-top:24px}
-.haken li{position:relative;padding:12px 0 12px 38px;font-weight:600;color:var(--schwarz);border-top:1px solid var(--linie)}
+.haken li{position:relative;padding:12px 0 12px 32px;font-weight:600;color:var(--schwarz);border-top:1px solid var(--linie)}
 .haken li:last-child{border-bottom:1px solid var(--linie)}
-.haken li::before{content:"";position:absolute;left:0;top:13px;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #B9C0CE;transition:background .4s,box-shadow .4s,scale .5s cubic-bezier(.2,1.4,.4,1)}
-.haken li::after{content:"";position:absolute;left:7px;top:20px;width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) scale(0);transition:transform .4s cubic-bezier(.2,1.4,.4,1) .1s}
-.haken li.an::before{background:var(--gruen);box-shadow:inset 0 0 0 1.5px var(--gruen);scale:1.08}
+.haken li::before{content:none}
+.haken li::after{content:"";position:absolute;left:4px;top:19px;width:12px;height:6px;border-left:2px solid var(--schwarz);border-bottom:2px solid var(--schwarz);transform:rotate(-45deg) scale(0);transition:transform .45s cubic-bezier(.2,1.4,.4,1)}
 .haken li.an::after{transform:rotate(-45deg) scale(1)}
 
 /* Ablauf */
@@ -406,7 +405,6 @@ h3{font-size:17.5px;font-weight:700;line-height:1.3;color:var(--schwarz)}
   .haus>:is(path,circle),.h-detail .k-icon svg *{stroke-dashoffset:0;transition:none}
   .sp>:is(path,circle)[pathLength]{stroke-dashoffset:0;transition:none}
   .sp-auto,.sp-pin,.sp-schild{opacity:1;transform:none;transition:none}
-  .haken li::before{background:var(--gruen);box-shadow:inset 0 0 0 1.5px var(--gruen)}
   .haken li::after{transform:rotate(-45deg) scale(1)}
   .v-bild *{stroke-dashoffset:0;transition:none}
   .k-bild svg *,.k-stadt path{stroke-dashoffset:0;transition:none}
