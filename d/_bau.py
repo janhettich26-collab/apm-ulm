@@ -128,7 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=45">
+<link rel="stylesheet" href="d.css?v=46">
 </head>
 <body>
 <header class="kopf">
@@ -148,7 +148,6 @@ html = f"""<!doctype html>
 <section class="held" id="start">
   <img class="held-bild" src="../img/energon-wide-1920-sw.webp" srcset="../img/energon-wide-1000-sw.webp 1000w, ../img/energon-wide-1920-sw.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
-    <p class="label ohne-gross"><i></i>property management für Ulm und Region</p>
     <h1 data-worte>Gebäude in Ulm, <em>um Ulm und um Ulm herum</em></h1>
     <p class="lead">Vom Hausmeisterdienst bis zur Haustechnik: Wir halten Ihre Immobilie in Schuss. Sie sprechen mit einem festen Ansprechpartner, der Ihr Gebäude kennt, weil er selbst regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
@@ -246,7 +245,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=45" defer></script>
+<script src="d.js?v=46" defer></script>
 </body>
 </html>
 """
@@ -279,7 +278,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=45">
+<link rel="stylesheet" href="d.css?v=46">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
