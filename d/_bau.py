@@ -280,7 +280,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="d.css?v=44">
-<link rel="stylesheet" href="recht.css?v=2">
+<link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
 <header class="kopf">
@@ -331,7 +331,7 @@ NAME='Emre Altun'; STR='Weinbergweg 81'; ORT_='89075 Ulm'; TEL='+49 170 5810174'
 tel_l=f'<a href="tel:+491705810174">{TEL}</a>'; mail_l=f'<a href="mailto:{MAIL}">{MAIL}</a>'
 
 imp = (
- abschnitt('Angaben gemäß § 5 DDG', zeilen([('Unternehmen','APM Ulm – property management'),('Inhaber',NAME),('Anschrift',f'{STR}<br>{ORT_}<br>Deutschland')])) +
+ abschnitt('Angaben gemäß § 5 DDG', zeilen([('Unternehmen','apm ulm – altun property management'),('Inhaber',NAME),('Anschrift',f'{STR}<br>{ORT_}<br>Deutschland')])) +
  abschnitt('Kontakt', zeilen([('Telefon',tel_l),('E-Mail',mail_l)])) +
  abschnitt('Umsatzsteuer', zeilen([('Umsatzsteuer-Identifikationsnummer nach § 27a UStG',USTID)])) +
  abschnitt('Verantwortlich für den Inhalt', f'<p>Verantwortlich nach § 18 Abs. 2 MStV: {NAME}, {STR}, {ORT_}.</p>') +
