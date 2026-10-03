@@ -33,31 +33,41 @@
     auf.forEach(e => io.observe(e));
   }
 
-  /* Leistungen: zwei Reiter, Kacheln klappen nacheinander auf */
-  const reiter = [...document.querySelectorAll('.reiter button')], kacheln = [...document.querySelectorAll('.kachel')];
-  const zeige = (art, sofort) => {
+  /* Leistungen am Haus: Punkte anklicken, zwei Reiter, läuft von selbst durch bis man klickt */
+  const reiter = [...document.querySelectorAll('.reiter button')], wahl = [...document.querySelectorAll('.h-wahl')];
+  const buehne = document.querySelector('.h-buehne'), punkteBox = document.querySelector('.h-punkte'), detail = document.querySelector('.h-detail');
+  const dIcon = detail.querySelector('.k-icon'), dTitel = detail.querySelector('h3'), dText = detail.querySelector('p');
+  document.querySelectorAll('.haus > *').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  let aktArt = 'aussen', selbst = false, autoT = null;
+  const waehle = (b, vonHand) => {
+    if (vonHand) { selbst = true; clearInterval(autoT); }
+    wahl.forEach(w => { const an = w === b; w.classList.toggle('aktiv', an); w._punkt.classList.toggle('aktiv', an); });
+    dIcon.innerHTML = b.querySelector('.l-icon').innerHTML;
+    dTitel.textContent = b.querySelector('.l-name').textContent; dText.textContent = b.dataset.text;
+    detail.classList.remove('neu'); void detail.offsetWidth; detail.classList.add('neu');
+  };
+  wahl.forEach(b => {
+    const p = document.createElement('button'); p.className = 'h-punkt'; p.type = 'button';
+    p.setAttribute('aria-label', b.querySelector('.l-name').textContent);
+    p.style.left = (b.dataset.x / 640 * 100) + '%'; p.style.top = (b.dataset.y / 480 * 100) + '%';
+    punkteBox.append(p); b._punkt = p;
+    b.addEventListener('click', () => waehle(b, true)); p.addEventListener('click', () => waehle(b, true));
+    p.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') waehle(b, true); });
+  });
+  const zeige = art => {
+    aktArt = art;
     reiter.forEach(b => { const an = b.dataset.art === art; b.classList.toggle('aktiv', an); b.setAttribute('aria-selected', an); });
     let i = 0;
-    kacheln.forEach(k => {
-      const an = k.dataset.art === art; k.classList.toggle('aus', !an);
-      if (!an) return;
-      k.classList.remove('fertig'); k.style.setProperty('--v', (i++ * .07) + 's');
-      if (!sofort && !leise) { k.classList.remove('da'); void k.offsetWidth; k.classList.add('da'); }
-    });
+    wahl.forEach(b => { const an = b.dataset.art === art; b.parentElement.classList.toggle('aus', !an); b._punkt.classList.toggle('aus', !an); if (an) b._punkt.style.setProperty('--i', i++); });
+    waehle(wahl.find(b => b.dataset.art === art), false);
   };
-  reiter.forEach(b => b.addEventListener('click', () => zeige(b.dataset.art)));
-  zeige('aussen', true);
-  /* nach dem Aufklappen: Kachel neigt sich zur Maus, Lichtfleck wandert mit */
-  kacheln.forEach(k => {
-    k.addEventListener('animationend', e => { if (e.animationName === 'zeichne' && e.target.closest('.k-icon')) k.classList.add('fertig'); });
-    if (leise || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    k.addEventListener('pointermove', e => {
-      const r = k.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      k.style.setProperty('--ry', ((x - .5) * 10).toFixed(2) + 'deg'); k.style.setProperty('--rx', ((.5 - y) * 9).toFixed(2) + 'deg');
-      k.style.setProperty('--mx', (x * 100).toFixed(1) + '%'); k.style.setProperty('--my', (y * 100).toFixed(1) + '%');
-    });
-    k.addEventListener('pointerleave', () => { k.style.setProperty('--rx', '0deg'); k.style.setProperty('--ry', '0deg'); });
-  });
+  reiter.forEach(b => b.addEventListener('click', () => { selbst = true; clearInterval(autoT); zeige(b.dataset.art); }));
+  zeige('aussen');
+  if (!leise) new IntersectionObserver(es => {
+    clearInterval(autoT);
+    if (!es[0].isIntersecting || selbst) return;
+    autoT = setInterval(() => { const l = wahl.filter(b => b.dataset.art === aktArt), n = l[(l.findIndex(b => b.classList.contains('aktiv')) + 1) % l.length]; waehle(n, false); }, 3200);
+  }, { threshold: .35 }).observe(buehne);
 
   /* Laufband: zwei Reihen gegenläufig, Scrollen gibt Schwung */
   const reihen = [...document.querySelectorAll('.lb-reihe')].map(el => ({ el, x: 0, tempo: +el.dataset.tempo, halb: 0 }));

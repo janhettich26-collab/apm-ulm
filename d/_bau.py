@@ -43,8 +43,35 @@ TECHNIK = [
  ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-def kacheln(L,art):
-    return ''.join(f'<li class="kachel auf" data-art="{art}"><svg class="k-rahmen" aria-hidden="true"><rect x="0.5" y="0.5" rx="17.5" pathLength="1"/></svg><span class="k-icon">{svg_z(k)}</span><h3>{t}</h3><p>{x}</p></li>\n' for k,t,x in L)
+# Wo die Leistung am gezeichneten Haus sitzt (x, y im Bild 640 x 480)
+ORT = {
+ 'aussen': {'objekt':(300,286),'rein':(250,216),'gruen':(110,298),'winter':(150,392),'galabau':(52,372),'abfall':(571,366),'park':(330,432),'pforte':(356,366),'doku':(410,216)},
+ 'technik': {'wartung':(425,92),'instand':(250,286),'brand':(486,232),'betreiber':(300,146),'stoer':(356,366),'omgmt':(130,388),'cafm':(410,216),'gewaehr':(240,362)},
+}
+def punkte(L,art):
+    return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
+HAUS = '''<svg class="haus" viewBox="0 0 640 480" aria-hidden="true">
+<path class="leicht" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
+<path d="M14 400H626"/>
+<path d="M200 400V110H520V400"/>
+<path d="M200 180H520M200 250H520M200 320H520"/>
+<path d="M460 110V400"/>
+<path d="M468 398L504 360 468 322 504 286 468 252 504 216 468 182 504 146 468 112"/>
+<path d="M220 130h28v30h-28zM262 130h28v30h-28zM304 130h28v30h-28zM346 130h28v30h-28zM388 130h28v30h-28z"/>
+<path d="M220 200h28v30h-28zM262 200h28v30h-28zM304 200h28v30h-28zM346 200h28v30h-28zM388 200h28v30h-28z"/>
+<path d="M220 270h28v30h-28zM262 270h28v30h-28zM304 270h28v30h-28zM346 270h28v30h-28zM388 270h28v30h-28z"/>
+<path d="M220 340h28v30h-28zM262 340h28v30h-28zM404 340h28v30h-28z"/>
+<path d="M332 400V346H380V400M356 346V400M322 338H390"/>
+<path d="M400 110V84H450V110"/><circle cx="425" cy="97" r="7"/>
+<path d="M490 110V68M482 80H498"/>
+<path class="leicht" d="M200 400V458H520V400M520 458L596 400"/>
+<path class="leicht" d="M246 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle class="leicht" cx="262" cy="450" r="5"/><circle class="leicht" cx="304" cy="450" r="5"/>
+<circle class="leicht" cx="440" cy="432" r="13"/><path class="leicht" d="M440 419V400M453 432H480V400"/>
+<path d="M110 400V332"/><circle cx="110" cy="298" r="34"/>
+<path d="M52 400V366"/><circle cx="52" cy="350" r="17"/>
+<path d="M146 400q9-20 20 0M168 400q7-14 16 0"/>
+<path d="M556 400V374H572V400M576 400V378H590V400M553 374H575M574 378H593"/>
+</svg>'''
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
 band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
@@ -64,7 +91,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=11">
+<link rel="stylesheet" href="d.css?v=12">
 </head>
 <body>
 <header class="kopf">
@@ -115,8 +142,14 @@ html = f"""<!doctype html>
       <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Building Management</button>
       <button role="tab" aria-selected="false" data-art="technik">Technical Management</button>
     </div>
-    <ul class="kacheln">
-{kacheln(AUSSEN,'aussen')}{kacheln(TECHNIK,'technik')}    </ul>
+    <div class="h-buehne auf">
+      <div class="h-bild">{HAUS}<div class="h-punkte"></div></div>
+      <div class="h-seite">
+        <div class="h-detail" aria-live="polite"><span class="k-icon"></span><h3></h3><p></p></div>
+        <ul class="h-liste">
+{punkte(AUSSEN,'aussen')}{punkte(TECHNIK,'technik')}        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -172,7 +205,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=11" defer></script>
+<script src="d.js?v=12" defer></script>
 </body>
 </html>
 """
