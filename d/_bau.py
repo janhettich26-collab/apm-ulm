@@ -84,7 +84,7 @@ html = f"""<!doctype html>
   <div class="held-text">
     <p class="label ohne-gross"><i></i>property management · Ulm und Region</p>
     <h1 data-worte>Gebäude in Ulm, <em>um Ulm und um Ulm herum.</em></h1>
-    <p class="lead">Wir kümmern uns um Ihre Immobilie – außen, innen und an der Technik. Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist.</p>
+    <p class="lead">Vom Hausmeisterdienst bis zur Haustechnik: Wir halten Ihre Immobilie in Schuss. Sie sprechen mit einem festen Ansprechpartner, der Ihr Gebäude kennt, weil er selbst regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
       <a href="#kontakt" class="btn">Objekt anfragen</a>
       <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
