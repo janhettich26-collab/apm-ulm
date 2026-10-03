@@ -73,7 +73,7 @@
     const istMod = art === 'mod'; bild.classList.toggle('mod', istMod);
     clearTimeout(bild._t); hausMod.classList.remove('lauf');
     wahl.forEach(b => b._punkt.classList.toggle('spaet', istMod && b.dataset.art === 'mod' && !leise));
-    if (istMod && !leise) { void hausMod.getBoundingClientRect(); hausMod.classList.add('lauf'); bild._t = setTimeout(() => wahl.forEach(b => b._punkt.classList.remove('spaet')), 6500); }
+    if (istMod && !leise) { void hausMod.getBoundingClientRect(); hausMod.classList.add('lauf'); bild._t = setTimeout(() => wahl.forEach(b => b._punkt.classList.remove('spaet')), 4500); }
     waehle(wahl.find(b => b.dataset.art === art), false);
   };
   reiter.forEach(b => b.addEventListener('click', () => { selbst = true; clearInterval(autoT); zeige(b.dataset.art); }));
