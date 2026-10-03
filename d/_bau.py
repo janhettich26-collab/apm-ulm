@@ -79,8 +79,8 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
 <g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
 <g class="sz szene">
-<path class="himmelblitz" d="M526 -10L509 22H520L503 48 500 68"/>
-<path class="strom" d="M500 68V110H520V436H504"/>
+<path class="himmelblitz" pathLength="1" d="M526 -10L509 22H520L503 48 500 68"/>
+<path class="strom" pathLength="1" d="M500 68V110H520V436H504"/>
 <g class="sz rauch"><circle cx="484" cy="408" r="5.5"/><circle cx="492" cy="405" r="7"/><circle cx="499" cy="408" r="5"/><circle cx="489" cy="410" r="4.5"/></g>
 <g class="sz funken"><path d="M509 425l6-4M510 432h7M509 439l6 4"/></g>
 <g class="sz ok"><circle cx="491" cy="386" r="9"/><path d="M486.6 386l3 3 6-6.6"/></g>
@@ -106,7 +106,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=29">
+<link rel="stylesheet" href="d.css?v=31">
 </head>
 <body>
 <header class="kopf">
@@ -200,15 +200,18 @@ html = f"""<!doctype html>
 
 <section class="dunkel" id="kontakt">
   <div class="teil kontakt">
-    <p class="label auf"><i></i>Kontakt</p>
-    <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude.</em></h2>
-    <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
-    <ul class="k-liste auf">
-      <li><span>Telefon</span><b>Nummer folgt</b></li>
-      <li><span>E-Mail</span><b>E-Mail folgt</b></li>
-      <li><span>Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
+    <div class="k-links">
+      <p class="label auf"><i></i>Kontakt</p>
+      <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude.</em></h2>
+      <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
+    </div>
+    <ul class="k-liste">
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b>Nummer folgt</b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b>E-Mail folgt</b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
     </ul>
   </div>
+  <svg class="k-stadt auf" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><path pathLength="1" d="M0 112H96V86H150V112H214V72H250V112H318V94H380V112H452V62l15-13 15 13v50H528V98H552V44l6-10V10l4-9 4 9v24l6 10v68h32V80h48v32H742V90h56v22H880V66H934V112H1004V92H1056V112H1200"/></svg>
 </section>
 </main>
 
@@ -221,7 +224,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=29" defer></script>
+<script src="d.js?v=31" defer></script>
 </body>
 </html>
 """
