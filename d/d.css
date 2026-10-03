@@ -57,10 +57,8 @@ h1 .w>span{display:inline-block;transform:translateY(110%);animation:wort 1s var
 .lead{font-size:clamp(15.5px,1.3vw,17.5px);margin-top:24px;max-width:50ch;color:#DADADC;animation:hoch 1s var(--ease) both .6s}
 .knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;animation:hoch 1s var(--ease) both .75s}
 @keyframes hoch{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.btn{display:inline-flex;align-items:center;padding:9px 20px;border-radius:999px;font-size:14px;font-weight:600;background:#fff;color:var(--schwarz);box-shadow:inset 0 0 0 1.5px #fff;transition:background-color .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
-.btn:hover{background:transparent;color:#fff}
-.btn.hell{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
-.btn.hell:hover{background:#fff;color:var(--schwarz);box-shadow:inset 0 0 0 1.5px #fff}
+.btn{display:inline-flex;align-items:center;padding:9px 20px;border-radius:999px;font-size:14px;font-weight:600;background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);transition:background-color .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
+.btn:hover{background:#fff;color:var(--schwarz);box-shadow:inset 0 0 0 1.5px #fff}
 
 .held-logo{position:absolute;z-index:2;right:max(32px,calc((100vw - 1240px)/2 + 32px));top:50%;translate:0 -50%;width:min(430px,32vw);animation:schweb 7s ease-in-out infinite 2.2s}
 .logo-svg.gross-logo{height:auto;width:100%;fill:#fff}
