@@ -95,6 +95,15 @@ import json
 AB = 22  # Jan 03.10.: a p m minimal auseinander (Zusatzabstand je Buchstabe in Logo-Einheiten)
 logo = f'<svg class="logo-svg" viewBox="100 100 {1124+5*AB} 377" role="img" aria-label="APM Ulm">' + ''.join(f'<g transform="translate({min(i,3)*AB + (AB if i>=3 else 0) + max(0,i-3)*6} 0)"><path class="{"gross" if i<3 else "klein"}" style="--n:{i}" d="{d}"/></g>' for i,d in enumerate(json.load(open('_logo_teile.json')))) + '</svg>'
 logo_gross = logo.replace('class="logo-svg"','class="logo-svg gross-logo"').replace(' role="img" aria-label="APM Ulm"','')
+# Stadtlinie im Kontaktbereich: schlichte Linie wie zuvor, in der Mitte nur der Turm des Ulmer Muensters (Jan 03.10.)
+STADT = ('<svg class="k-stadt auf" viewBox="0 -40 1200 154" preserveAspectRatio="xMidYMax slice" aria-hidden="true">'
+ '<path class="linie" pathLength="1" d="M0 112H96V86H150V112H214V72H250V112H318V94H380V112H452V62l15-13 15 13v50H672V84h48v28H760V90h56v22H880V66H934V112H1004V92H1056V112H1200"/>'
+ '<g class="turm" transform="translate(600 112) scale(.7) translate(-600 -112)">'
+ '<path pathLength="1" d="M572 112V24H628V112"/><path pathLength="1" d="M588 112V84a12 12 0 0 1 24 0V112"/>'
+ '<path pathLength="1" d="M572 24V6l5-8 5 8V24M618 24V6l5-8 5 8V24"/><path pathLength="1" d="M594 72V46q6-10 12 0V72"/>'
+ '<path pathLength="1" d="M582 24V-22H618V24"/><path pathLength="1" d="M592 16V-6q4-8 8 0V16M600 16V-6q4-8 8 0V16"/>'
+ '<path pathLength="1" d="M582 -22L600 -82 618 -22"/><path pathLength="1" d="M588 -42h24M593 -58h14M600 -82V-94M596 -89h8"/>'
+ '</g></svg>')
 html = f"""<!doctype html>
 <html lang="de">
 <head>
@@ -106,7 +115,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=31">
+<link rel="stylesheet" href="d.css?v=33">
 </head>
 <body>
 <header class="kopf">
@@ -211,7 +220,7 @@ html = f"""<!doctype html>
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
     </ul>
   </div>
-  <svg class="k-stadt auf" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><path pathLength="1" d="M0 112H96V86H150V112H214V72H250V112H318V94H380V112H452V62l15-13 15 13v50H528V98H552V44l6-10V10l4-9 4 9v24l6 10v68h32V80h48v32H742V90h56v22H880V66H934V112H1004V92H1056V112H1200"/></svg>
+  {STADT}
 </section>
 </main>
 
@@ -224,7 +233,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=31" defer></script>
+<script src="d.js?v=33" defer></script>
 </body>
 </html>
 """
