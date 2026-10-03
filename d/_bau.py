@@ -128,7 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=46">
+<link rel="stylesheet" href="d.css?v=47">
 </head>
 <body>
 <header class="kopf">
@@ -173,7 +173,7 @@ html = f"""<!doctype html>
 
 <section class="nebel" id="leistungen">
   <div class="teil">
-    <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
+    <div class="kopfzeile auf"><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
     <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
       <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Infrastrukturelles Management</button>
       <button role="tab" aria-selected="false" data-art="technik">Technisches Management</button>
@@ -194,7 +194,7 @@ html = f"""<!doctype html>
   <div class="block">
     <div class="sp-bild auf">{SP}</div>
     <div class="block-text auf">
-      <p class="label"><i></i>Praxisbeispiel</p>
+      
       <h2>Science Park II <em>Ulm</em></h2>
       <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im ganzheitlichen Facility Management.</p>
       <ul class="haken" data-nacheinander>
@@ -210,7 +210,7 @@ html = f"""<!doctype html>
 
 <section class="nebel" id="ablauf">
 <div class="teil">
-  <div class="kopfzeile auf"><p class="label"><i></i>Ablauf</p><h2>Vier Schritte bis zum <em>sicheren Betrieb</em></h2></div>
+  <div class="kopfzeile auf"><h2>Vier Schritte bis zum <em>sicheren Betrieb</em></h2></div>
   <ol class="schritte" style="--fuell:0">
     <li class="auf"><span><b>1</b><svg viewBox="0 0 20 20" aria-hidden="true"><path pathLength="1" d="M5.2 10.4l3.2 3.2 6.4-7"/></svg></span><h3>Begehung</h3><p>Technik, Flächen, Prüfpflichten und offene Punkte gemeinsam ansehen.</p></li>
     <li class="auf"><span><b>2</b><svg viewBox="0 0 20 20" aria-hidden="true"><path pathLength="1" d="M5.2 10.4l3.2 3.2 6.4-7"/></svg></span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner an einem Ort dokumentiert.</p></li>
@@ -245,7 +245,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=46" defer></script>
+<script src="d.js?v=47" defer></script>
 </body>
 </html>
 """
@@ -278,7 +278,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=46">
+<link rel="stylesheet" href="d.css?v=47">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
