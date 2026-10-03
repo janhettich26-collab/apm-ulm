@@ -46,13 +46,13 @@ TECHNIK = [
 # Wo der Punkt sitzt (x, y im Bild; Bild reicht von x=-60 bis 700, y=0 bis 480) – jeweils NEBEN dem gezeichneten Gegenstand
 ORT = {
  'aussen': {'objekt':(284,366),'rein':(306,226),'gruen':(130,296),'winter':(566,366),'galabau':(62,352),'abfall':(642,352),'park':(376,434),'pforte':(354,372),'doku':(404,150)},
- 'technik': {'wartung':(322,94),'instand':(160,330),'brand':(486,290),'betreiber':(456,440),'stoer':(441,200),'omgmt':(-22,346),'cafm':(306,146),'gewaehr':(556,192)},
+ 'technik': {'wartung':(322,94),'instand':(160,330),'brand':(486,290),'betreiber':(456,440),'stoer':(441,200),'omgmt':(-22,346),'cafm':(306,146),'gewaehr':(538,222)},
 }
 def punkte(L,art):
     return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-k="{k}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
 # Jede Leistung hat ihren eigenen Gegenstand im Bild (g data-k) – der wird hervorgehoben, wenn sie gewaehlt ist
 HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
-<path class="leicht" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
+<path class="wolke" d="M70 122a16 16 0 0 1 30-6 14 14 0 0 1 26 8 12 12 0 0 1-4 23H74a13 13 0 0 1-4-25z"/>
 <path d="M-56 400H694"/>
 <path d="M210 400V110H520V400"/>
 <path d="M210 182H520M210 254H520M210 326H520"/>
@@ -68,7 +68,6 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g data-k="rein"><path d="M238 252l3-18h20l3 18z"/><path d="M241 234q10-12 20 0"/><path d="M290 252L276 196M282 252h16"/></g>
 <g data-k="stoer"><path d="M426 268h30v54h-30zM441 268v54"/><path d="M441 222l11 19h-22z"/><path d="M441 229v5M441 237v1"/></g>
 <g data-k="instand"><path d="M178 400L204 264M192 400L216 264"/><path d="M183 376h13M187 352h13M192 328h13M196 304h13M201 280h13"/></g>
-<g data-k="gewaehr"><path d="M520 196l-9 11 7 9-10 12 6 10"/><circle cx="542" cy="224" r="10"/><path d="M549 231l9 9"/></g>
 <g data-k="pforte"><path d="M330 400V346H378V400M354 346V400M320 338H388"/><path d="M386 366h14v12h-14zM386 370l7 4 7-4"/></g>
 <g data-k="objekt"><circle cx="245" cy="349" r="7"/><path d="M245 356v22M245 363l-11 8M245 363l11 8M245 378l-8 22M245 378l8 22"/><path d="M264 386h20v14h-20zM270 386v-5h8v5"/></g>
 <g data-k="brand"><path d="M468 398L504 362 468 326 504 290 468 254 504 218 468 182 504 146 468 112"/><path d="M508 398v-14a4 4 0 0 1 8 0v14zM512 380v-5h5"/></g>
@@ -107,7 +106,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=26">
+<link rel="stylesheet" href="d.css?v=27">
 </head>
 <body>
 <header class="kopf">
@@ -222,7 +221,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=26" defer></script>
+<script src="d.js?v=27" defer></script>
 </body>
 </html>
 """
