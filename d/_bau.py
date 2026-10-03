@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=16">
+<link rel="stylesheet" href="d.css?v=17">
 </head>
 <body>
 <header class="kopf">
@@ -117,7 +117,7 @@ html = f"""<!doctype html>
 
 <main>
 <section class="held" id="start">
-  <img class="held-bild" src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
+  <img class="held-bild" src="../img/energon-wide-1920-sw.webp" srcset="../img/energon-wide-1000-sw.webp 1000w, ../img/energon-wide-1920-sw.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
     <p class="label ohne-gross"><i></i>property management · Ulm und Region</p>
     <h1 data-worte>Gebäude in Ulm, <em>um Ulm und um Ulm herum.</em></h1>
@@ -163,7 +163,7 @@ html = f"""<!doctype html>
 
 <section class="teil" id="praxis">
   <div class="block">
-    <figure class="block-bild auf"><img src="../img/sciencepark-1500.webp" srcset="../img/sciencepark-800.webp 800w, ../img/sciencepark-1500.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park Ulm, Lise-Meitner-Straße</figcaption></figure>
+    <figure class="block-bild auf"><img src="../img/sciencepark-1500-sw.webp" srcset="../img/sciencepark-800-sw.webp 800w, ../img/sciencepark-1500-sw.webp 1500w" sizes="(max-width: 980px) 100vw, 620px" alt="Bürogebäude an der Lise-Meitner-Straße im Science Park Ulm" loading="lazy" width="1500" height="1000"><figcaption>Science Park Ulm, Lise-Meitner-Straße</figcaption></figure>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park <em>Ulm</em></h2>
@@ -213,7 +213,8 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=16" defer></script>
+<script src="../vendor/lenis.min.js" defer></script>
+<script src="d.js?v=17" defer></script>
 </body>
 </html>
 """

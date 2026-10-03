@@ -37,7 +37,8 @@
   const reiter = [...document.querySelectorAll('.reiter button')], wahl = [...document.querySelectorAll('.h-wahl')];
   const buehne = document.querySelector('.h-buehne'), punkteBox = document.querySelector('.h-punkte'), detail = document.querySelector('.h-detail');
   const dIcon = detail.querySelector('.k-icon'), dTitel = detail.querySelector('h3'), dText = detail.querySelector('p');
-  document.querySelectorAll('.haus path, .haus circle').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  document.querySelectorAll('.haus > path, .haus > circle').forEach((el, i) => { el.style.setProperty('--l', Math.ceil(el.getTotalLength()) + 1); el.style.setProperty('--i', i); });
+  document.querySelectorAll('.haus g').forEach((g, i) => g.style.setProperty('--i', i));
   const teile = [...document.querySelectorAll('.haus g[data-k]')];
   let aktArt = 'aussen', selbst = false, autoT = null;
   const waehle = (b, vonHand) => {
@@ -92,21 +93,29 @@
     schritte.style.setProperty('--fuell', p.toFixed(3));
     sLi.forEach((li, i) => li.classList.toggle('an', p >= i / (sLi.length - 1) - .02 && p > 0));
   };
-  addEventListener('scroll', scrollFx, { passive: true }); scrollFx();
+  scrollFx();
+  if (leise) addEventListener('scroll', scrollFx, { passive: true });
 
   if (!leise) {
-    const lauf = () => {
+    /* butterweiches Scrollen (Lenis) – läuft im selben Takt wie alle Scroll-Effekte */
+    const lenis = window.Lenis ? new Lenis({ lerp: .085, smoothWheel: true, wheelMultiplier: .9 }) : null;
+    if (lenis) document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const z = document.querySelector(a.getAttribute('href')); if (!z) return;
+      e.preventDefault(); lenis.scrollTo(z, { offset: z.id === 'start' ? 0 : -70, duration: 1.4 });
+    }));
+    const lauf = t => {
       requestAnimationFrame(lauf);
-      const d = scrollY - letztesY; letztesY = scrollY;
+      if (lenis) lenis.raf(t);
+      const d = scrollY - letztesY; if (d) scrollFx(); letztesY = scrollY;
       schwung += (Math.min(40, Math.abs(d)) - schwung) * .1;
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
-      const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)));
+      const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)) / 15) * 15;
       if (schub !== letzterSchub) { logos.forEach(l => l.style.setProperty('--schub', schub)); letzterSchub = schub; }
       reihen.forEach(r => {
         if (!r.halb) return;
         r.x += r.tempo * (.35 + schwung * .25);
         if (r.x <= -r.halb) r.x += r.halb; else if (r.x >= 0) r.x -= r.halb;
-        r.el.style.transform = `translate3d(${r.x.toFixed(1)}px,0,0)`;
+        r.el.style.transform = `translate3d(${r.x.toFixed(2)}px,0,0)`;
       });
     };
     requestAnimationFrame(lauf);
