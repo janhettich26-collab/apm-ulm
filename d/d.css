@@ -91,7 +91,9 @@ h3{font-size:17.5px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 
 /* Vorteile: gleiche Linienzeichnung wie das Haus – Linie zieht sich, Punkt pulsiert, Bild zeichnet sich */
 .vorteile{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
-.vorteile li{position:relative;padding-top:34px}
+.vorteile li{position:relative;padding-top:34px;text-align:center}
+.vorteile .v-bild{margin-inline:auto}
+.vorteile p{max-width:34ch;margin-inline:auto}
 .vorteile li::before,.vorteile li::after{content:"";position:absolute;left:0;top:0;height:1.5px;width:100%;background:var(--linie)}
 /* Ablauf je Punkt: erscheinen -> nach rechts wischen (Linie zieht mit) -> grüner Haken. Nacheinander: --s */
 .vorteile li{--s:0s}
