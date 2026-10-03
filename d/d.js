@@ -70,7 +70,7 @@
     let i = 0;
     wahl.forEach(b => { const an = b.dataset.art === art; b.parentElement.classList.toggle('aus', !an); b._punkt.classList.toggle('aus', !an); if (an) b._punkt.style.setProperty('--i', i++); });
     /* Modernisierung hat ein eigenes Bild: Ablauf neu starten, Punkte erst zeigen, wenn das sanierte Haus steht */
-    const istMod = art === 'mod'; bild.classList.toggle('mod', istMod);
+    const istMod = art === 'mod'; bild.dataset.art = art;
     clearTimeout(bild._t); hausMod.classList.remove('lauf');
     wahl.forEach(b => b._punkt.classList.toggle('spaet', istMod && b.dataset.art === 'mod' && !leise));
     if (istMod && !leise) { void hausMod.getBoundingClientRect(); hausMod.classList.add('lauf'); bild._t = setTimeout(() => wahl.forEach(b => b._punkt.classList.remove('spaet')), 6500); }
