@@ -41,9 +41,11 @@ TECHNIK = [
  ('cafm','Digitale Objektakte','Anlagen, Fristen, Wartungspläne und Kosten übersichtlich erfasst, mit kurzem Bericht für Sie.'),
  ('gewaehr','Gewährleistung und Mängel','Nach Neubau oder Sanierung Mängel anzeigen, nachhalten und die Beseitigung abstimmen.'),
 ]
-def karten(L,art):
-    return ''.join(f'<article class="karte auf" data-art="{art}"><span class="k-icon">{svg(k)}</span><h3>{t}</h3><p>{x}</p></article>\n' for k,t,x in L)
-band = ''.join(f'<span>{svg(k)}{t}</span>' for k,t,_ in AUSSEN+TECHNIK)
+def zeilen(L,art):
+    return ''.join(f'<li class="zeile auf" data-art="{art}"><span class="z-nr">{i+1:02d}</span><h3>{t}</h3><p>{x}</p><span class="z-icon">{svg(k)}</span></li>\n' for i,(k,t,x) in enumerate(L))
+alle = AUSSEN+TECHNIK
+band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
+band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
 html = f"""<!doctype html>
 <html lang="de">
 <head>
@@ -55,7 +57,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=3">
+<link rel="stylesheet" href="d.css?v=5">
 </head>
 <body>
 <header class="kopf">
@@ -76,16 +78,19 @@ html = f"""<!doctype html>
   <img class="held-bild" src="../img/energon-wide-1920.webp" srcset="../img/energon-wide-1000.webp 1000w, ../img/energon-wide-1920.webp 1920w" sizes="100vw" alt="Bürogebäude im Science Park II am Oberen Eselsberg in Ulm" width="1920" height="883" fetchpriority="high">
   <div class="held-text">
     <p class="label"><i></i>Facility Management · Ulm und Region</p>
-    <h1>Gebäude, die <em>einfach laufen.</em></h1>
+    <h1 data-worte>Gebäude, die <em>einfach laufen.</em></h1>
     <p class="lead">Wir kümmern uns um Ihre Immobilie – außen, innen und an der Technik. Sie haben einen Ansprechpartner, der Ihr Gebäude kennt, weil er regelmäßig vor Ort ist.</p>
     <div class="knoepfe">
-      <a href="#kontakt" class="btn akzent">Objekt anfragen</a>
+      <a href="#kontakt" class="btn">Objekt anfragen</a>
       <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
     </div>
   </div>
 </section>
 
-<div class="laufband" aria-hidden="true"><div class="laufband-in">{band}{band}</div></div>
+<div class="laufband" aria-hidden="true">
+  <div class="lb-reihe" data-tempo="-1">{band1}{band1}</div>
+  <div class="lb-reihe zwei" data-tempo="1">{band2}{band2}</div>
+</div>
 
 <section class="teil" id="vorteile">
   <ul class="vorteile">
@@ -95,14 +100,16 @@ html = f"""<!doctype html>
   </ul>
 </section>
 
-<section class="teil" id="leistungen">
-  <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
-  <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
-    <button class="aktiv" role="tab" aria-selected="true" data-art="aussen"><b>Gebäudemanagement</b><span>{len(AUSSEN)} Leistungen rund ums Haus</span></button>
-    <button role="tab" aria-selected="false" data-art="technik"><b>Technisches Gebäudemanagement</b><span>{len(TECHNIK)} Leistungen für Anlagen und Abläufe</span></button>
+<section class="dunkel" id="leistungen">
+  <div class="teil">
+    <div class="kopfzeile auf"><p class="label"><i></i>Leistungen</p><h2>Alles, was Ihr Gebäude braucht – <em>aus einer Hand</em></h2></div>
+    <div class="reiter auf" role="tablist" aria-label="Leistungsbereich wählen">
+      <button class="aktiv" role="tab" aria-selected="true" data-art="aussen">Gebäudemanagement<sup>{len(AUSSEN)}</sup></button>
+      <button role="tab" aria-selected="false" data-art="technik">Technisches Gebäudemanagement<sup>{len(TECHNIK)}</sup></button>
+    </div>
+    <ul class="zeilen">
+{zeilen(AUSSEN,'aussen')}{zeilen(TECHNIK,'technik')}    </ul>
   </div>
-  <div class="karten">
-{karten(AUSSEN,'aussen')}{karten(TECHNIK,'technik')}  </div>
 </section>
 
 <section class="teil" id="praxis">
@@ -123,27 +130,27 @@ html = f"""<!doctype html>
   </div>
 </section>
 
-<section class="teil" id="ablauf">
+<section class="nebel" id="ablauf">
+<div class="teil">
   <div class="kopfzeile auf"><p class="label"><i></i>Ablauf</p><h2>Vier Schritte bis zum <em>ruhigen Betrieb</em></h2></div>
-  <ol class="schritte">
+  <ol class="schritte" style="--fuell:0">
     <li class="auf"><span>1</span><h3>Begehung</h3><p>Technik, Flächen, Prüfpflichten und offene Punkte gemeinsam ansehen.</p></li>
     <li class="auf"><span>2</span><h3>Objektakte</h3><p>Anlagen, Fristen und Ansprechpartner an einem Ort dokumentiert.</p></li>
     <li class="auf"><span>3</span><h3>Laufender Betrieb</h3><p>Feste Rundgänge, schnelle Reaktion, Fachfirmen im Griff.</p></li>
     <li class="auf"><span>4</span><h3>Kurzer Bericht</h3><p>Was erledigt ist, was geplant ist, was ansteht.</p></li>
   </ol>
+</div>
 </section>
 
-<section class="teil" id="kontakt">
-  <div class="band">
-    <div class="auf">
-      <p class="label"><i></i>Kontakt</p>
-      <h2>Sprechen wir über <em>Ihr Gebäude</em></h2>
-      <p>Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
-    </div>
-    <ul class="kontakt auf">
-      <li><span class="k-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><b>Anrufen</b><span>Nummer folgt</span></li>
-      <li><span class="k-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6h17v12h-17z"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><b>Schreiben</b><span>E-Mail folgt</span></li>
-      <li><span class="k-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><b>Einsatzgebiet</b><span>Ulm, Neu-Ulm und Region</span></li>
+<section class="dunkel" id="kontakt">
+  <div class="teil kontakt">
+    <p class="label auf"><i></i>Kontakt</p>
+    <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude.</em></h2>
+    <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
+    <ul class="k-liste auf">
+      <li><span>Telefon</span><b>Nummer folgt</b></li>
+      <li><span>E-Mail</span><b>E-Mail folgt</b></li>
+      <li><span>Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
     </ul>
   </div>
 </section>
@@ -157,7 +164,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=3" defer></script>
+<script src="d.js?v=5" defer></script>
 </body>
 </html>
 """
