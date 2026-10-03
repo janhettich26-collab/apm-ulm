@@ -84,7 +84,7 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g class="sz rauch"><circle cx="484" cy="408" r="5.5"/><circle cx="492" cy="405" r="7"/><circle cx="499" cy="408" r="5"/><circle cx="489" cy="410" r="4.5"/></g>
 <g class="sz funken"><path d="M509 425l6-4M510 432h7M509 439l6 4"/></g>
 <g class="sz ok"><circle cx="491" cy="386" r="9"/><path d="M486.6 386l3 3 6-6.6"/></g>
-<g class="sz mann"><g class="sz mann-in"><circle cx="0" cy="-25" r="4"/><path d="M0 -21V-10"/><path d="M0 -18L6 -12"/><g class="sz arm"><path d="M0 -18L-8 -13M-8 -13l-4 -4"/></g><g class="sz bein-lauf"><path d="M0 -10L-6 0M0 -10L6 0"/></g><g class="sz bein-steh"><path d="M0 -10L-2 0M0 -10L3 0"/></g></g></g>
+<g class="sz mann"><g class="sz mann-in"><circle cx="0" cy="-25" r="4"/><path d="M0 -21V-10"/><path d="M0 -18L6 -12"/><g class="sz arm"><path d="M0 -18L-8 -13M-8 -13l-4 -4"/></g><g class="sz bein-lauf"><path class="b1" d="M0 -10V0"/><path class="b2" d="M0 -10V0"/></g><g class="sz bein-steh"><path d="M0 -10L-2 0M0 -10L3 0"/></g></g></g>
 </g>
 </svg>'''
 alle = AUSSEN+TECHNIK
@@ -106,7 +106,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=27">
+<link rel="stylesheet" href="d.css?v=28">
 </head>
 <body>
 <header class="kopf">
@@ -174,7 +174,7 @@ html = f"""<!doctype html>
     <div class="block-text auf">
       <p class="label"><i></i>Praxisbeispiel</p>
       <h2>Science Park II <em>Ulm</em></h2>
-      <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten property management.</p>
+      <p>Am Oberen Eselsberg ist seit den 1980er-Jahren die Wissenschaftsstadt gewachsen: Forschungsinstitute, Labore und Entwicklungszentren namhafter Unternehmen. Hier betreuen wir Objekte im kompletten Facility Management.</p>
       <ul class="haken">
         <li>Objektbetreuung und Hausmeisterdienst</li>
         <li>Haustechnik und Wartungsmanagement</li>
@@ -221,7 +221,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=27" defer></script>
+<script src="d.js?v=28" defer></script>
 </body>
 </html>
 """

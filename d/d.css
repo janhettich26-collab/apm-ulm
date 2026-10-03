@@ -158,7 +158,7 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .haus .ok path{stroke:#fff;stroke-width:1.8}
 .haus .mann{opacity:0;stroke-width:1.7;transform:translate(668px,400px)}
 .haus .arm{transform-origin:0px -18px}
-.haus .bein-lauf{transform-origin:0px -10px}
+.haus .bein-lauf path{transform-origin:0px -10px}
 .haus .bein-steh{opacity:0}
 .h-buehne.da .himmelblitz{animation:s-himmel 26s linear 6.5s infinite backwards}
 .h-buehne.da .strom{animation:s-strom 26s linear 6.5s infinite backwards}
@@ -168,29 +168,31 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .h-buehne.da .rauch circle:nth-child(3){animation-delay:1.1s}
 .h-buehne.da .rauch circle:nth-child(4){animation-delay:.25s}
 .h-buehne.da .funken{animation:s-funken 26s linear 6.5s infinite backwards}
-.h-buehne.da .funken path{animation:s-blink .16s steps(2) infinite}
+.h-buehne.da .funken path{animation:s-blink .32s ease-in-out infinite alternate}
 .h-buehne.da .ok{animation:s-ok 26s linear 6.5s infinite backwards}
 .h-buehne.da .mann{animation:s-mann 26s linear 6.5s infinite backwards}
-.h-buehne.da .mann-in{animation:s-huepf .26s ease-in-out infinite alternate}
-.h-buehne.da .arm{animation:s-arm .2s ease-in-out infinite alternate}
-.h-buehne.da .bein-lauf{animation:s-schere .26s ease-in-out infinite alternate,s-lauf 26s linear 6.5s infinite backwards}
+.h-buehne.da .mann-in{animation:s-huepf .34s ease-in-out infinite alternate}
+.h-buehne.da .arm{animation:s-arm .34s ease-in-out infinite alternate}
+.h-buehne.da .bein-lauf{animation:s-lauf 26s linear 6.5s infinite backwards}
+.h-buehne.da .bein-lauf .b1{animation:s-bein .34s ease-in-out infinite alternate}
+.h-buehne.da .bein-lauf .b2{animation:s-bein .34s ease-in-out infinite alternate-reverse}
 .h-buehne.da .bein-steh{animation:s-steh 26s linear 6.5s infinite backwards}
 .h-buehne.da .haus .blitz{animation:s-kaputt 26s linear 6.5s infinite backwards}
 .h-buehne.da .haus g[data-k=betreiber]{animation:s-ruck 26s linear 6.5s infinite backwards}
-@keyframes s-himmel{0%{opacity:0}.4%{opacity:1}1%{opacity:.25}1.6%{opacity:1}2.6%,100%{opacity:0}}
-@keyframes s-strom{0%,1.8%{opacity:0;stroke-dashoffset:46}2%{opacity:1;stroke-dashoffset:46}6%{opacity:1;stroke-dashoffset:-404}6.3%,100%{opacity:0;stroke-dashoffset:-404}}
+@keyframes s-himmel{0%{opacity:0}.5%{opacity:1}1.2%{opacity:.35}1.9%{opacity:1}3.2%,100%{opacity:0}}
+@keyframes s-strom{0%,1.9%{opacity:0;stroke-dashoffset:46}2.2%{opacity:1;stroke-dashoffset:46;animation-timing-function:cubic-bezier(.4,0,.6,1)}6%{opacity:1;stroke-dashoffset:-404}6.5%,100%{opacity:0;stroke-dashoffset:-404}}
 @keyframes s-kaputt{0%,5.9%{fill:#FFD21F}6.1%{fill:#fff}6.7%{fill:#FFD21F}7.3%{fill:#fff}8%,33%{fill:#5A6070}33.8%,100%{fill:#FFD21F}}
 @keyframes s-ruck{0%,5.9%{transform:none}6.2%{transform:translateX(-2px)}6.6%{transform:translateX(2px)}7%{transform:translateX(-1.5px)}7.4%{transform:translateX(1.5px)}7.8%,100%{transform:none}}
 @keyframes s-rauch{0%,6.2%{opacity:0}7.5%,31.5%{opacity:1}33.5%,100%{opacity:0}}
 @keyframes s-qualm{from{opacity:.9;transform:translateY(0) scale(.55)}to{opacity:0;transform:translateY(-38px) scale(1.9)}}
-@keyframes s-mann{0%,11.4%{transform:translate(668px,400px);opacity:0}11.6%{transform:translate(668px,400px);opacity:1}14.2%{transform:translate(600px,400px);opacity:1}18%{transform:translate(527px,455px);opacity:1}19%,34%{transform:translate(514px,458px);opacity:1}35%{transform:translate(527px,455px);opacity:1}38.6%{transform:translate(600px,400px);opacity:1}41.2%{transform:translate(668px,400px);opacity:1}41.5%,100%{transform:translate(668px,400px);opacity:0}}
-@keyframes s-huepf{from{transform:translateY(0)}to{transform:translateY(-1.6px)}}
-@keyframes s-arm{from{transform:rotate(-20deg)}to{transform:rotate(22deg)}}
-@keyframes s-schere{from{transform:scaleX(1)}to{transform:scaleX(.12)}}
-@keyframes s-lauf{0%,18.9%{opacity:1}19%,34%{opacity:0}34.1%,100%{opacity:1}}
-@keyframes s-steh{0%,18.9%{opacity:0}19%,34%{opacity:1}34.1%,100%{opacity:0}}
+@keyframes s-mann{0%,10.2%{transform:translate(690px,400px);opacity:0}11.2%{transform:translate(680px,400px);opacity:1;animation-timing-function:linear}14.4%{transform:translate(600px,400px);opacity:1;animation-timing-function:linear}18.2%{transform:translate(527px,455px);opacity:1;animation-timing-function:ease-out}19.2%,34%{transform:translate(514px,458px);opacity:1;animation-timing-function:ease-in}35%{transform:translate(527px,455px);opacity:1;animation-timing-function:linear}38.8%{transform:translate(600px,400px);opacity:1;animation-timing-function:linear}42%{transform:translate(680px,400px);opacity:1}43%,100%{transform:translate(690px,400px);opacity:0}}
+@keyframes s-huepf{from{transform:translateY(0)}to{transform:translateY(-1px)}}
+@keyframes s-arm{from{transform:rotate(-16deg)}to{transform:rotate(18deg)}}
+@keyframes s-bein{from{transform:rotate(-30deg)}to{transform:rotate(30deg)}}
+@keyframes s-lauf{0%,19.1%{opacity:1}19.2%,34%{opacity:0}34.1%,100%{opacity:1}}
+@keyframes s-steh{0%,19.1%{opacity:0}19.2%,34%{opacity:1}34.1%,100%{opacity:0}}
 @keyframes s-funken{0%,19.4%{opacity:0}19.6%,32.6%{opacity:1}33%,100%{opacity:0}}
-@keyframes s-blink{from{opacity:1}to{opacity:.15}}
+@keyframes s-blink{from{opacity:1}to{opacity:.25}}
 @keyframes s-ok{0%,33.4%{opacity:0;transform:scale(.2)}34.4%{opacity:1;transform:scale(1.25)}35.2%,41%{opacity:1;transform:scale(1)}42%,100%{opacity:0;transform:scale(.2)}}
 .haus .wolke{stroke:#7DB9E8;fill:rgba(125,185,232,.22)}
 /* Tonnen gelb und braun, Blitz gelb mit schwarzem Rand */
@@ -210,8 +212,8 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .h-buehne.da .h-punkt{opacity:1;scale:1}
 .h-punkt.aus{display:none}
 .h-punkt::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--schwarz);transition:background .35s,inset .35s}
-.h-punkt::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:0 0 0 1.5px var(--schwarz);opacity:0;animation:puls 2.6s ease-out infinite;animation-delay:calc(var(--i,0) * .3s)}
-@keyframes puls{0%{opacity:.4;scale:1}100%{opacity:0;scale:var(--weit,2)}}
+.h-punkt::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:0 0 0 1.5px var(--schwarz);opacity:0;will-change:transform,opacity;animation:puls 2.8s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:calc(var(--i,0) * .3s)}
+@keyframes puls{0%{opacity:.38;transform:scale(1)}100%{opacity:0;transform:scale(var(--weit,2))}}
 .h-punkt:hover{scale:1.18}
 .h-punkt.aktiv{background:var(--schwarz);scale:1.3}
 .h-punkt.aktiv::before{background:#fff;inset:7px}
