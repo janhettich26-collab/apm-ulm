@@ -46,6 +46,9 @@ def zeilen(L,art):
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
 band2 = ''.join(f'<span>{t}</span>' for k,t,_ in reversed(alle))
+import json
+# Original-Logo, je Buchstabe ein Pfad (Geometrie unveraendert) – fuer die Einflug-Animation
+logo = '<svg class="logo-svg" viewBox="100 100 1124 377" role="img" aria-label="APM Ulm">' + ''.join(f'<path class="{"gross" if i<3 else "klein"}" style="--n:{i}" d="{d}"/>' for i,d in enumerate(json.load(open('_logo_teile.json')))) + '</svg>'
 html = f"""<!doctype html>
 <html lang="de">
 <head>
@@ -57,12 +60,12 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=5">
+<link rel="stylesheet" href="d.css?v=6">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben"><img src="../img/logo.svg" alt="APM Ulm" width="92" height="40"></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}</a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -164,7 +167,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=5" defer></script>
+<script src="d.js?v=6" defer></script>
 </body>
 </html>
 """

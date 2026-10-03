@@ -54,6 +54,7 @@
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0;
+  const logoSvg = document.querySelector('.logo-svg'); let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), praxisBild = document.querySelector('.block-bild img'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
@@ -75,6 +76,9 @@
       requestAnimationFrame(lauf);
       const d = scrollY - letztesY; letztesY = scrollY;
       schwung += (Math.min(40, Math.abs(d)) - schwung) * .1;
+      /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
+      const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)));
+      if (schub !== letzterSchub) { logoSvg.style.setProperty('--schub', schub); letzterSchub = schub; }
       reihen.forEach(r => {
         if (!r.halb) return;
         r.x += r.tempo * (.35 + schwung * .25);
