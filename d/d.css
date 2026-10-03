@@ -266,7 +266,7 @@ h3{font-size:17.5px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .h-detail.neu .k-icon{animation:k-weich .4s ease-out both}
 .h-detail.neu h3{animation:k-weich .42s ease-out both .03s}
 .h-detail.neu p{animation:k-weich .42s ease-out both .08s}
-.h-liste{display:flex;flex-wrap:wrap;gap:11px 28px;margin-top:34px;padding-top:28px;border-top:1px solid var(--linie)}
+.h-liste{display:flex;flex-wrap:wrap;gap:11px 28px;margin-top:30px}
 .h-liste li.aus{display:none}
 .h-wahl{position:relative;display:inline-flex;align-items:center;gap:8px;padding:5px 0;font-size:14.5px;color:var(--grau);transition:color .3s}
 .h-wahl::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1.5px;background:var(--schwarz);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
@@ -300,10 +300,9 @@ h3{font-size:17.5px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .sp-schild text{fill:#fff;stroke:none;font:700 13px Verdana,Geneva,"DejaVu Sans",sans-serif;letter-spacing:.04em}
 .block-text p:not(.label){margin-top:18px}
 .haken{margin-top:24px}
-.haken li{position:relative;padding:12px 0 12px 32px;font-weight:600;color:var(--schwarz);border-top:1px solid var(--linie)}
-.haken li:last-child{border-bottom:1px solid var(--linie)}
+.haken li{position:relative;padding:9px 0 9px 32px;font-weight:600;color:var(--schwarz)}
 .haken li::before{content:none}
-.haken li::after{content:"";position:absolute;left:4px;top:19px;width:12px;height:6px;border-left:2px solid var(--schwarz);border-bottom:2px solid var(--schwarz);transform:rotate(-45deg) scale(0);transition:transform .45s cubic-bezier(.2,1.4,.4,1)}
+.haken li::after{content:"";position:absolute;left:4px;top:16px;width:12px;height:6px;border-left:2px solid var(--schwarz);border-bottom:2px solid var(--schwarz);transform:rotate(-45deg) scale(0);transition:transform .45s cubic-bezier(.2,1.4,.4,1)}
 .haken li.an::after{transform:rotate(-45deg) scale(1)}
 
 /* Ablauf */
