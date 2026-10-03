@@ -45,9 +45,15 @@
     if (vonHand) { selbst = true; clearInterval(autoT); }
     wahl.forEach(w => { const an = w === b; w.classList.toggle('aktiv', an); w._punkt.classList.toggle('aktiv', an); });
     teile.forEach(g => g.classList.toggle('aktiv', g.dataset.k === b.dataset.k));
-    dIcon.innerHTML = b.querySelector('.l-icon').innerHTML;
-    dTitel.textContent = b.querySelector('.l-name').textContent; dText.textContent = b.dataset.text;
-    detail.classList.remove('neu'); void detail.offsetWidth; detail.classList.add('neu');
+    /* weicher Wechsel: alter Text blendet kurz aus, neuer blendet ein */
+    const setze = () => {
+      dIcon.innerHTML = b.querySelector('.l-icon').innerHTML;
+      dTitel.textContent = b.querySelector('.l-name').textContent; dText.textContent = b.dataset.text;
+      detail.classList.remove('raus', 'neu'); void detail.offsetWidth; detail.classList.add('neu');
+    };
+    clearTimeout(detail._t);
+    if (leise || !dTitel.textContent) setze();
+    else if (dTitel.textContent !== b.querySelector('.l-name').textContent) { detail.classList.remove('neu'); detail.classList.add('raus'); detail._t = setTimeout(setze, 140); }
   };
   wahl.forEach(b => {
     const p = document.createElement('button'); p.className = 'h-punkt'; p.type = 'button';
