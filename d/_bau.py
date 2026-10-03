@@ -24,10 +24,10 @@ svg_z = lambda k: svg(k).replace('<path ','<path pathLength="1" ').replace('<cir
 # (Schluessel, Titel, Kurztext) – eigene Benennung und Reihenfolge
 AUSSEN = [
  ('objekt','Hausmeisterdienst','Ein fester Betreuer im Objekt: Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.'),
- ('rein','Reinigung steuern','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und rügen nach.'),
+ ('rein','Reinigung','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und rügen nach.'),
  ('gruen','Grünpflege','Rasen, Hecken, Bäume und Beete schneiden und pflegen, gießen, Laub und Schnittgut abfahren.'),
  ('winter','Winterdienst','Wege, Zufahrten und Parkflächen räumen und streuen, bevor morgens der Betrieb beginnt.'),
- ('galabau','Außenanlagen erneuern','Flächen herrichten, ausbessern, neu bepflanzen oder umgestalten.'),
+ ('galabau','Außenanlagenpflege','Wege, Plätze, Beete und Bänke sauber und in Ordnung halten, kleine Schäden ausbessern.'),
  ('abfall','Abfall und Wertstoffe','Tonnen rechtzeitig bereitstellen, Standplätze sauber halten, Abholung abstimmen.'),
  ('park','Parkflächen und Tiefgaragen','Ordnung, Beleuchtung, Beschilderung und ein sicherer Ablauf für Mieter und Besucher.'),
  ('pforte','Empfang und Post','Besucher empfangen, Post und Pakete annehmen und im Haus verteilen.'),
@@ -73,12 +73,12 @@ HAUS = '''<svg class="haus" viewBox="-60 0 760 480" aria-hidden="true">
 <g data-k="objekt"><circle cx="245" cy="349" r="7"/><path d="M245 356v22M245 363l-11 8M245 363l11 8M245 378l-8 22M245 378l8 22"/><path d="M264 386h20v14h-20zM270 386v-5h8v5"/></g>
 <g data-k="brand"><path d="M468 398L504 362 468 326 504 290 468 254 504 218 468 182 504 146 468 112"/><path d="M508 398v-14a4 4 0 0 1 8 0v14zM512 380v-5h5"/></g>
 <g data-k="park"><path d="M240 450v-8l10-2 8-10h32l10 10 8 2v8z"/><circle cx="256" cy="450" r="5"/><circle cx="298" cy="450" r="5"/><path d="M340 450V424h9a7 7 0 0 1 0 14h-9"/></g>
-<g data-k="betreiber"><path d="M478 412h26v40h-26z"/><path d="M493 418l-7 13h9l-7 13"/></g>
+<g data-k="betreiber"><path d="M478 412h26v40h-26z"/><path class="blitz" d="M494 417l-9 15h7l-4 14 10-17h-7z"/></g>
 <g data-k="gruen"><path d="M130 400V330"/><circle cx="130" cy="296" r="32"/><path d="M150 400q9-20 20 0"/></g>
 <g data-k="galabau"><path d="M22 390h34M22 382h34M27 382v18M51 382v18"/><path d="M84 400V368M91 400V374M84 380h7"/><circle cx="84" cy="357" r="11"/></g>
 <g data-k="omgmt"><path d="M-52 394v-30h32l12 14h14v16z"/><path d="M-22 368v10h12"/><circle cx="-38" cy="396" r="6"/><circle cx="-4" cy="396" r="6"/></g>
 <g data-k="winter"><path d="M548 324v12M543 327l10 6M553 327l-10 6"/><path d="M574 342v12M569 345l10 6M579 345l-10 6"/><path d="M594 318v12M589 321l10 6M599 321l-10 6"/><path d="M536 446l52-40"/></g>
-<g data-k="abfall"><path d="M622 400V372H640V400M646 400V376H662V400M619 372H643M644 376H665"/></g>
+<g data-k="abfall"><path class="t-gelb" d="M622 400V372H640V400ZM619 372H643"/><path class="t-braun" d="M646 400V376H662V400ZM644 376H665"/></g>
 </svg>'''
 alle = AUSSEN+TECHNIK
 band1 = ''.join(f'<span>{t}</span>' for k,t,_ in alle)
@@ -99,7 +99,7 @@ html = f"""<!doctype html>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="../fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="d.css?v=14">
+<link rel="stylesheet" href="d.css?v=15">
 </head>
 <body>
 <header class="kopf">
@@ -213,7 +213,7 @@ html = f"""<!doctype html>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
-<script src="d.js?v=14" defer></script>
+<script src="d.js?v=15" defer></script>
 </body>
 </html>
 """

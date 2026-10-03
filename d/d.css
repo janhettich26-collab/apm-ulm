@@ -111,6 +111,10 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 .haus .leicht{stroke:#BFC6D3}
 .haus g{stroke:#8792A8;transition:stroke .45s,stroke-width .45s}
 .haus g.aktiv{stroke:var(--schwarz);stroke-width:2.4}
+/* Tonnen gelb und braun, Blitz gelb mit schwarzem Rand */
+.haus .t-gelb{stroke:#C99A00;fill:#F6CF2B}
+.haus .t-braun{stroke:#6B4423;fill:#9A6A3C}
+.haus .blitz{stroke:#111;stroke-width:1.2;fill:#FFD21F}
 /* Bäume und Hecke grün */
 .haus g[data-k=gruen],.haus g[data-k=galabau] :is(circle,path:nth-of-type(2)){stroke:var(--gruen)}
 .haus g[data-k=gruen] circle,.haus g[data-k=galabau] circle{fill:rgba(47,143,91,.16)}
