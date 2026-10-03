@@ -112,10 +112,10 @@
   else new IntersectionObserver((es, io) => {
     if (!es[0].isIntersecting) return; io.disconnect();
     sLi.forEach((li, i) => {
-      const t = 500 + i * 1700;
+      const t = 400 + i * 1250;
       setTimeout(() => li.classList.add('zahl'), t);
-      setTimeout(() => { li.classList.remove('zahl'); li.classList.add('fertig'); }, t + 950);
-      setTimeout(() => schritte.style.setProperty('--fuell', i < sLi.length - 1 ? ((sLi[i + 1].offsetLeft + 28) / schritte.offsetWidth).toFixed(3) : 1), t + 1100);
+      setTimeout(() => { li.classList.remove('zahl'); li.classList.add('fertig'); }, t + 700);
+      setTimeout(() => schritte.style.setProperty('--fuell', i < sLi.length - 1 ? ((sLi[i + 1].offsetLeft + 28) / schritte.offsetWidth).toFixed(3) : 1), t + 820);
     });
   }, { threshold: .5 }).observe(schritte);
   scrollFx();
