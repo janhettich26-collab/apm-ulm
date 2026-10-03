@@ -202,11 +202,19 @@ h3{font-size:20px;font-weight:700;line-height:1.3;color:var(--schwarz)}
 /* Ablauf */
 .schritte{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .schritte::before,.schritte::after{content:"";position:absolute;left:0;right:0;top:27px;height:1.5px;background:#D4D4D2}
-.schritte::after{background:var(--schwarz);transform-origin:left;transform:scaleX(var(--fuell,0))}
+.schritte::after{background:var(--gruen);transform-origin:left;transform:scaleX(var(--fuell,0));transition:transform .7s cubic-bezier(.45,0,.2,1)}
 .schritte li{position:relative;z-index:1}
 .schritte li:nth-child(2){--v:.1s}.schritte li:nth-child(3){--v:.2s}.schritte li:nth-child(4){--v:.3s}
-.schritte span{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--nebel);color:var(--schwarz);box-shadow:inset 0 0 0 1.5px var(--schwarz);font-weight:600;font-size:19px;margin-bottom:18px;transition:background .5s,color .5s}
-.schritte li.an span{background:var(--schwarz);color:#fff}
+/* Kreis: erst leer, dann erscheint die Zahl, dann wird daraus ein grüner Haken (bleibt) */
+.schritte span{position:relative;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--nebel);color:#fff;box-shadow:inset 0 0 0 1.5px #B9C0CE;font-weight:600;font-size:20px;margin-bottom:18px;transition:background .45s,box-shadow .45s,scale .5s cubic-bezier(.2,1.4,.4,1)}
+.schritte span b{font-weight:600;opacity:0;scale:.3;transition:opacity .35s,scale .5s cubic-bezier(.2,1.4,.4,1)}
+.schritte span svg{position:absolute;inset:0;width:100%;height:100%;padding:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.schritte span svg path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .5s ease .15s}
+.schritte li.zahl span{background:var(--schwarz);box-shadow:inset 0 0 0 1.5px var(--schwarz);scale:1.08}
+.schritte li.zahl span b{opacity:1;scale:1}
+.schritte li.fertig span{background:var(--gruen);box-shadow:inset 0 0 0 1.5px var(--gruen);scale:1}
+.schritte li.fertig span b{opacity:0;scale:.3}
+.schritte li.fertig span svg path{stroke-dashoffset:0}
 .schritte p{margin-top:6px;font-size:16px;color:var(--grau)}
 
 /* Kontakt: ruhig, ohne Kasten */

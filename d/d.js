@@ -89,10 +89,18 @@
       const r = praxisBild.getBoundingClientRect(), m = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
       praxisBild.style.setProperty('--py', (m * -34).toFixed(1) + 'px');
     }
-    const r = schritte.getBoundingClientRect(), p = leise ? 1 : Math.min(1, Math.max(0, (innerHeight * .8 - r.top) / (innerHeight * .45)));
-    schritte.style.setProperty('--fuell', p.toFixed(3));
-    sLi.forEach((li, i) => li.classList.toggle('an', p >= i / (sLi.length - 1) - .02 && p > 0));
   };
+  /* Ablauf: Zahl erscheint, wird zum grünen Haken, Linie läuft zum nächsten Schritt – einer nach dem anderen */
+  if (leise) { sLi.forEach(li => li.classList.add('fertig')); schritte.style.setProperty('--fuell', 1); }
+  else new IntersectionObserver((es, io) => {
+    if (!es[0].isIntersecting) return; io.disconnect();
+    sLi.forEach((li, i) => {
+      const t = 500 + i * 1700;
+      setTimeout(() => li.classList.add('zahl'), t);
+      setTimeout(() => { li.classList.remove('zahl'); li.classList.add('fertig'); }, t + 950);
+      setTimeout(() => schritte.style.setProperty('--fuell', i < sLi.length - 1 ? ((sLi[i + 1].offsetLeft + 28) / schritte.offsetWidth).toFixed(3) : 1), t + 1100);
+    });
+  }, { threshold: .5 }).observe(schritte);
   scrollFx();
   if (leise) addEventListener('scroll', scrollFx, { passive: true });
 
