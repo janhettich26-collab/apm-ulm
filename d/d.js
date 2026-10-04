@@ -100,7 +100,8 @@
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0;
-  const logos = [...document.querySelectorAll('.kopf .logo-svg')]; let letzterSchub = 0;
+  const logos = [...document.querySelectorAll('.kopf .logo-svg')];
+  const gross = [...document.querySelectorAll('.gross-logo path')].map(el => ({ el, y: 0, v: 0, w: 0 })); let gZiel = 0; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
@@ -146,6 +147,17 @@
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
       const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)) / 15) * 15;
       if (schub !== letzterSchub) { logos.forEach(l => l.style.setProperty('--schub', schub)); letzterSchub = schub; }
+      /* großes Logo: Buchstaben wippen weich nach – jeder folgt dem vorigen wie an einer Feder, ohne Stufen */
+      if (gross.length && scrollY < innerHeight * 1.2) {
+        gZiel += (Math.max(-110, Math.min(110, -d * 7)) - gZiel) * .14;
+        let vor = gZiel, ruhig = Math.abs(gZiel) < .05;
+        gross.forEach((g, i) => {
+          g.v = (g.v + (vor - g.y) * .09) * .78; g.y += g.v; vor = g.y;
+          if (Math.abs(g.y) > .05 || Math.abs(g.v) > .05) ruhig = false;
+          const w = Math.abs(g.y) < .05 ? 0 : g.y;
+          if (w !== g.w) { g.el.style.translate = w ? `0 ${w.toFixed(2)}px` : ''; g.w = w; }
+        });
+      }
       reihen.forEach(r => {
         if (!r.halb) return;
         r.x += r.tempo * (.35 + schwung * .25);
