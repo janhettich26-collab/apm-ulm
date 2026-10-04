@@ -13,7 +13,16 @@ _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],
  "knowsAbout":["Facility Management","Hausmeisterdienst","Gebäudereinigung","Winterdienst","Grünpflege","Wartung und Inspektion","Brandschutz","Gebäudemodernisierung"]}
 if LIVE: _firma["url"] = DOMAIN + "/"
-ROBOTS = 'index, follow' if LIVE else 'noindex, nofollow'
+# Streich für Emre (04.10.2026): Mittelfinger statt Logo. Zum Zurückstellen SPASS = False und los.sh
+SPASS = True
+ROBOTS = 'index, follow' if (LIVE and not SPASS) else 'noindex, nofollow'
+SPASS_STIL = '''<style>
+.held-logo.spass{display:grid;place-items:center}
+.finger{display:block;font-size:min(300px,22vw);line-height:1;transform-origin:50% 90%;animation:f-rein 1.5s cubic-bezier(.2,1.4,.4,1) .6s both,f-wackel 1.1s ease-in-out 2.4s infinite}
+@keyframes f-rein{from{opacity:0;transform:translateX(120vw) rotate(540deg) scale(.3)}70%{opacity:1}to{opacity:1;transform:none}}
+@keyframes f-wackel{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg) scale(1.04)}75%{transform:rotate(9deg) scale(1.04)}}
+@media(max-width:900px){.finger{font-size:150px}}
+</style>''' if SPASS else ''
 SEO_KOPF = (f'<title>{SEO_TITEL}</title>\n<meta name="description" content="{SEO_TEXT}">\n<meta name="robots" content="{ROBOTS}">\n'
  + (f'<link rel="canonical" href="{DOMAIN}/">\n<meta property="og:url" content="{DOMAIN}/">\n' if LIVE else '')
  + f'<meta property="og:type" content="website">\n<meta property="og:locale" content="de_DE">\n<meta property="og:site_name" content="APM Ulm">\n<meta property="og:title" content="{SEO_TITEL}">\n<meta property="og:description" content="{SEO_TEXT}">\n<meta property="og:image" content="{BASIS}/img/teilen.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n'
@@ -146,7 +155,8 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=75">
+<link rel="stylesheet" href="d.css?v=76">
+{SPASS_STIL}
 </head>
 <body>
 <header class="kopf">
@@ -173,7 +183,7 @@ html = f"""<!doctype html>
       <a href="#leistungen" class="btn hell">Leistungen ansehen</a>
     </div>
   </div>
-  <div class="held-logo" aria-hidden="true">{logo_gross}</div>
+  <div class="held-logo{' spass' if SPASS else ''}" aria-hidden="true">{'<span class="finger">🖕</span>' if SPASS else logo_gross}</div>
 </section>
 
 <div class="laufband" aria-hidden="true">
@@ -262,7 +272,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=75" defer></script>
+<script src="d.js?v=76" defer></script>
 </body>
 </html>
 """
@@ -295,7 +305,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=75">
+<link rel="stylesheet" href="d.css?v=76">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
