@@ -128,7 +128,7 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=67">
+<link rel="stylesheet" href="d.css?v=68">
 </head>
 <body>
 <header class="kopf">
@@ -229,7 +229,7 @@ html = f"""<!doctype html>
     <ul class="k-liste">
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b><a href="tel:+491705810174">+49 170 5810174</a></b></li>
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b><a href="mailto:taha.altun@outlook.de">taha.altun@outlook.de</a></b></li>
-      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b>Ulm, Neu-Ulm und Region</b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b><a class="k-karte" href="https://www.google.com/maps/search/?api=1&amp;query=Ulm" target="_blank" rel="noopener" aria-label="Einsatzgebiet Ulm, Neu-Ulm und Region in der Karte öffnen">Ulm, Neu-Ulm und Region</a></b></li>
     </ul>
   </div>
   {STADT}
@@ -244,7 +244,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=67" defer></script>
+<script src="d.js?v=68" defer></script>
 </body>
 </html>
 """
@@ -277,7 +277,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=67">
+<link rel="stylesheet" href="d.css?v=68">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">

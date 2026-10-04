@@ -1,6 +1,9 @@
 (() => {
   const leise = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Karte: auf iPhone und iPad Apple Karten, sonst Google Maps */
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent)) document.querySelectorAll('.k-karte').forEach(k => k.href = 'https://maps.apple.com/?q=Ulm');
+
   /* Kopf: Linie beim Scrollen, Menü am Handy */
   const kopf = document.querySelector('.kopf'), knopf = document.querySelector('.menue-knopf'), nav = document.querySelector('.nav');
   const menue = auf => { nav.classList.toggle('offen', auf); knopf.setAttribute('aria-expanded', auf); };
