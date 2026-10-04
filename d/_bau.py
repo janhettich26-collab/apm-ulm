@@ -16,7 +16,7 @@ if LIVE: _firma["url"] = DOMAIN + "/"
 # Streich für Emre (04.10.2026): Mittelfinger statt Logo. Zum Zurückstellen SPASS = False und los.sh
 SPASS = False
 # Streich 2 (04.10.2026): Spaß-Rechnung fliegt rein. Zurück: RECHNUNG = False und los.sh
-RECHNUNG = True
+RECHNUNG = False
 ROBOTS = 'index, follow' if (LIVE and not SPASS and not RECHNUNG) else 'noindex, nofollow'
 RECHNUNG_HTML = '''<div class="spass-rechnung" role="dialog" aria-label="Rechnung"><div class="sr-blatt">
 <button class="sr-zu" type="button" aria-label="Schließen" onclick="this.closest('.spass-rechnung').remove()">×</button>
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=90">
+<link rel="stylesheet" href="d.css?v=91">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=90" defer></script>
+<script src="d.js?v=91" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=90">
+<link rel="stylesheet" href="d.css?v=91">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
