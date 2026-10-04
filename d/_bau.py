@@ -155,7 +155,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=81">
+<link rel="stylesheet" href="d.css?v=82">
 {SPASS_STIL}
 </head>
 <body>
@@ -272,7 +272,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=81" defer></script>
+<script src="d.js?v=82" defer></script>
 </body>
 </html>
 """
@@ -305,7 +305,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=81">
+<link rel="stylesheet" href="d.css?v=82">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">

@@ -99,7 +99,7 @@
   const messen = () => reihen.forEach(r => { r.halb = r.el.scrollWidth / 2; if (r.tempo > 0 && r.x === 0) r.x = -r.halb; });
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
-  let letztesY = scrollY, schwung = 0;
+  let letztesY = scrollY, schwung = 0; let kopfWeg = 0, kopfAus = false;
   const logos = [...document.querySelectorAll('.logo-svg')]; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
@@ -142,6 +142,10 @@
       requestAnimationFrame(lauf);
       if (lenis) lenis.raf(t);
       const d = scrollY - letztesY; if (d) scrollFx(); letztesY = scrollY;
+      /* Kopfleiste: beim Runterscrollen weg, beim Hochscrollen sofort wieder da (oben immer sichtbar, offenes Menü bleibt) */
+      if (d) { kopfWeg = d > 0 ? Math.min(kopfWeg + d, 60) : Math.max(kopfWeg + d, -12); }
+      const weg = scrollY > 140 && kopfWeg > 40 && !nav.classList.contains('offen');
+      if (weg !== kopfAus) { kopf.classList.toggle('weg', weg); kopfAus = weg; if (!weg) kopfWeg = 0; }
       schwung += (Math.min(40, Math.abs(d)) - schwung) * .1;
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
       const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)) / 15) * 15;
