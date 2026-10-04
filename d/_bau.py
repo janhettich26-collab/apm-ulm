@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=86">
+<link rel="stylesheet" href="d.css?v=87">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -283,7 +283,7 @@ html = f"""<!doctype html>
   <div class="teil kontakt">
     <div class="k-links">
       <h2 class="riesig auf">Sprechen wir über <em>Ihr Gebäude</em></h2>
-      <p class="k-lead auf">Kurz anrufen oder schreiben – wir schauen uns das Objekt an und machen Ihnen ein klares Angebot.</p>
+      <p class="k-lead auf">Rufen Sie uns an oder schreiben Sie uns. Nach einer gemeinsamen Objektbesichtigung erhalten Sie ein transparentes, verbindliches Angebot.</p>
     </div>
     <ul class="k-liste">
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b><a href="tel:+491705810174">+49 170 5810174</a></b></li>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=86" defer></script>
+<script src="d.js?v=87" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=86">
+<link rel="stylesheet" href="d.css?v=87">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
