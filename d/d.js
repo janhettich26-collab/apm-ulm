@@ -100,7 +100,7 @@
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0;
-  const logos = [...document.querySelectorAll('.logo-svg')]; let letzterSchub = 0;
+  const logos = [...document.querySelectorAll('.kopf .logo-svg')]; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];

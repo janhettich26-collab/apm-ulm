@@ -14,7 +14,7 @@ _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"
  "knowsAbout":["Facility Management","Hausmeisterdienst","Gebäudereinigung","Winterdienst","Grünpflege","Wartung und Inspektion","Brandschutz","Gebäudemodernisierung"]}
 if LIVE: _firma["url"] = DOMAIN + "/"
 # Streich für Emre (04.10.2026): Mittelfinger statt Logo. Zum Zurückstellen SPASS = False und los.sh
-SPASS = True
+SPASS = False
 ROBOTS = 'index, follow' if (LIVE and not SPASS) else 'noindex, nofollow'
 SPASS_STIL = '''<style>
 .held-logo.spass{display:grid;place-items:center}
