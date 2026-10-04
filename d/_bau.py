@@ -49,7 +49,7 @@ svg_z = lambda k: svg(k).replace('<path ','<path pathLength="1" ').replace('<cir
 # (Schluessel, Titel, Kurztext) – eigene Benennung und Reihenfolge
 AUSSEN = [
  ('objekt','Hausmeisterdienst','Ein fester Betreuer im Objekt: Rundgänge, Kleinreparaturen, Schlüssel und Zugänge.'),
- ('rein','Reinigung','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und rügen nach.'),
+ ('rein','Reinigung','Treppenhäuser, Flure und Eingänge sauber halten – wir beauftragen, kontrollieren und sorgen für Nachbesserung.'),
  ('gruen','Grünpflege','Rasen, Hecken, Bäume und Beete schneiden und pflegen, gießen, Laub und Schnittgut abfahren.'),
  ('winter','Winterdienst','Wege, Zufahrten und Parkflächen räumen und streuen, bevor morgens der Betrieb beginnt.'),
  ('galabau','Außenanlage','Wege, Plätze, Beete und Bänke sauber und in Ordnung halten, kleine Schäden ausbessern.'),
@@ -146,7 +146,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=71">
+<link rel="stylesheet" href="d.css?v=72">
 </head>
 <body>
 <header class="kopf">
@@ -262,7 +262,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=71" defer></script>
+<script src="d.js?v=72" defer></script>
 </body>
 </html>
 """
@@ -295,7 +295,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=71">
+<link rel="stylesheet" href="d.css?v=72">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
