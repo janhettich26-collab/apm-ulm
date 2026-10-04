@@ -128,12 +128,12 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=66">
+<link rel="stylesheet" href="d.css?v=67">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}</a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -244,7 +244,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=66" defer></script>
+<script src="d.js?v=67" defer></script>
 </body>
 </html>
 """
@@ -277,13 +277,13 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=66">
+<link rel="stylesheet" href="d.css?v=67">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
 <header class="kopf">
   <div class="kopf-in">
-    <a href="index.html" class="logo" aria-label="APM Ulm – zur Startseite">{logo}<span class="logo-text"><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
+    <a href="index.html" class="logo" aria-label="APM Ulm – zur Startseite">{logo}</a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="index.html#leistungen">Leistungen</a>
