@@ -128,12 +128,12 @@ html = f"""<!doctype html>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=64">
+<link rel="stylesheet" href="d.css?v=65">
 </head>
 <body>
 <header class="kopf">
   <div class="kopf-in">
-    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
+    <a href="#start" class="logo" aria-label="APM Ulm – nach oben">{logo}<span class="logo-text"><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -237,14 +237,14 @@ html = f"""<!doctype html>
 </main>
 
 <footer class="fuss">
-  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
   <details><summary>Bildnachweis</summary>
     <ul><li>Science Park II (Energon): G8w, <a href="https://commons.wikimedia.org/wiki/File:Ulm_Energon.jpg" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" rel="noopener">CC BY-SA 3.0</a></li></ul>
     <p>Bilder zugeschnitten, verkleinert und ins WebP-Format umgewandelt; die Bearbeitung steht unter derselben Lizenz.</p>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=64" defer></script>
+<script src="d.js?v=65" defer></script>
 </body>
 </html>
 """
@@ -277,13 +277,13 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=64">
+<link rel="stylesheet" href="d.css?v=65">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
 <header class="kopf">
   <div class="kopf-in">
-    <a href="index.html" class="logo" aria-label="APM Ulm – zur Startseite">{logo}<span class="logo-text"><b>property management</b><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
+    <a href="index.html" class="logo" aria-label="APM Ulm – zur Startseite">{logo}<span class="logo-text"><small>Gebäude in Ulm, um Ulm und um Ulm herum</small></span></a>
     <button class="menue-knopf" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="index.html#leistungen">Leistungen</a>
@@ -311,7 +311,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 </main>
 <footer class="fuss r-fuss">
   {STADT}
-  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm · property management</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+  <div class="fuss-zeile"><img src="../img/logo.svg" alt="APM Ulm" width="70" height="30"><span>© 2026 APM Ulm</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
 <script src="recht.js?v=1" defer></script>
