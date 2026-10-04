@@ -4,6 +4,13 @@
   /* Karte: auf iPhone und iPad Apple Karten, sonst Google Maps */
   if (/iPhone|iPad|iPod/.test(navigator.userAgent)) document.querySelectorAll('.k-karte').forEach(k => k.href = 'https://maps.apple.com/?q=Ulm');
 
+  /* E-Mail: Mailprogramm öffnen UND Adresse kopieren – hilft, wenn am Gerät kein Mailprogramm eingerichtet ist */
+  document.querySelectorAll('.k-liste a[href^="mailto:"]').forEach(m => m.addEventListener('click', () => {
+    const was = m.closest('li').querySelector('.k-was'), alt = was.dataset.alt || (was.dataset.alt = was.textContent);
+    const zeige = () => { was.textContent = alt + ' · Adresse kopiert'; clearTimeout(was._t); was._t = setTimeout(() => was.textContent = alt, 3000); };
+    if (navigator.clipboard) navigator.clipboard.writeText(m.textContent.trim()).then(zeige, () => {});
+  }));
+
   /* Kopf: Linie beim Scrollen, Menü am Handy */
   const kopf = document.querySelector('.kopf'), knopf = document.querySelector('.menue-knopf'), nav = document.querySelector('.nav');
   const menue = auf => { nav.classList.toggle('offen', auf); knopf.setAttribute('aria-expanded', auf); };
