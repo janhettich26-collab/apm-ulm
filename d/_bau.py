@@ -15,7 +15,37 @@ _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"
 if LIVE: _firma["url"] = DOMAIN + "/"
 # Streich für Emre (04.10.2026): Mittelfinger statt Logo. Zum Zurückstellen SPASS = False und los.sh
 SPASS = False
-ROBOTS = 'index, follow' if (LIVE and not SPASS) else 'noindex, nofollow'
+# Streich 2 (04.10.2026): Spaß-Rechnung fliegt rein. Zurück: RECHNUNG = False und los.sh
+RECHNUNG = True
+ROBOTS = 'index, follow' if (LIVE and not SPASS and not RECHNUNG) else 'noindex, nofollow'
+RECHNUNG_HTML = '''<div class="spass-rechnung" role="dialog" aria-label="Rechnung"><div class="sr-blatt">
+<button class="sr-zu" type="button" aria-label="Schließen" onclick="this.closest('.spass-rechnung').remove()">×</button>
+<div class="sr-kopf"><b>RECHNUNG</b><span>Nr. 2026-LOL-001 · 04.10.2026</span></div>
+<p class="sr-an"><small>Von</small> Jan – Webdesign, Nerven &amp; Geduld<br><small>An</small> Emre Altun, apm ulm</p>
+<table><thead><tr><th>Pos.</th><th>Leistung</th><th>Betrag</th></tr></thead><tbody><tr><td>1</td><td>Webseite gebaut, obwohl der Kunde dreimal „passt schon“ gesagt hat</td><td>120,00 €</td></tr><tr><td>2</td><td>84 Versionen à 1 €, weil „mach mal noch kurz …“</td><td>84,00 €</td></tr><tr><td>3</td><td>Blitz fachgerecht in den Blitzableiter umgeleitet (3 Anläufe)</td><td>45,00 €</td></tr><tr><td>4</td><td>Mittelfinger-Animation inkl. fachgerechtem Rückbau</td><td>66,00 €</td></tr><tr><td>5</td><td>Monteur-Männchen auf Schnell-Reparatur umgeschult</td><td>35,00 €</td></tr><tr><td>6</td><td>Das Wort „rügen“ umweltgerecht entsorgt</td><td>10,00 €</td></tr><tr><td>7</td><td>Seelischer Beistand beim Domainkauf</td><td>40,00 €</td></tr><tr><td>8</td><td>Kaffee, Döner und Nervennahrung (pauschal)</td><td>50,00 €</td></tr><tr><td>9</td><td>Kumpel-Aufschlag statt Kumpel-Rabatt</td><td>50,00 €</td></tr></tbody></table>
+<div class="sr-summe"><span>Gesamtbetrag</span><b>500,00 €</b></div>
+<p class="sr-fuss">Zahlbar sofort – bar, per Überweisung oder in Döner (1 Döner = 8 €).<br>Bei Zahlungsverzug wird das Logo durch einen Mittelfinger ersetzt.</p>
+<button class="sr-ok" type="button" onclick="this.closest('.spass-rechnung').remove()">Später zahlen 😅</button>
+</div></div>''' if RECHNUNG else ''
+RECHNUNG_STIL = '''<style>
+.spass-rechnung{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(28,40,64,.35);animation:sr-hg .5s ease 1.4s both}
+.sr-blatt{position:relative;width:min(560px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#fff;color:#1C2840;border-radius:6px;padding:30px 30px 24px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-size:14px;animation:sr-rein 1.1s cubic-bezier(.2,1.3,.4,1) 1.4s both}
+.sr-kopf{display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1C2840;padding-bottom:10px;margin-bottom:14px}
+.sr-kopf b{font-size:24px;letter-spacing:.12em}.sr-kopf span{font-size:12px;color:#5A6478}
+.sr-an{line-height:1.6;margin-bottom:14px}.sr-an small{display:inline-block;width:34px;color:#5A6478}
+.spass-rechnung table{width:100%;border-collapse:collapse;font-size:13px}
+.spass-rechnung th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5A6478;border-bottom:1px solid #D9DDE5;padding:6px 4px}
+.spass-rechnung td{padding:7px 4px;border-bottom:1px solid #EEF0F4;vertical-align:top}
+.spass-rechnung td:first-child{width:34px;color:#5A6478}.spass-rechnung td:last-child,.spass-rechnung th:last-child{text-align:right;white-space:nowrap}
+.sr-summe{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-top:10px;border-top:2px solid #1C2840;font-size:15px}
+.sr-summe b{font-size:22px}
+.sr-fuss{margin-top:14px;font-size:12px;color:#5A6478;line-height:1.55}
+.sr-ok{margin-top:16px;padding:10px 22px;border-radius:999px;background:#1C2840;color:#fff;font-weight:700;font-size:14px}
+.sr-zu{position:absolute;right:12px;top:8px;font-size:26px;line-height:1;color:#5A6478;padding:4px 8px}
+@keyframes sr-hg{from{opacity:0}to{opacity:1}}
+@keyframes sr-rein{from{opacity:0;transform:translateY(-120vh) rotate(-28deg) scale(.6)}60%{opacity:1}to{opacity:1;transform:none}}
+@media(max-width:600px){.sr-blatt{padding:22px 18px 18px;font-size:13px}.sr-kopf b{font-size:19px}}
+</style>''' if RECHNUNG else ''
 SPASS_STIL = '''<style>
 .held-logo.spass{display:grid;place-items:center}
 .finger{display:block;font-size:min(300px,22vw);line-height:1;transform-origin:50% 90%;animation:f-rein 1.5s cubic-bezier(.2,1.4,.4,1) .6s both,f-wackel 1.1s ease-in-out 2.4s infinite}
@@ -155,8 +185,9 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=84">
+<link rel="stylesheet" href="d.css?v=85">
 {SPASS_STIL}
+{RECHNUNG_STIL}
 </head>
 <body>
 <header class="kopf">
@@ -272,7 +303,8 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=84" defer></script>
+<script src="d.js?v=85" defer></script>
+{RECHNUNG_HTML}
 </body>
 </html>
 """
@@ -305,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=84">
+<link rel="stylesheet" href="d.css?v=85">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
