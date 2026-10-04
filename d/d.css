@@ -63,8 +63,7 @@ h1 .w>span{display:inline-block;transform:translateY(110%);animation:wort 1s var
 .held-logo{position:absolute;z-index:2;right:max(32px,calc((100vw - 1240px)/2 + 32px));top:50%;translate:0 -50%;width:min(430px,32vw);animation:schweb 7s ease-in-out infinite 2.2s}
 .logo-svg.gross-logo{height:auto;width:100%;fill:#fff}
 .kopf.schatten .logo-svg.gross-logo{transform:none}
-/* großes Logo im Startbild: Wippen beim Scrollen kommt Bild für Bild aus d.js (federnde Kette), keine CSS-Übergänge */
-.gross-logo path{animation-duration:1.4s;animation-delay:calc(.5s + var(--n) * 150ms);transition:none;will-change:translate}
+.gross-logo path{animation-duration:1.4s;animation-delay:calc(.5s + var(--n) * 150ms)}
 @keyframes schweb{50%{translate:0 calc(-50% - 10px)}}
 /* Laufband: zwei feine Reihen, gegenläufig, viel Luft */
 .laufband{padding:clamp(48px,8vh,84px) 0 clamp(12px,2vh,24px);overflow:hidden;display:grid;gap:14px}
