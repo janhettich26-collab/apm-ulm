@@ -22,9 +22,9 @@ RECHNUNG_HTML = '''<div class="spass-rechnung" role="dialog" aria-label="Rechnun
 <button class="sr-zu" type="button" aria-label="Schließen" onclick="this.closest('.spass-rechnung').remove()">×</button>
 <div class="sr-kopf"><b>RECHNUNG</b><span>Nr. 2026-LOL-001 · 04.10.2026</span></div>
 <p class="sr-an"><small>Von</small> Jan – Webdesign, Nerven &amp; Geduld<br><small>An</small> Emre Altun, apm ulm</p>
-<table><thead><tr><th>Pos.</th><th>Leistung</th><th>Betrag</th></tr></thead><tbody><tr><td>1</td><td>Webseite gebaut, obwohl der Kunde dreimal „passt schon“ gesagt hat</td><td>120,00 €</td></tr><tr><td>2</td><td>84 Versionen à 1 €, weil „mach mal noch kurz …“</td><td>84,00 €</td></tr><tr><td>3</td><td>Blitz fachgerecht in den Blitzableiter umgeleitet (3 Anläufe)</td><td>45,00 €</td></tr><tr><td>4</td><td>Mittelfinger-Animation inkl. fachgerechtem Rückbau</td><td>66,00 €</td></tr><tr><td>5</td><td>Monteur-Männchen auf Schnell-Reparatur umgeschult</td><td>35,00 €</td></tr><tr><td>6</td><td>Das Wort „rügen“ umweltgerecht entsorgt</td><td>10,00 €</td></tr><tr><td>7</td><td>Seelischer Beistand beim Domainkauf</td><td>40,00 €</td></tr><tr><td>8</td><td>Kaffee, Döner und Nervennahrung (pauschal)</td><td>50,00 €</td></tr><tr><td>9</td><td>Kumpel-Aufschlag statt Kumpel-Rabatt</td><td>50,00 €</td></tr></tbody></table>
+<table><thead><tr><th>Pos.</th><th>Leistung</th><th>Betrag</th></tr></thead><tbody><tr><td>1</td><td>Webseite gebaut, obwohl der Kunde dreimal „passt schon“ gesagt hat</td><td>120,00 €</td></tr><tr><td>2</td><td>84 Versionen à 1 €, weil „mach mal noch kurz …“</td><td>84,00 €</td></tr><tr><td>3</td><td>Blitz fachgerecht in den Blitzableiter umgeleitet (3 Anläufe)</td><td>45,00 €</td></tr><tr><td>4</td><td>Mittelfinger-Animation inkl. fachgerechtem Rückbau</td><td>66,00 €</td></tr><tr><td>5</td><td>Monteur-Männchen auf Schnell-Reparatur umgeschult</td><td>35,00 €</td></tr><tr><td>6</td><td>Das Wort „rügen“ umweltgerecht entsorgt</td><td>10,00 €</td></tr><tr><td>7</td><td>Seelischer Beistand beim Domainkauf</td><td>40,00 €</td></tr><tr><td>8</td><td>Kaffee und Nervennahrung (pauschal)</td><td>50,00 €</td></tr><tr><td>9</td><td>Kumpel-Aufschlag statt Kumpel-Rabatt</td><td>50,00 €</td></tr></tbody></table>
 <div class="sr-summe"><span>Gesamtbetrag</span><b>500,00 €</b></div>
-<p class="sr-fuss">Zahlbar sofort – bar, per Überweisung oder in Döner (1 Döner = 8 €).<br>Bei Zahlungsverzug wird das Logo durch einen Mittelfinger ersetzt.</p>
+<p class="sr-fuss">Zahlbar sofort – bar oder per Überweisung.<br>Bei Zahlungsverzug wird das Logo durch einen Mittelfinger ersetzt.</p>
 <button class="sr-ok" type="button" onclick="this.closest('.spass-rechnung').remove()">Später zahlen 😅</button>
 </div></div>''' if RECHNUNG else ''
 RECHNUNG_STIL = '''<style>
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=85">
+<link rel="stylesheet" href="d.css?v=86">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=85" defer></script>
+<script src="d.js?v=86" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=85">
+<link rel="stylesheet" href="d.css?v=86">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
