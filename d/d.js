@@ -101,7 +101,7 @@
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0;
   const logos = [...document.querySelectorAll('.kopf .logo-svg')];
-  const gross = [...document.querySelectorAll('.gross-logo path')].map(el => ({ el, y: 0, v: 0, w: 0 })); let gZiel = 0; let letzterSchub = 0;
+  const gross = [...document.querySelectorAll('.gross-logo path')].map(el => ({ el, y: 0, v: 0, w: 0 })); let gZiel = 0, gT = 0; const gVerlauf = []; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
@@ -147,14 +147,16 @@
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
       const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)) / 15) * 15;
       if (schub !== letzterSchub) { logos.forEach(l => l.style.setProperty('--schub', schub)); letzterSchub = schub; }
-      /* großes Logo: Buchstaben wippen weich nach – jeder folgt dem vorigen wie an einer Feder, ohne Stufen */
+      /* großes Logo: Buchstaben wippen beim Scrollen nach – jeder mit eigener Feder, zeitversetzt wie eine Welle */
       if (gross.length && scrollY < innerHeight * 1.2) {
-        gZiel += (Math.max(-110, Math.min(110, -d * 7)) - gZiel) * .14;
-        let vor = gZiel, ruhig = Math.abs(gZiel) < .05;
+        const schritte = Math.max(1, Math.min(4, Math.round((t - (gT || t - 8.33)) / 8.33))); gT = t;
+        gZiel += (Math.max(-150, Math.min(150, -d * 9)) - gZiel) * .2;
+        gVerlauf.push([t, gZiel]); while (gVerlauf.length > 2 && gVerlauf[1][0] < t - 400) gVerlauf.shift();
         gross.forEach((g, i) => {
-          g.v = (g.v + (vor - g.y) * .09) * .78; g.y += g.v; vor = g.y;
-          if (Math.abs(g.y) > .05 || Math.abs(g.v) > .05) ruhig = false;
-          const w = Math.abs(g.y) < .05 ? 0 : g.y;
+          const zeit = t - i * 45; let ziel = gVerlauf[0][1];
+          for (const [zt, zw] of gVerlauf) { if (zt > zeit) break; ziel = zw; }
+          for (let k = 0; k < schritte; k++) { g.v = (g.v + (ziel - g.y) * .05) * .86; g.y += g.v; }
+          const w = Math.abs(g.y) < .05 && Math.abs(g.v) < .05 ? 0 : g.y;
           if (w !== g.w) { g.el.style.translate = w ? `0 ${w.toFixed(2)}px` : ''; g.w = w; }
         });
       }
