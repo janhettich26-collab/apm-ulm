@@ -146,7 +146,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=72">
+<link rel="stylesheet" href="d.css?v=73">
 </head>
 <body>
 <header class="kopf">
@@ -220,7 +220,7 @@ html = f"""<!doctype html>
         <li>Haustechnik und Wartungsmanagement</li>
         <li>Brandschutz und Prüffristen</li>
         <li>Außenanlagen und Winterdienst</li>
-        <li>Steuerung von Reinigung und Fachfirmen</li>
+        <li>Koordination von Reinigung und Fachfirmen</li>
       </ul>
     </div>
   </div>
@@ -262,7 +262,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=72" defer></script>
+<script src="d.js?v=73" defer></script>
 </body>
 </html>
 """
@@ -295,7 +295,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=72">
+<link rel="stylesheet" href="d.css?v=73">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
