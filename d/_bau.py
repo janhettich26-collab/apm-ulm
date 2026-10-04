@@ -1,4 +1,24 @@
 # Baut index.html der Variante D (helles Firmen-Layout, eigener Aufbau, Leistungen in zwei Reitern)
+import json as _json
+# --- Suchmaschinen: LIVE erst auf True, wenn die Domain gekauft und mit Wix verbunden ist ---
+LIVE = False
+DOMAIN = 'https://apm-ulm.de'
+BASIS = DOMAIN if LIVE else 'https://instant-phkxpjlnzrzj-altun6109-1409.wix-site-host.com'
+SEO_TITEL = 'APM Ulm – Facility Management in Ulm, Neu-Ulm und Region'
+SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz, Modernisierung. Ein fester Ansprechpartner.'
+_firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"APM Ulm","alternateName":"apm ulm – altun property management",
+ "description":SEO_TEXT,"image":BASIS+"/img/teilen.png","logo":BASIS+"/img/apple-touch-icon.png","telephone":"+49 170 5810174","email":"taha.altun@outlook.de",
+ "address":{"@type":"PostalAddress","streetAddress":"Weinbergweg 81","postalCode":"89075","addressLocality":"Ulm","addressCountry":"DE"},
+ "areaServed":[{"@type":"City","name":"Ulm"},{"@type":"City","name":"Neu-Ulm"}],
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],
+ "knowsAbout":["Facility Management","Hausmeisterdienst","Gebäudereinigung","Winterdienst","Grünpflege","Wartung und Inspektion","Brandschutz","Gebäudemodernisierung"]}
+if LIVE: _firma["url"] = DOMAIN + "/"
+ROBOTS = 'index, follow' if LIVE else 'noindex, nofollow'
+SEO_KOPF = (f'<title>{SEO_TITEL}</title>\n<meta name="description" content="{SEO_TEXT}">\n<meta name="robots" content="{ROBOTS}">\n'
+ + (f'<link rel="canonical" href="{DOMAIN}/">\n<meta property="og:url" content="{DOMAIN}/">\n' if LIVE else '')
+ + f'<meta property="og:type" content="website">\n<meta property="og:locale" content="de_DE">\n<meta property="og:site_name" content="APM Ulm">\n<meta property="og:title" content="{SEO_TITEL}">\n<meta property="og:description" content="{SEO_TEXT}">\n<meta property="og:image" content="{BASIS}/img/teilen.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n'
+ + '<script type="application/ld+json">' + _json.dumps(_firma, ensure_ascii=False) + '</script>')
+ICONS = '<link rel="icon" href="../img/logo.svg" type="image/svg+xml">\n<link rel="icon" href="../img/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">'
 I = {
  'objekt': '<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/>',
  'doku': '<path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/>',
@@ -123,12 +143,10 @@ html = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>APM Ulm – property management für Ulm und die Region</title>
-<meta name="description" content="property management aus einer Hand: Hausmeisterdienst, Grünpflege, Winterdienst, Wartung, Brandschutz und Steuerung aller Dienstleister – in Ulm und der Region.">
-<meta name="robots" content="noindex, nofollow">
+{SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=69">
+{ICONS}
+<link rel="stylesheet" href="d.css?v=70">
 </head>
 <body>
 <header class="kopf">
@@ -244,7 +262,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=69" defer></script>
+<script src="d.js?v=70" defer></script>
 </body>
 </html>
 """
@@ -274,10 +292,10 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titel} – APM Ulm</title>
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="d.css?v=69">
+{ICONS}
+<link rel="stylesheet" href="d.css?v=70">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
@@ -350,3 +368,8 @@ ds = (
 )
 rechtsseite('datenschutz.html','Datenschutz','Welche Daten beim Besuch dieser Website anfallen und was mit ihnen geschieht.',BILD_DATENSCHUTZ,ds)
 print('Rechtsseiten gebaut')
+
+# Suchmaschinen-Dateien
+open('robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: '+DOMAIN+'/sitemap.xml\n' if LIVE else 'User-agent: *\nDisallow: /\n')
+import datetime as _dt
+open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>'+DOMAIN+'/</loc><lastmod>'+_dt.date.today().isoformat()+'</lastmod></url>\n</urlset>\n')
