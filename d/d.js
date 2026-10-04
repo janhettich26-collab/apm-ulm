@@ -100,7 +100,10 @@
   messen(); addEventListener('resize', messen);
   if (document.fonts) document.fonts.ready.then(messen);
   let letztesY = scrollY, schwung = 0; let kopfWeg = 0, kopfAus = false;
-  const logos = [...document.querySelectorAll('.logo-svg')]; let letzterSchub = 0;
+  /* Logo-Buchstaben: der Versatz (45 ms je Buchstabe) kommt aus einem kurzen Verlauf statt aus transition-delay –
+     die Verzögerung startete sonst bei jedem Scroll-Bild neu und die hinteren Buchstaben hingen */
+  const logoTeile = [...document.querySelectorAll('.logo-svg path')].map(el => ({ el, n: +getComputedStyle(el).getPropertyValue('--n') || 0, w: 0 }));
+  const schubVerlauf = [[0, 0]]; let letzterSchub = 0;
 
   /* Scroll-Effekte: Kopf, Foto-Versatz, Zeitstrahl */
   const heldBild = document.querySelector('.held-bild'), schritte = document.querySelector('.schritte'), sLi = [...schritte.children];
@@ -149,7 +152,13 @@
       schwung += (Math.min(40, Math.abs(d)) - schwung) * .1;
       /* Logo läuft mit: Buchstaben federn beim Scrollen nacheinander nach */
       const schub = Math.round(Math.max(-150, Math.min(150, -d * 9)) / 15) * 15;
-      if (schub !== letzterSchub) { logos.forEach(l => l.style.setProperty('--schub', schub)); letzterSchub = schub; }
+      if (schub !== letzterSchub) { schubVerlauf.push([t, schub]); letzterSchub = schub; }
+      while (schubVerlauf.length > 1 && schubVerlauf[1][0] < t - 600) schubVerlauf.shift();
+      logoTeile.forEach(p => {
+        const zeit = t - p.n * 45; let w = schubVerlauf[0][1];
+        for (const [zt, zw] of schubVerlauf) { if (zt > zeit) break; w = zw; }
+        if (w !== p.w) { p.el.style.setProperty('--schub', w); p.w = w; }
+      });
       reihen.forEach(r => {
         if (!r.halb) return;
         r.x += r.tempo * (.35 + schwung * .25);
