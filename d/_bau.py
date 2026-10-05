@@ -4,7 +4,7 @@ import json as _json
 LIVE = True   # seit 04.10.2026 auf Jans Wunsch: Seite für Google sichtbar
 DOMAIN = 'https://www.apm-ulm.de'
 BASIS = DOMAIN  # seit 05.10.2026 läuft www.apm-ulm.de
-SEO_TITEL = 'APM Ulm'  # Jan 04.10.2026: im Browser-Tab nur der Name
+SEO_TITEL = 'APM Ulm | Ganzheitliches Facility Management in Ulm'  # Jan 05.10.2026: Titel für Google
 SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz, Modernisierung. Ein fester Ansprechpartner.'
 _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"APM Ulm","alternateName":"apm ulm – altun property management",
  "description":SEO_TEXT,"image":BASIS+"/img/teilen.png","logo":BASIS+"/img/apple-touch-icon.png","telephone":"+49 170 5810174","email":"info@apm-ulm.de",
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=97">
+<link rel="stylesheet" href="d.css?v=98">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=97" defer></script>
+<script src="d.js?v=98" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=97">
+<link rel="stylesheet" href="d.css?v=98">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
