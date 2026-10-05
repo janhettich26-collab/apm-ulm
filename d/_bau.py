@@ -3,7 +3,7 @@ import json as _json
 # --- Suchmaschinen: LIVE erst auf True, wenn die Domain gekauft und mit Wix verbunden ist ---
 LIVE = True   # seit 04.10.2026 auf Jans Wunsch: Seite für Google sichtbar
 DOMAIN = 'https://www.apm-ulm.de'
-BASIS = 'https://instant-phkxpjlnzrzj-altun6109-1409.wix-site-host.com'  # Bilder-Adresse; auf DOMAIN umstellen, sobald apm-ulm.de erreichbar ist
+BASIS = DOMAIN  # seit 05.10.2026 läuft www.apm-ulm.de
 SEO_TITEL = 'APM Ulm'  # Jan 04.10.2026: im Browser-Tab nur der Name
 SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz, Modernisierung. Ein fester Ansprechpartner.'
 _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"APM Ulm","alternateName":"apm ulm – altun property management",
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=91">
+<link rel="stylesheet" href="d.css?v=92">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=91" defer></script>
+<script src="d.js?v=92" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=91">
+<link rel="stylesheet" href="d.css?v=92">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
@@ -413,4 +413,5 @@ print('Rechtsseiten gebaut')
 # Suchmaschinen-Dateien
 open('robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: '+DOMAIN+'/sitemap.xml\n' if LIVE else 'User-agent: *\nDisallow: /\n')
 import datetime as _dt
+open('seiten-sitemap.txt','w').write(DOMAIN+'/\n')  # Wix liefert eigenes sitemap.xml nicht aus – Textliste wie bei Fix-Regal
 open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>'+DOMAIN+'/</loc><lastmod>'+_dt.date.today().isoformat()+'</lastmod></url>\n</urlset>\n')
