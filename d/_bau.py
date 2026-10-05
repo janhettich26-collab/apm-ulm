@@ -57,7 +57,7 @@ SEO_KOPF = (f'<title>{SEO_TITEL}</title>\n<meta name="description" content="{SEO
  + (f'<link rel="canonical" href="{DOMAIN}/">\n<meta property="og:url" content="{DOMAIN}/">\n' if LIVE else '')
  + f'<meta property="og:type" content="website">\n<meta property="og:locale" content="de_DE">\n<meta property="og:site_name" content="APM Ulm">\n<meta property="og:title" content="{SEO_TITEL}">\n<meta property="og:description" content="{SEO_TEXT}">\n<meta property="og:image" content="{BASIS}/img/teilen.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n'
  + '<script type="application/ld+json">' + _json.dumps(_firma, ensure_ascii=False) + '</script>')
-ICONS = '<link rel="icon" href="../img/logo.svg" type="image/svg+xml">\n<link rel="icon" href="../img/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">'
+ICONS = '<link rel="icon" href="../img/logo.svg" type="image/svg+xml">\n<link rel="icon" href="../img/favicon-96.png" sizes="96x96" type="image/png">\n<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">\n<link rel="icon" href="../img/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">'
 I = {
  'objekt': '<circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/>',
  'doku': '<path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6"/>',
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=96">
+<link rel="stylesheet" href="d.css?v=97">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=96" defer></script>
+<script src="d.js?v=97" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=96">
+<link rel="stylesheet" href="d.css?v=97">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
