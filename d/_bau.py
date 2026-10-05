@@ -7,7 +7,7 @@ BASIS = DOMAIN  # seit 05.10.2026 läuft www.apm-ulm.de
 SEO_TITEL = 'APM Ulm'  # Jan 04.10.2026: im Browser-Tab nur der Name
 SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz, Modernisierung. Ein fester Ansprechpartner.'
 _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"APM Ulm","alternateName":"apm ulm – altun property management",
- "description":SEO_TEXT,"image":BASIS+"/img/teilen.png","logo":BASIS+"/img/apple-touch-icon.png","telephone":"+49 170 5810174","email":"emre.altun@apm-ulm.de",
+ "description":SEO_TEXT,"image":BASIS+"/img/teilen.png","logo":BASIS+"/img/apple-touch-icon.png","telephone":"+49 170 5810174","email":"info@apm-ulm.de",
  "address":{"@type":"PostalAddress","streetAddress":"Weinbergweg 81","postalCode":"89075","addressLocality":"Ulm","addressCountry":"DE"},
  "areaServed":[{"@type":"City","name":"Ulm"},{"@type":"City","name":"Neu-Ulm"}],
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],
@@ -185,7 +185,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=92">
+<link rel="stylesheet" href="d.css?v=94">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -287,7 +287,7 @@ html = f"""<!doctype html>
     </div>
     <ul class="k-liste">
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 3.5h3.2l1.8 4.6-2.4 1.5a11 11 0 0 0 6.8 6.8l1.5-2.4 4.6 1.8v3.2a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg></span><span class="k-was">Telefon</span><b><a href="tel:+491705810174">+49 170 5810174</a></b></li>
-      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b><a href="mailto:emre.altun@apm-ulm.de">emre.altun@apm-ulm.de</a></b></li>
+      <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3.5 6h17v12h-17z"/><path pathLength="1" d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span class="k-was">E-Mail</span><b><a href="mailto:info@apm-ulm.de">info@apm-ulm.de</a></b></li>
       <li class="auf"><span class="k-bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle pathLength="1" cx="12" cy="9.5" r="2.5"/></svg></span><span class="k-was">Einsatzgebiet</span><b><a class="k-karte" href="https://www.google.com/maps/search/?api=1&amp;query=Ulm" target="_blank" rel="noopener" aria-label="Einsatzgebiet Ulm, Neu-Ulm und Region in der Karte öffnen">Ulm, Neu-Ulm und Region</a></b></li>
     </ul>
   </div>
@@ -303,7 +303,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=92" defer></script>
+<script src="d.js?v=94" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +337,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=92">
+<link rel="stylesheet" href="d.css?v=94">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
@@ -384,7 +384,7 @@ def abschnitt(titel, html):
 def zeilen(paare):
     return '<dl class="r-daten">'+''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in paare)+'</dl>'
 
-NAME='Emre Altun'; STR='Weinbergweg 81'; ORT_='89075 Ulm'; TEL='+49 170 5810174'; MAIL='emre.altun@apm-ulm.de'; USTID='DE364898141'
+NAME='Emre Altun'; STR='Weinbergweg 81'; ORT_='89075 Ulm'; TEL='+49 170 5810174'; MAIL='info@apm-ulm.de'; USTID='DE364898141'
 tel_l=f'<a href="tel:+491705810174">{TEL}</a>'; mail_l=f'<a href="mailto:{MAIL}">{MAIL}</a>'
 
 imp = (
