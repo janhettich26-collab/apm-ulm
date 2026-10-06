@@ -63,7 +63,7 @@
       detail.classList.remove('raus', 'neu'); void detail.offsetWidth; detail.classList.add('neu');
     };
     clearTimeout(detail._t);
-    if (leise || !dTitel.textContent) setze();
+    if (leise || !dTitel.textContent || !dIcon.innerHTML) setze();
     else if (dTitel.textContent !== b.querySelector('.l-name').textContent) { detail.classList.remove('neu'); detail.classList.add('raus'); detail._t = setTimeout(setze, 140); }
   };
   wahl.forEach(b => {

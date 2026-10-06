@@ -5,7 +5,7 @@ LIVE = True   # seit 04.10.2026 auf Jans Wunsch: Seite für Google sichtbar
 DOMAIN = 'https://www.apm-ulm.de'
 BASIS = DOMAIN  # seit 05.10.2026 läuft www.apm-ulm.de
 SEO_TITEL = 'APM Ulm | Ganzheitliches Facility Management in Ulm'  # Jan 05.10.2026: Titel für Google
-SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz, Modernisierung. Ein fester Ansprechpartner.'
+SEO_TEXT = 'Facility Management in Ulm und Neu-Ulm aus einer Hand: Hausmeisterdienst, Reinigung, Winterdienst, Wartung, Brandschutz und Modernisierung.'
 _firma = {"@context":"https://schema.org","@type":"ProfessionalService","name":"APM Ulm","alternateName":"apm ulm – altun property management",
  "description":SEO_TEXT,"image":BASIS+"/img/teilen.png","logo":BASIS+"/img/apple-touch-icon.png","telephone":"+49 170 5810174","email":"info@apm-ulm.de",
  "address":{"@type":"PostalAddress","streetAddress":"Weinbergweg 81","postalCode":"89075","addressLocality":"Ulm","addressCountry":"DE"},
@@ -121,6 +121,15 @@ MOD = [
  ('m_technik','Haustechnik erneuern','Alte Heizungs-, Lüftungs-, Elektro- und Sanitäranlagen durch zeitgemäße Technik ersetzen.'),
  ('m_leitung','Planung und Bauleitung','Ein Ansprechpartner koordiniert alle Gewerke, Termine und Kosten bis zur Abnahme.'),
 ]
+
+# --- Suchmaschinen: Leistungen + Website-Name als strukturierte Daten (Jan 06.10.2026: SEO perfekt) ---
+def _katalog(name, liste):
+    return {"@type":"OfferCatalog","name":name,"itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":e[1],"description":e[2],"areaServed":"Ulm"}} for e in liste]}
+_firma["@id"] = DOMAIN + "/#firma"
+_firma["hasOfferCatalog"] = {"@type":"OfferCatalog","name":"Facility Management","itemListElement":[
+    _katalog("Infrastrukturelles Management", AUSSEN), _katalog("Technisches Management", TECHNIK), _katalog("Gebäudemodernisierung", MOD)]}
+_webseite = {"@context":"https://schema.org","@type":"WebSite","name":"APM Ulm","alternateName":"apm ulm","url":DOMAIN + "/","inLanguage":"de-DE","publisher":{"@id":DOMAIN + "/#firma"}}
+SEO_KOPF = SEO_KOPF.split('<script type="application/ld+json">')[0] + '<script type="application/ld+json">' + _json.dumps([_firma, _webseite], ensure_ascii=False) + '</script>'
 def punkte(L,art):
     return ''.join(f'<li><button class="h-wahl" data-art="{art}" data-k="{k}" data-x="{ORT[art][k][0]}" data-y="{ORT[art][k][1]}" data-text="{x}"><span class="l-icon">{svg_z(k)}</span><span class="l-name">{t}</span></button></li>\n' for k,t,x in L)
 # Jede Leistung hat ihren eigenen Gegenstand im Bild (g data-k) – der wird hervorgehoben, wenn sie gewaehlt ist
@@ -185,7 +194,7 @@ html = f"""<!doctype html>
 {SEO_KOPF}
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=101">
+<link rel="stylesheet" href="d.css?v=102">
 {SPASS_STIL}
 {RECHNUNG_STIL}
 </head>
@@ -241,7 +250,7 @@ html = f"""<!doctype html>
     <div class="h-buehne auf">
       <div class="h-bild">{HAUS}{HAUS_MOD}<div class="h-punkte"></div></div>
       <div class="h-seite">
-        <div class="h-detail" aria-live="polite"><span class="k-icon"></span><h3></h3><p></p></div>
+        <div class="h-detail" aria-live="polite"><span class="k-icon"></span><h3>{AUSSEN[0][1]}</h3><p>{AUSSEN[0][2]}</p></div>
         <ul class="h-liste">
 {punkte(AUSSEN,'aussen')}{punkte(TECHNIK,'technik')}{punkte(MOD,'mod')}        </ul>
       </div>
@@ -303,7 +312,7 @@ html = f"""<!doctype html>
   </details>
 </footer>
 <script src="../vendor/lenis.min.js" defer></script>
-<script src="d.js?v=101" defer></script>
+<script src="d.js?v=102" defer></script>
 {RECHNUNG_HTML}
 </body>
 </html>
@@ -337,7 +346,7 @@ def rechtsseite(datei, titel, kurz, bild, inhalt):
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#FFFFFF">
 {ICONS}
-<link rel="stylesheet" href="d.css?v=101">
+<link rel="stylesheet" href="d.css?v=102">
 <link rel="stylesheet" href="recht.css?v=3">
 </head>
 <body class="recht-seite">
