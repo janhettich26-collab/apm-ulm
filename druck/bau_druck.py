@@ -8,11 +8,11 @@ from fontTools.pens.transformPen import TransformPen
 H = os.path.expanduser
 NAVY, GRAU, HELL, LINIE, GRUEN = '#1C2840', '#566078', '#8C94A6', '#C9CDD6', '#2F8F5B'
 BAU = H('~/Websites/apm-ulm-v2/druck/_bau')
-OUT = H('~/Desktop/2026-10-06_Druckvorlagen_APM-Ulm_Paket_V1')
+OUT = H('~/Desktop/APM/02_Druckvorlagen/2026-10-06_Druckvorlagen_APM-Ulm_Paket_V1')
 TEL, TEL_INT = '0170 5810174', '+49 170 5810174'
 MAIL, INFO, WEB = 'emre.altun@apm-ulm.de', 'info@apm-ulm.de', 'www.apm-ulm.de'
 NAME, ROLLE, STR, ORT = 'Emre Altun', 'Inhaber', 'Weinbergweg 81', '89075 Ulm'
-FIRMA, UST = 'apm ulm – altun property management', 'DE364898141'
+FIRMA, UST = 'APM Ulm – altun property management', 'DE364898141'
 SUB = 'altun property management'
 
 # Leistungen + Symbole direkt aus der Webseite (eine Quelle)
@@ -21,7 +21,7 @@ _ns = {}; exec(_src[_src.index('\nI = {'):_src.index('\nMOD = [')] + _src[_src.i
 I, AUSSEN, TECHNIK, MOD = _ns['I'], _ns['AUSSEN'], _ns['TECHNIK'], _ns['MOD']
 
 # ---------- Logo (Vektor, alles Pfade) ----------
-_logo = open(H('~/Desktop/H-KIOS/18_Marketing/APM-Ulm_Website/2026-10-03_Logo_APM-Ulm_Paket_V1/01_Logo_Grunddateien/Logo_APM-Ulm_Navy_Vektor_fuer-Druckerei.svg')).read()
+_logo = open(H('~/Desktop/APM/01_Logo/2026-10-03_Logo_APM-Ulm_Paket_V1/01_Logo_Grunddateien/Logo_APM-Ulm_Navy_Vektor_fuer-Druckerei.svg')).read()
 LOGO_IN = _logo[_logo.index('>') + 1:_logo.rindex('</svg>')]
 LX, LY, LW, LH = 120.0, 120.0, 1184.09, 337.44
 

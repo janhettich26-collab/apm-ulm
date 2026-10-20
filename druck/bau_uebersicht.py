@@ -135,7 +135,7 @@ def absatz(t='', size=None, bold=False, farbe=None, rechts=False, vor=0):
     if farbe: r.font.color.rgb = RGBColor.from_string(farbe)
     if rechts: p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     p.paragraph_format.space_before = Pt(vor); return p
-absatz('apm ulm · altun property management · Weinbergweg 81 · 89075 Ulm', 6.5, farbe='566078')
+absatz('APM Ulm · altun property management · Weinbergweg 81 · 89075 Ulm', 6.5, farbe='566078')
 for z in ['Firma', 'Herr / Frau Name', 'Straße Hausnummer', 'PLZ Ort']: absatz(z, vor=0)
 absatz('Ulm, TT.MM.JJJJ', rechts=True, vor=40)
 absatz('Betreff', bold=True, vor=24)
